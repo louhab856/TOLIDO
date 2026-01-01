@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investir en Afrique : Conseil & Accompagnement | Toledo Consulting</title>
+    <meta name="description" content="Toledo Consulting : 24 ans d'engagement pour sécuriser votre expansion en Afrique. Expertise B2B en intelligence de marché, accréditation CAMES et ingénierie de formation.">
+    
+    <!-- Polices : Inter, Playfair Display pour FR/EN + Cairo pour AR -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'], 
+                        serif: ['Playfair Display', 'serif'],
+                        arabic: ['Cairo', 'sans-serif'] 
+                    },
+                    colors: {
+                        toledo: { blue: '#0A192F', gold: '#C5A059', accent: '#3B82F6', dark: '#020c1b' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { background: #ffffff; color: #1e293b; overflow-x: hidden; }
+        
+        /* Animation d'apparition au scroll */
+        .reveal { opacity: 0; transform: translateY(60px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Sidebar de navigation */
+        .sidebar-nav {
+            position: fixed; right: 2rem; top: 50%; transform: translateY(-50%); z-index: 50;
+            display: flex; flex-direction: column; gap: 1.25rem;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
+            padding: 1.75rem 1rem; border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: right 0.3s ease;
+        }
+        /* Ajustement RTL pour la sidebar */
+        html[dir="rtl"] .sidebar-nav { right: auto; left: 2rem; }
+
+        .sidebar-dot {
+            width: 10px; height: 10px; background: rgba(10, 25, 47, 0.25);
+            border-radius: 50%; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer; position: relative;
+        }
+        .sidebar-dot:hover, .sidebar-dot.active { 
+            background: #3B82F6; 
+            transform: scale(1.6);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+        .sidebar-tooltip {
+            position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
+            background: #0A192F; color: white; padding: 8px 16px; border-radius: 6px;
+            font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+            white-space: nowrap; opacity: 0; visibility: hidden; 
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+        .sidebar-tooltip::after {
+            content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+            border: 6px solid transparent; border-left-color: #0A192F;
+        }
+        /* Tooltip en RTL */
+        html[dir="rtl"] .sidebar-tooltip { right: auto; left: 40px; }
+        html[dir="rtl"] .sidebar-tooltip::after { right: auto; left: -6px; border-left-color: transparent; border-right-color: #0A192F; }
+
+        .sidebar-dot:hover .sidebar-tooltip { opacity: 1; visibility: visible; }
+        html[dir="ltr"] .sidebar-dot:hover .sidebar-tooltip { right: 50px; }
+        html[dir="rtl"] .sidebar-dot:hover .sidebar-tooltip { left: 50px; }
+        
+        @media (max-width: 1024px) { .sidebar-nav { display: none; } }
+        
+        /* Header Styles */
+        header { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        header.scrolled { 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            height: 5rem; /* Plus petit au scroll */
+        }
+        header.scrolled h1 span { font-size: 1.5rem; } /* Ajustement logo au scroll */
+        
+        /* Form Inputs */
+        .form-input {
+            transition: all 0.3s ease;
+            border: 1.5px solid #e2e8f0;
+            background: #f8fafc;
+        }
+        .form-input:focus {
+            background: #fff;
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
+            outline: none;
+            transform: translateY(-2px);
+        }
+        
+        /* Toast Notification */
+        #toast-container {
+            position: fixed; bottom: 2rem; right: 2rem; z-index: 100;
+            display: flex; flex-direction: column; gap: 1rem; pointer-events: none;
+        }
+        html[dir="rtl"] #toast-container { right: auto; left: 2rem; }
+        
+        .toast {
+            background: white; padding: 1.5rem 1.75rem; border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+            border-left: 5px solid #3B82F6;
+            display: flex; align-items: center; gap: 1.25rem;
+            pointer-events: auto; max-width: 420px;
+            animation: slideInRight 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        html[dir="rtl"] .toast { border-left: none; border-right: 5px solid #3B82F6; }
+        html[dir="rtl"] .toast { animation-name: slideInLeft; }
+
+        @keyframes slideInRight {
+            from { transform: translateX(120%) scale(0.8); opacity: 0; }
+            to { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-120%) scale(0.8); opacity: 0; }
+            to { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        
+        /* Preloader */
+        #preloader {
+            position: fixed; inset: 0; background: #0A192F; z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        /* Lang Switcher */
+        .lang-switcher {
+            position: relative;
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(248, 250, 252, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #64748b;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            border-radius: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        .lang-btn:hover { color: #0A192F; }
+        .lang-btn.active {
+            color: white;
+            background: linear-gradient(135deg, #0A192F 0%, #1e3a5f 100%);
+            box-shadow: 0 4px 12px rgba(10, 25, 47, 0.2);
+        }
+        
+        /* Utilities */
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0A192F 0%, rgba(10, 25, 47, 0.95) 50%, rgba(10, 25, 47, 0.7) 100%);
+        }
+        
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .glow-effect {
+            position: relative;
+        }
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, #3B82F6, #60A5FA);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+            filter: blur(20px);
+        }
+        .glow-effect:hover::before {
+            opacity: 0.6;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating { animation: float 6s ease-in-out infinite; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0A192F 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 1;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+            z-index: -1;
+        }
+        .btn-primary:hover::before {
+            transform: translateX(100%);
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+        
+        .card-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            bottom: -50%;
+            left: -50%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0));
+            transform: rotateZ(60deg) translate(-5em, 7.5em);
+            transition: transform 0.6s ease;
+        }
+        .card-shine:hover::after {
+            transform: rotateZ(60deg) translate(25em, -25em);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans">
+
+    <div id="preloader">
+        <div class="text-center">
+            <h1 class="text-6xl font-serif font-black italic text-white mb-8 tracking-tighter floating">TOLEDO</h1>
+            <div class="w-20 h-1 bg-blue-500 mx-auto animate-pulse"></div>
+            <p id="t-preloader" class="text-blue-200 text-xs mt-6 tracking-[0.4em] uppercase animate-pulse">Excellence en chargement</p>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <nav class="sidebar-nav" aria-label="Navigation Rapide">
+        <a href="#hero" class="sidebar-dot active" data-target="hero"><span class="sidebar-tooltip" id="t-tooltip-hero">Accueil</span></a>
+        <a href="#announcements" class="sidebar-dot" data-target="announcements"><span class="sidebar-tooltip" id="t-tooltip-news">Actualités</span></a>
+        <a href="#adn" class="sidebar-dot" data-target="adn"><span class="sidebar-tooltip" id="t-tooltip-vision">Vision</span></a>
+        <a href="#investir" class="sidebar-dot" data-target="investir"><span class="sidebar-tooltip" id="t-tooltip-invest">Investir</span></a>
+        <a href="#etudes" class="sidebar-dot" data-target="etudes"><span class="sidebar-tooltip" id="t-tooltip-intel">Intelligence</span></a>
+        <a href="#executive" class="sidebar-dot" data-target="executive"><span class="sidebar-tooltip" id="t-tooltip-study">Study Tour</span></a>
+        <a href="#education" class="sidebar-dot" data-target="education"><span class="sidebar-tooltip" id="t-tooltip-edu">Éducation</span></a>
+        <a href="#formation" class="sidebar-dot" data-target="formation"><span class="sidebar-tooltip" id="t-tooltip-form">Formation</span></a>
+        <a href="#contact" class="sidebar-dot" data-target="contact"><span class="sidebar-tooltip" id="t-tooltip-contact">Contact</span></a>
+    </nav>
+
+    <header id="main-header" class="fixed w-full top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-transparent h-28 flex items-center">
+        <div class="max-w-7xl mx-auto w-full px-6 lg:px-8">
+            <div class="flex justify-between items-center w-full">
+                <a href="#" class="group flex-shrink-70">
+                    <span class="text-3xl font-black tracking-tighter text-toledo-blue group-hover:text-blue-700 transition-all duration-300">TOLEDO <span class="text-blue-600 font-light">CONSULTING</span></span>
+                </a>
+                
+                <nav class="hidden xl:flex space-x-10 items-center">
+                    <a href="#adn" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+                        <span id="t-nav-dna">ADN</span>
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#investir" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+                        <span id="t-nav-invest">Investir</span>
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#etudes" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+                        <span id="t-nav-studies">Études</span>
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#executive" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+                        <span id="t-nav-exec">Study Tour</span>
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#education" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+                        <span id="t-nav-edu">Éducation</span>
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#formation" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+                        <span id="t-nav-form">Formation</span>
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </nav>
+
+                <div class="flex items-center space-x-8">
+                    <div class="hidden md:flex lang-switcher">
+                        <button class="lang-btn active" onclick="setLanguage('fr')" data-lang="fr">FR</button>
+                        <button class="lang-btn" onclick="setLanguage('en')" data-lang="en">EN</button>
+                        <button class="lang-btn" onclick="setLanguage('ar')" data-lang="ar">AR</button>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary group bg-toledo-blue text-white px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.15em] hover:bg-blue-800 transition-all shadow-2xl flex items-center gap-3">
+                        <span id="t-nav-contact">Contactez-nous</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-28">
+        <section id="hero" class="relative min-h-screen flex items-center bg-toledo-blue overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20">
+                    <source src="https://cdn.pixabay.com/video/2018/06/12/16834-275147814_large.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-white">
+                <div class="max-w-5xl reveal active">
+                    <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 backdrop-blur-xl mb-10">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400"></span>
+                        </span>
+                        <span id="t-hero-badge" class="text-blue-300 text-[11px] font-black uppercase tracking-[0.25em]">Partenaire Stratégique</span>
+                    </div>
+                    
+                    <h1 id="t-hero-title" class="text-7xl md:text-9xl font-serif font-black leading-[0.85] mb-12 italic">
+                        L'Intelligence <br> au service de <span class="text-blue-400 not-italic gradient-text">l'Action</span>.
+                    </h1>
+                    
+                    <p id="t-hero-desc" class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-14 max-w-3xl border-l-4 border-blue-500/60 pl-8">
+                        Depuis plus de deux décennies, nous sécurisons les investissements et transformons la donnée brute en opportunités concrètes en Afrique.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="#investir" class="btn-primary inline-flex items-center justify-center bg-white text-toledo-blue px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-xs hover:bg-slate-100 transition-all shadow-2xl glow-effect">
+                            <span id="t-cta-start">Démarrer un projet</span>
+                        </a>
+                        <a href="#announcements" class="group inline-flex items-center justify-center border-2 border-white/30 backdrop-blur-xl text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-xs hover:bg-white hover:text-toledo-blue transition-all duration-400">
+                            <span id="t-cta-news">Actualités</span>
+                            <svg class="ml-3 w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="announcements" class="py-24 bg-slate-50 relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100 reveal hover-lift">
+                    <div class="grid grid-cols-1 lg:grid-cols-12">
+                        <div class="lg:col-span-5 relative h-96 lg:h-auto overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Séminaire" class="w-full h-full object-cover transform hover:scale-110 transition duration-1000">
+                            <div class="absolute top-8 left-8 bg-toledo-gold text-white px-5 py-2 text-[11px] font-black uppercase tracking-[0.15em] shadow-xl rounded-full">
+                                <span id="t-news-badge">Nouveau</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 p-12 lg:p-20 flex flex-col justify-center">
+                            <div class="flex items-center gap-4 mb-8 text-slate-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <span class="text-xs font-black uppercase tracking-[0.15em]">27 & 28 Décembre 2025</span>
+                            </div>
+                            <h2 id="t-news-title" class="text-5xl font-serif font-black text-toledo-blue mb-8 italic leading-tight">Maîtrisez vos données avec <span class="text-blue-600 not-italic">Power BI Express</span></h2>
+                            <p id="t-news-desc" class="text-slate-600 font-light mb-12 leading-relaxed text-xl">
+                                Une approche pragmatique de la Business Intelligence. Devenez autonome en 14 heures grâce à notre méthodologie 80/20, conçue pour les dirigeants.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-6">
+                                <a href="#contact" class="btn-primary bg-blue-600 text-white px-10 py-5 rounded-full font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-700 transition-all shadow-xl glow-effect">
+                                    <span id="t-news-cta">Réserver ma place</span>
+                                </a>
+                                <a href="#" class="btn-gate locked text-toledo-blue font-black border-b-2 border-toledo-blue pb-2 text-[11px] uppercase tracking-[0.15em] hover:text-blue-600 transition-all flex items-center gap-3">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                    <span id="t-news-download">Télécharger le programme</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 border-b border-slate-100 bg-white">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p id="t-partners-label" class="text-xs font-black text-slate-400 uppercase tracking-[0.25em] mb-16">Confiance de nos partenaires</p>
+                <div class="flex flex-wrap justify-center items-center gap-20 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 reveal">
+                    <span class="text-3xl font-serif font-black text-slate-500 italic hover:text-blue-600 transition-colors cursor-pointer">CAMES</span>
+                    <span class="text-3xl font-serif font-black text-slate-500 italic hover:text-blue-600 transition-colors cursor-pointer">ESCM STRASBOURG</span>
+                    <span class="text-3xl font-serif font-black text-slate-500 italic hover:text-blue-600 transition-colors cursor-pointer">ESG+ UQAM</span>
+                    <span class="text-3xl font-serif font-black text-slate-500 italic hover:text-blue-600 transition-colors cursor-pointer">CDM MAROC</span>
+                    <span class="text-3xl font-serif font-black text-slate-500 italic hover:text-blue-600 transition-colors cursor-pointer">CLUB DIRIGEANTS</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="adn" class="py-40 bg-white reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    <div>
+                        <span id="t-dna-badge" class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block">01 — Notre ADN</span>
+                        <h2 id="t-dna-title" class="text-6xl md:text-7xl font-serif font-black text-toledo-blue mb-12 leading-[0.95] italic">
+                            L'exigence de l'analyse, <br><span class="text-blue-600 not-italic">l'impératif de l'humain</span>.
+                        </h2>
+                        <div class="space-y-10 text-slate-600 font-light text-xl leading-relaxed">
+                            <blockquote class="pl-8 border-l-4 border-toledo-gold text-slate-800 font-serif italic text-3xl leading-snug">
+                                « L'Afrique n'est pas un continent de défis, mais une mosaïque d'opportunités exigeant du respect et une approche locale. »
+                            </blockquote>
+                            <p class="flex flex-col">
+                                <strong class="text-toledo-blue font-serif text-2xl font-bold">Hicham Bekkali</strong>
+                                <span id="t-dna-role" class="text-sm text-slate-400 uppercase tracking-[0.15em] mt-2">Fondateur</span>
+                            </p>
+                            <p id="t-dna-desc">
+                                Avec 24 ans d'engagement, Toledo Consulting repose sur une conviction simple : la technologie et la donnée ne servent à rien sans l'intelligence humaine pour les contextualiser.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div class="absolute -inset-6 bg-gradient-to-br from-blue-600/30 to-transparent rounded-3xl blur-3xl group-hover:blur-[100px] transition duration-1000"></div>
+                        <img src="https://www.toledoconsulting.ma/wp-content/uploads/2025/01/photo-4.png" alt="Hicham Bekkali" class="relative rounded-3xl shadow-2xl w-full object-cover grayscale hover:grayscale-0 transition duration-1000">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="investir" class="py-40 bg-slate-50 reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+                    <div class="lg:col-span-6">
+                        <span id="t-invest-badge" class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block">02 — Investissement</span>
+                        <h2 id="t-invest-title" class="text-6xl md:text-7xl font-serif font-black text-toledo-blue mb-12 italic">Sécuriser votre avenir <span class="text-blue-600 not-italic">continental</span></h2>
+                        <p id="t-invest-desc" class="text-slate-600 font-light mb-14 leading-relaxed text-xl">
+                            Le marché africain offre un potentiel immense, mais nécessite une boussole fiable. Nous agissons comme cette boussole, structurant votre arrivée pour minimiser les risques et maximiser l'impact.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-16">
+                            <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine">
+                                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                </div>
+                                <h4 id="t-invest-card1-title" class="font-black text-toledo-blue text-sm uppercase mb-4 tracking-wide">Structuration Juridique</h4>
+                                <p id="t-invest-card1-desc" class="text-sm text-slate-500 font-light leading-relaxed">Un cadre solide pour opérer en toute sérénité.</p>
+                            </div>
+                            <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine">
+                                <div class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <h4 id="t-invest-card2-title" class="font-black text-toledo-blue text-sm uppercase mb-4 tracking-wide">Réseautage Elite</h4>
+                                <p id="t-invest-card2-desc" class="text-sm text-slate-500 font-light leading-relaxed">Accès direct aux décideurs et institutions.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-gate locked btn-primary inline-flex items-center bg-toledo-blue text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-blue-900 transition-all shadow-2xl gap-4 glow-effect">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <span id="t-invest-guide">Télécharger le guide d'investissement</span>
+                        </a>
+                    </div>
+                    
+                    <div class="lg:col-span-6" id="form-investir">
+                        <div class="bg-white p-12 md:p-16 shadow-2xl rounded-2xl border border-slate-100 relative overflow-hidden hover-lift">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-toledo-gold to-blue-600"></div>
+                            <h4 id="t-invest-form-title" class="text-3xl font-serif font-black text-toledo-blue mb-10 italic uppercase tracking-wide">Parlons de votre vision</h4>
+                            <form class="toledo-form space-y-8" data-category="Investissement" onsubmit="handleFormSubmit(event)">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div>
+                                        <label class="block text-[11px] font-black uppercase text-slate-400 mb-3 tracking-[0.15em]"><span class="t-form-name">Nom Complet</span></label>
+                                        <input type="text" name="name" required class="form-input w-full p-5 rounded-xl focus:ring-0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[11px] font-black uppercase text-slate-400 mb-3 tracking-[0.15em]"><span class="t-form-email">Email Pro</span></label>
+                                        <input type="email" name="email" required class="form-input w-full p-5 rounded-xl focus:ring-0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[11px] font-black uppercase text-slate-400 mb-3 tracking-[0.15em]"><span class="t-form-phone">Téléphone</span></label>
+                                        <input type="tel" name="phone" required class="form-input w-full p-5 rounded-xl focus:ring-0">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[11px] font-black uppercase text-slate-400 mb-3 tracking-[0.15em]"><span class="t-form-company">Entreprise</span></label>
+                                        <input type="text" name="company" required class="form-input w-full p-5 rounded-xl focus:ring-0">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-black uppercase text-slate-400 mb-3 tracking-[0.15em]"><span class="t-form-project">Votre Projet</span></label>
+                                    <textarea name="project" rows="5" required class="form-input w-full p-5 rounded-xl focus:ring-0" placeholder="Décrivez brièvement vos ambitions..."></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary w-full bg-blue-600 text-white py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-700 transition-all rounded-full shadow-2xl glow-effect">
+                                    <span class="t-form-submit">Envoyer ma demande</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="etudes" class="py-40 bg-white reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+                    <div class="order-2 lg:order-1 bg-toledo-blue text-white p-12 md:p-20 rounded-2xl shadow-2xl relative overflow-hidden hover-lift">
+                        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-30"></div>
+                        <h4 id="t-studies-form-title" class="text-4xl font-serif font-black mb-12 italic relative z-10">Demande d'étude</h4>
+                        <form class="toledo-form grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10" data-category="Études" onsubmit="handleFormSubmit(event)">
+                            <div>
+                                <label class="block text-[11px] font-black uppercase text-blue-200 mb-4 tracking-[0.15em]"><span class="t-form-name">Nom</span></label>
+                                <input type="text" name="name" required class="w-full bg-white/5 border-2 border-white/10 p-5 rounded-xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all placeholder-blue-300/30">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-black uppercase text-blue-200 mb-4 tracking-[0.15em]"><span class="t-form-company">Entreprise</span></label>
+                                <input type="text" name="company" required class="w-full bg-white/5 border-2 border-white/10 p-5 rounded-xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all placeholder-blue-300/30">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-[11px] font-black uppercase text-blue-200 mb-4 tracking-[0.15em]"><span class="t-form-sector">Secteur d'étude</span></label>
+                                <input type="text" name="sector" required class="w-full bg-white/5 border-2 border-white/10 p-5 rounded-xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all placeholder-blue-300/30">
+                            </div>
+                            <div class="md:col-span-2">
+                                <button type="submit" class="btn-primary w-full bg-white text-toledo-blue py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-50 transition-all rounded-full shadow-2xl">
+                                    <span class="t-form-proposal">Recevoir une proposition</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="order-1 lg:order-2 flex flex-col justify-center">
+                        <span id="t-studies-badge" class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block">03 — Intelligence</span>
+                        <h2 id="t-studies-title" class="text-6xl md:text-7xl font-serif font-black text-toledo-blue mb-10 italic">Études de <span class="text-blue-600 not-italic">Marché</span></h2>
+                        <p id="t-studies-desc" class="text-slate-600 font-light mb-12 leading-relaxed text-xl">
+                            Nous ne nous contentons pas de données surfaciques. Notre équipe sur le terrain valide chaque information pour vous offrir une vision 360° de votre marché cible.
+                        </p>
+                        <div class="p-10 bg-slate-50 border-l-4 border-blue-600 mb-12 rounded-xl">
+                            <h5 id="t-studies-ref-title" class="text-blue-600 font-black text-xs uppercase mb-4 italic tracking-wide">Référence Client</h5>
+                            <p class="text-lg text-slate-600">Expansion du réseau EFIA (Francophone International Authorized Schools) pour 2025-2030.</p>
+                        </div>
+                        <a href="#" class="btn-gate locked btn-primary inline-flex items-center border-2 border-toledo-blue text-toledo-blue px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-toledo-blue hover:text-white transition-all gap-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <span id="t-studies-whitepaper">Livre blanc stratégique</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="executive" class="py-40 bg-toledo-blue text-white relative overflow-hidden flex items-center justify-center reveal">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-toledo-blue via-toledo-blue/90 to-transparent"></div>
+            
+            <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
+                <span class="inline-block py-3 px-6 border-2 border-blue-400/40 rounded-full text-blue-400 text-[11px] font-black uppercase tracking-[0.3em] mb-10" id="t-exec-badge">04 — Expérience Immersive</span>
+                <h2 id="t-exec-title" class="text-6xl md:text-8xl font-serif font-black mb-12 italic">Executive <span class="text-blue-400 not-italic">Study Tour</span></h2>
+                <p id="t-exec-desc" class="text-2xl text-slate-300 font-light leading-relaxed mb-20 max-w-3xl mx-auto">
+                    Plus qu'un voyage, une immersion stratégique. Venez rencontrer les décideurs politiques et économiques qui façonnent le continent.
+                </p>
+                <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 mb-20 transform hover:scale-[1.02] transition-all duration-700">
+                    <div class="aspect-w-16 aspect-h-9 w-full relative">
+                        <!-- Placeholder image for demo purposes instead of iframe to avoid blocking issues -->
+                        <img src="https://images.unsplash.com/photo-1544531696-60c348e1d8a3?auto=format&fit=crop&q=80&w=1600" class="w-full h-[500px] object-cover" alt="Study Tour">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+                            <svg class="w-20 h-20 text-white opacity-80 hover:scale-110 transition-transform cursor-pointer" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-gate locked btn-primary inline-flex items-center bg-white text-toledo-blue px-16 py-6 rounded-full font-black uppercase tracking-[0.15em] text-xs hover:bg-blue-50 transition-all shadow-2xl glow-effect gap-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <span id="t-exec-program">Programme complet</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="education" class="py-40 bg-slate-50 reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-40">
+                    <div>
+                        <span id="t-edu-badge" class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block">05 — Éducation</span>
+                        <h2 id="t-edu-title" class="text-6xl font-serif font-black text-toledo-blue mb-12 italic">Accréditation <span class="text-blue-600 not-italic">CAMES</span></h2>
+                        <p id="t-edu-desc" class="text-slate-600 font-light mb-12 leading-relaxed text-xl">
+                            La reconnaissance internationale est la clé de l'attractivité. Nous vous accompagnons dans l'obtention de l'accréditation CAMES, ouvrant vos portes à 19 pays membres.
+                        </p>
+                        <ul class="space-y-8 mb-16 text-lg text-slate-600 font-medium">
+                            <li class="flex items-center gap-5">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </span>
+                                <span id="t-edu-list1">Ingénierie Dossier d'Auto-évaluation</span>
+                            </li>
+                            <li class="flex items-center gap-5">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </span>
+                                <span id="t-edu-list2">Préparation aux Audits</span>
+                            </li>
+                            <li class="flex items-center gap-5">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </span>
+                                <span id="t-edu-list3">Stratégie de Recrutement Panafricain</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-gate locked btn-primary inline-flex items-center bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-blue-700 transition-all shadow-2xl glow-effect gap-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <span id="t-edu-brief">Le Brief CAMES</span>
+                        </a>
+                    </div>
+                    <div id="form-cames" class="bg-white p-12 shadow-2xl rounded-2xl border-t-4 border-blue-600 flex flex-col justify-center hover-lift">
+                        <h4 id="t-edu-form-title" class="text-2xl font-black text-toledo-blue mb-10 italic uppercase tracking-wider">Diagnostic Gratuit</h4>
+                        <form class="toledo-form space-y-8" data-category="Éducation" onsubmit="handleFormSubmit(event)">
+                            <input type="text" name="school" placeholder="Nom de l'établissement" required class="form-input w-full p-5 rounded-xl focus:ring-0">
+                            <input type="email" name="email" placeholder="Email académique" required class="form-input w-full p-5 rounded-xl focus:ring-0">
+                            <button type="submit" class="btn-primary w-full bg-toledo-blue text-white py-5 font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-900 transition-all rounded-full shadow-2xl glow-effect">
+                                <span class="t-form-submit">Soumettre</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="formation" class="border-t border-slate-200 pt-40">
+                    <div class="text-center mb-20">
+                        <span id="t-train-badge" class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block">06 — Formation</span>
+                        <h2 id="t-train-title" class="text-6xl font-serif font-black text-toledo-blue mb-6 italic">Capital Humain</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                        <div class="bg-white p-14 shadow-2xl border border-slate-100 rounded-2xl hover-lift card-shine">
+                            <h4 id="t-train-card-title" class="text-xl font-black text-toledo-blue uppercase mb-10 italic border-b-2 pb-6 tracking-wide">Ingénierie de Formation</h4>
+                            <p id="t-train-card-desc" class="text-slate-600 mb-12 text-xl leading-relaxed">Des formations sur mesure pour aligner les compétences de vos équipes sur vos objectifs stratégiques.</p>
+                            <a href="#" class="btn-gate locked text-blue-600 font-black text-[11px] uppercase tracking-[0.15em] hover:underline flex items-center gap-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                <span id="t-train-catalog">Catalogue 2025</span>
+                            </a>
+                        </div>
+                        <div id="form-talents" class="bg-toledo-blue text-white p-14 rounded-2xl shadow-2xl relative overflow-hidden hover-lift">
+                            <div class="absolute top-0 right-0 p-6 opacity-10"><svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <h4 id="t-train-form-title" class="text-3xl font-black mb-12 italic relative z-10">Développer vos talents</h4>
+                            <form class="toledo-form space-y-8 relative z-10" data-category="Formation" onsubmit="handleFormSubmit(event)">
+                                <input type="text" name="name" placeholder="Votre nom" required class="w-full bg-white/10 border-2 border-white/20 p-5 rounded-xl text-white focus:border-blue-400 outline-none placeholder-blue-200/50 transition-all">
+                                <select name="type" class="w-full bg-white/10 border-2 border-white/20 p-5 rounded-xl text-white focus:border-blue-400 outline-none text-base transition-all">
+                                    <option value="" class="text-slate-800">Type de formation</option>
+                                    <option value="audit" class="text-slate-800">Ingénierie & Conseil</option>
+                                    <option value="mba" class="text-slate-800">MBA Digital</option>
+                                    <option value="exec" class="text-slate-800">Certifications</option>
+                                </select>
+                                <button type="submit" class="btn-primary w-full bg-white text-toledo-blue py-5 font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-50 transition-all shadow-2xl rounded-full">
+                                    <span id="t-train-submit">Recevoir le programme</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-40 bg-toledo-dark text-white relative text-center reveal">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 id="t-contact-title" class="text-7xl md:text-8xl font-serif font-black mb-16 italic">Entrons en <span class="text-blue-400 not-italic">relation</span></h2>
+                <p id="t-contact-desc" class="text-slate-400 text-2xl font-light mb-24 max-w-2xl mx-auto leading-relaxed">
+                    Notre équipe est à votre écoute. Discutons de la manière dont nous pouvons construire ensemble l'avenir de votre entreprise en Afrique.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <a href="mailto:contact@toledoconsulting.ma" class="group p-12 border-2 border-white/10 hover:bg-white/5 hover:border-blue-500/50 transition-all rounded-2xl flex flex-col items-center justify-center gap-8 hover-lift">
+                        <svg class="w-14 h-14 text-blue-500 group-hover:text-blue-400 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <span class="text-2xl font-light">contact@toledoconsulting.ma</span>
+                    </a>
+                    <a href="https://wa.me/212661000000" class="group p-12 border-2 border-white/10 hover:bg-white/5 hover:border-green-500/50 transition-all rounded-2xl flex flex-col items-center justify-center gap-8 hover-lift">
+                        <svg class="w-14 h-14 text-green-500 group-hover:text-green-400 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <span class="text-2xl font-light">WhatsApp Direct</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-16 border-t border-white/10 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p id="t-footer-copy" class="text-slate-500 text-[11px] uppercase tracking-[0.25em] font-black">© 2025 Toledo Consulting</p>
+                <p id="t-footer-tag" class="text-slate-600 text-[11px] tracking-[0.15em]">Market Intelligence & Excellence Panafricaine</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // === 1. DONNÉES DE TRADUCTION ===
+        const translations = {
+            fr: {
+                "t-preloader": "Excellence en chargement",
+                "t-hero-badge": "Partenaire Stratégique",
+                "t-hero-title": "L'Intelligence <br> au service de <span class='text-blue-400 not-italic gradient-text'>l'Action</span>.",
+                "t-hero-desc": "Depuis plus de deux décennies, nous sécurisons les investissements et transformons la donnée brute en opportunités concrètes en Afrique.",
+                "t-cta-start": "Démarrer un projet",
+                "t-cta-news": "Actualités",
+                "t-news-badge": "Nouveau",
+                "t-news-title": "Maîtrisez vos données avec <span class='text-blue-600 not-italic'>Power BI Express</span>",
+                "t-news-desc": "Une approche pragmatique de la Business Intelligence. Devenez autonome en 14 heures grâce à notre méthodologie 80/20.",
+                "t-news-cta": "Réserver ma place",
+                "t-news-download": "Télécharger le programme",
+                "t-partners-label": "Confiance de nos partenaires",
+                "t-dna-badge": "01 — Notre ADN",
+                "t-dna-title": "L'exigence de l'analyse, <br><span class='text-blue-600 not-italic'>l'impératif de l'humain</span>.",
+                "t-dna-role": "Fondateur",
+                "t-dna-desc": "Avec 24 ans d'engagement, Toledo Consulting repose sur une conviction simple : la technologie et la donnée ne servent à rien sans l'intelligence humaine pour les contextualiser.",
+                "t-invest-badge": "02 — Investissement",
+                "t-invest-title": "Sécuriser votre avenir <span class='text-blue-600 not-italic'>continental</span>",
+                "t-invest-desc": "Le marché africain offre un potentiel immense, mais nécessite une boussole fiable. Nous agissons comme cette boussole.",
+                "t-invest-card1-title": "Structuration Juridique",
+                "t-invest-card1-desc": "Un cadre solide pour opérer en toute sérénité.",
+                "t-invest-card2-title": "Réseautage Elite",
+                "t-invest-card2-desc": "Accès direct aux décideurs et institutions.",
+                "t-invest-guide": "Télécharger le guide d'investissement",
+                "t-invest-form-title": "Parlons de votre vision",
+                "t-form-name": "Nom Complet",
+                "t-form-email": "Email Pro",
+                "t-form-phone": "Téléphone",
+                "t-form-company": "Entreprise",
+                "t-form-project": "Votre Projet",
+                "t-form-submit": "Envoyer ma demande",
+                "t-form-sector": "Secteur d'étude",
+                "t-form-proposal": "Recevoir une proposition",
+                "t-studies-badge": "03 — Intelligence",
+                "t-studies-title": "Études de <span class='text-blue-600 not-italic'>Marché</span>",
+                "t-studies-desc": "Nous ne nous contentons pas de données surfaciques. Notre équipe sur le terrain valide chaque information pour vous offrir une vision 360°.",
+                "t-studies-ref-title": "Référence Client",
+                "t-studies-whitepaper": "Livre blanc stratégique",
+                "t-exec-badge": "04 — Expérience Immersive",
+                "t-exec-title": "Executive <span class='text-blue-400 not-italic'>Study Tour</span>",
+                "t-exec-desc": "Plus qu'un voyage, une immersion stratégique. Venez rencontrer les décideurs politiques et économiques.",
+                "t-exec-program": "Programme complet",
+                "t-edu-badge": "05 — Éducation",
+                "t-edu-title": "Accréditation <span class='text-blue-600 not-italic'>CAMES</span>",
+                "t-edu-desc": "La reconnaissance internationale est la clé de l'attractivité. Nous vous accompagnons dans l'obtention de l'accréditation CAMES.",
+                "t-edu-list1": "Ingénierie Dossier d'Auto-évaluation",
+                "t-edu-list2": "Préparation aux Audits",
+                "t-edu-list3": "Stratégie de Recrutement Panafricain",
+                "t-edu-brief": "Le Brief CAMES",
+                "t-edu-form-title": "Diagnostic Gratuit",
+                "t-train-badge": "06 — Formation",
+                "t-train-title": "Capital Humain",
+                "t-train-card-title": "Ingénierie de Formation",
+                "t-train-card-desc": "Des formations sur mesure pour aligner les compétences de vos équipes sur vos objectifs stratégiques.",
+                "t-train-catalog": "Catalogue 2025",
+                "t-train-form-title": "Développer vos talents",
+                "t-train-submit": "Recevoir le programme",
+                "t-contact-title": "Entrons en <span class='text-blue-400 not-italic'>relation</span>",
+                "t-contact-desc": "Notre équipe est à votre écoute. Discutons de la manière dont nous pouvons construire ensemble l'avenir de votre entreprise.",
+                "t-footer-copy": "© 2025 Toledo Consulting",
+                "t-footer-tag": "Market Intelligence & Excellence Panafricaine",
+                // Nav
+                "t-nav-dna": "ADN", "t-nav-invest": "Investir", "t-nav-studies": "Études",
+                "t-nav-exec": "Study Tour", "t-nav-edu": "Éducation", "t-nav-form": "Formation",
+                "t-nav-contact": "Contactez-nous",
+                // Tooltips
+                "t-tooltip-hero": "Accueil", "t-tooltip-news": "Actualités", "t-tooltip-vision": "Vision",
+                "t-tooltip-invest": "Investir", "t-tooltip-intel": "Intelligence", "t-tooltip-study": "Study Tour",
+                "t-tooltip-edu": "Éducation", "t-tooltip-form": "Formation", "t-tooltip-contact": "Contact"
+            },
+            en: {
+                "t-preloader": "Loading Excellence",
+                "t-hero-badge": "Strategic Partner",
+                "t-hero-title": "Intelligence in <br> Service of <span class='text-blue-400 not-italic gradient-text'>Action</span>.",
+                "t-hero-desc": "For over two decades, we have been securing investments and transforming raw data into concrete opportunities in Africa.",
+                "t-cta-start": "Start a project",
+                "t-cta-news": "News",
+                "t-news-badge": "New",
+                "t-news-title": "Master your data with <span class='text-blue-600 not-italic'>Power BI Express</span>",
+                "t-news-desc": "A pragmatic approach to Business Intelligence. Become autonomous in 14 hours with our 80/20 methodology.",
+                "t-news-cta": "Book my seat",
+                "t-news-download": "Download the program",
+                "t-partners-label": "Trusted by our partners",
+                "t-dna-badge": "01 — Our DNA",
+                "t-dna-title": "The demand for analysis, <br><span class='text-blue-600 not-italic'>the imperative of the human</span>.",
+                "t-dna-role": "Founder",
+                "t-dna-desc": "With 24 years of commitment, Toledo Consulting relies on a simple conviction: technology and data are nothing without human intelligence to contextualize them.",
+                "t-invest-badge": "02 — Investment",
+                "t-invest-title": "Secure your <span class='text-blue-600 not-italic'>continental</span> future",
+                "t-invest-desc": "The African market offers immense potential but requires a reliable compass. We act as that compass.",
+                "t-invest-card1-title": "Legal Structuring",
+                "t-invest-card1-desc": "A solid framework to operate with peace of mind.",
+                "t-invest-card2-title": "Elite Networking",
+                "t-invest-card2-desc": "Direct access to decision-makers and institutions.",
+                "t-invest-guide": "Download the investment guide",
+                "t-invest-form-title": "Let's discuss your vision",
+                "t-form-name": "Full Name",
+                "t-form-email": "Work Email",
+                "t-form-phone": "Phone",
+                "t-form-company": "Company",
+                "t-form-project": "Your Project",
+                "t-form-submit": "Send my request",
+                "t-form-sector": "Study Sector",
+                "t-form-proposal": "Receive a proposal",
+                "t-studies-badge": "03 — Intelligence",
+                "t-studies-title": "Market <span class='text-blue-600 not-italic'>Studies</span>",
+                "t-studies-desc": "We don't just rely on superficial data. Our on-the-ground team validates every piece of information.",
+                "t-studies-ref-title": "Client Reference",
+                "t-studies-whitepaper": "Strategic Whitepaper",
+                "t-exec-badge": "04 — Immersive Experience",
+                "t-exec-title": "Executive <span class='text-blue-400 not-italic'>Study Tour</span>",
+                "t-exec-desc": "More than a trip, a strategic immersion. Come meet the political and economic decision-makers shaping the continent.",
+                "t-exec-program": "Full Program",
+                "t-edu-badge": "05 — Education",
+                "t-edu-title": "<span class='text-blue-600 not-italic'>CAMES</span> Accreditation",
+                "t-edu-desc": "International recognition is key to attractiveness. We support you in obtaining CAMES accreditation.",
+                "t-edu-list1": "Self-Assessment File Engineering",
+                "t-edu-list2": "Audit Preparation",
+                "t-edu-list3": "Pan-African Recruitment Strategy",
+                "t-edu-brief": "The CAMES Brief",
+                "t-edu-form-title": "Free Diagnostic",
+                "t-train-badge": "06 — Training",
+                "t-train-title": "Human Capital",
+                "t-train-card-title": "Training Engineering",
+                "t-train-card-desc": "Custom training to align your team's skills with your strategic objectives.",
+                "t-train-catalog": "2025 Catalog",
+                "t-train-form-title": "Develop your talents",
+                "t-train-submit": "Receive the program",
+                "t-contact-title": "Let's <span class='text-blue-400 not-italic'>Connect</span>",
+                "t-contact-desc": "Our team is listening. Let's discuss how we can build your company's future together.",
+                "t-footer-copy": "© 2025 Toledo Consulting",
+                "t-footer-tag": "Market Intelligence & Pan-African Excellence",
+                // Nav
+                "t-nav-dna": "DNA", "t-nav-invest": "Invest", "t-nav-studies": "Studies",
+                "t-nav-exec": "Study Tour", "t-nav-edu": "Education", "t-nav-form": "Training",
+                "t-nav-contact": "Contact Us",
+                // Tooltips
+                "t-tooltip-hero": "Home", "t-tooltip-news": "News", "t-tooltip-vision": "Vision",
+                "t-tooltip-invest": "Invest", "t-tooltip-intel": "Intelligence", "t-tooltip-study": "Study Tour",
+                "t-tooltip-edu": "Education", "t-tooltip-form": "Training", "t-tooltip-contact": "Contact"
+            },
+            ar: {
+                "t-preloader": "التميز في التحميل",
+                "t-hero-badge": "شريك استراتيجي",
+                "t-hero-title": "الذكاء في خدمة <br> <span class='text-blue-400 not-italic gradient-text'>العمل</span>.",
+                "t-hero-desc": "لأكثر من عقدين، كنا نؤمن الاستثمارات ونحول البيانات الخام إلى فرص ملموسة في أفريقيا.",
+                "t-cta-start": "ابدأ مشروعًا",
+                "t-cta-news": "الأخبار",
+                "t-news-badge": "جديد",
+                "t-news-title": "أتقن بياناتك مع <span class='text-blue-600 not-italic'>Power BI Express</span>",
+                "t-news-desc": "نهج عملية لذكاء الأعمال. كن مستقلاً في 14 ساعة باستخدام منهجيتنا 80/20.",
+                "t-news-cta": "احجز مقعدي",
+                "t-news-download": "تحميل البرنامج",
+                "t-partners-label": "الثقة من شركائنا",
+                "t-dna-badge": "01 — هويتنا",
+                "t-dna-title": "متطلبات التحليل، <br><span class='text-blue-600 not-italic'>ضرورة العنصر البشري</span>.",
+                "t-dna-role": "المؤسس",
+                "t-dna-desc": "مع 24 عامًا من الالتزام، تعتمد توليدو كونسلتينغ على قناعة بسيطة: التكنولوجيا والبيانات لا تفيد شيئًا بدون الذكاء البشري لوضعها في سياقها.",
+                "t-invest-badge": "02 — الاستثمار",
+                "t-invest-title": "تأمين مستقبلك <span class='text-blue-600 not-italic'>القاري</span>",
+                "t-invest-desc": "يقدم السوق الأفريقي إمكانات هائلة ولكنه يتطلب بوصلة موثوقة. نحن نتصرف كتلك البوصلة.",
+                "t-invest-card1-title": "الهيكلة القانونية",
+                "t-invest-card1-desc": "إطار قوي للعمل براحة بال.",
+                "t-invest-card2-title": "شبكة النخبة",
+                "t-invest-card2-desc": "الوصول المباشر إلى صانعي القرار والمؤسسات.",
+                "t-invest-guide": "تحميل دليل الاستثمار",
+                "t-invest-form-title": "دعنا نناقش رؤيتك",
+                "t-form-name": "الاسم الكامل",
+                "t-form-email": "البريد الإلكتروني المهني",
+                "t-form-phone": "رقم الهاتف",
+                "t-form-company": "الشركة",
+                "t-form-project": "مشروعك",
+                "t-form-submit": "إرسال طلبي",
+                "t-form-sector": "قطاع الدراسة",
+                "t-form-proposal": "استلام اقتراح",
+                "t-studies-badge": "03 — الذكاء",
+                "t-studies-title": "دراسات <span class='text-blue-600 not-italic'>السوق</span>",
+                "t-studies-desc": "نحن لا نعتمد فقط على البيانات السطحية. يتحقق فريقنا الميداني من كل معلومة لنقدم لك رؤية شاملة بزاوية 360 درجة.",
+                "t-studies-ref-title": "مرجع العميل",
+                "t-studies-whitepaper": "الكتاب الأبيض الاستراتيجي",
+                "t-exec-badge": "04 — تجربة غامرة",
+                "t-exec-title": "جولة تنفيذية <span class='text-blue-400 not-italic'>للدراسة</span>",
+                "t-exec-desc": "أكثر من مجرد رحلة، إنها غمر استراتيجي. تعال للقاء صانعي القرار السياسي والاقتصادي الذين يشكلون القارة.",
+                "t-exec-program": "البرنامج الكامل",
+                "t-edu-badge": "05 — التعليم",
+                "t-edu-title": "اعتماد <span class='text-blue-600 not-italic'>CAMES</span>",
+                "t-edu-desc": "الاعتراف الدولي هو مفتاح الجاذبية. ندعمك في الحصول على اعتماد CAMES.",
+                "t-edu-list1": "هندسة ملف التقييم الذاتي",
+                "t-edu-list2": "التحضير للتدقيق",
+                "t-edu-list3": "استراتيجية التوظيف البنكأفريقي",
+                "t-edu-brief": "ملخص CAMES",
+                "t-edu-form-title": "تشخيص مجاني",
+                "t-train-badge": "06 — التدريب",
+                "t-train-title": "رأس المال البشري",
+                "t-train-card-title": "هندسة التدريب",
+                "t-train-card-desc": "تدريبات مخصصة لمواءمة مهارات فريقك مع أهدافك الاستراتيجية.",
+                "t-train-catalog": "كتالوج 2025",
+                "t-train-form-title": "طور مواهبك",
+                "t-train-submit": "استلم البرنامج",
+                "t-contact-title": "دعنا <span class='text-blue-400 not-italic'>نتواصل</span>",
+                "t-contact-desc": "فريقنا مستعد للاستماع. دعنا نناقش كيف يمكننا بناء مستقبل شركتك معًا.",
+                "t-footer-copy": "© 2025 توليدو كونسلتينغ",
+                "t-footer-tag": "ذكاء السوق والتميز البنكأفريقي",
+                // Nav
+                "t-nav-dna": "هوية", "t-nav-invest": "استثمار", "t-nav-studies": "دراسات",
+                "t-nav-exec": "جولة دراسية", "t-nav-edu": "تعليم", "t-nav-form": "تدريب",
+                "t-nav-contact": "اتصل بنا",
+                // Tooltips
+                "t-tooltip-hero": "الرئيسية", "t-tooltip-news": "الأخبار", "t-tooltip-vision": "رؤية",
+                "t-tooltip-invest": "استثمار", "t-tooltip-intel": "ذكاء", "t-tooltip-study": "جولة دراسية",
+                "t-tooltip-edu": "تعليم", "t-tooltip-form": "تدريب", "t-tooltip-contact": "اتصال"
+            }
+        };
+
+        // === 2. LOGIQUE DE CHANGEMENT DE LANGUE ===
+        function setLanguage(lang) {
+            // Mise à jour de l'attribut dir (Direction du texte)
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Gestion de la police (Cairo pour l'arabe, Inter/Playfair pour les autres)
+            const body = document.body;
+            if (lang === 'ar') {
+                body.classList.remove('font-sans', 'font-serif');
+                body.classList.add('font-arabic');
+            } else {
+                body.classList.remove('font-arabic');
+                body.classList.add('font-sans'); // Par défaut
+            }
+
+            // Mise à jour des textes
+            const data = translations[lang];
+            for (const [key, value] of Object.entries(data)) {
+                const elements = document.querySelectorAll(`#${key}`);
+                elements.forEach(el => {
+                    // Si le contenu contient du HTML (comme des <span>), on utilise innerHTML, sinon innerText
+                    if (value.includes('<')) {
+                        el.innerHTML = value;
+                    } else {
+                        el.innerText = value;
+                    }
+                });
+            }
+
+            // Mise à jour de l'état actif des boutons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        // === 3. GESTION DE L'UI (SCROLL & HEADER) ===
+        document.addEventListener('DOMContentLoaded', () => {
+            // Masquer le preloader après chargement
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 1500);
+
+            // Effet Header au scroll
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Scroll Reveal Animation (Intersection Observer)
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Sidebar Nav Active State
+            const sections = document.querySelectorAll('section');
+            const navDots = document.querySelectorAll('.sidebar-dot');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-target') === current) {
+                        dot.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // === 4. GESTION DES FORMULAIRES (MOCKUP) ===
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const category = form.dataset.category || 'Formulaire';
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+
+            // Simulation d'envoi
+            btn.innerHTML = '<span class="animate-pulse">Envoi en cours...</span>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                form.reset();
+                showToast(`Succès ! Votre demande pour "${category}" a bien été reçue.`);
+            }, 1500);
+        }
+
+        // === 5. TOAST NOTIFICATION SYSTEM ===
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <div class="bg-blue-500 rounded-full p-2 text-white shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="font-medium text-slate-700">${message}</p>
+            `;
+
+            container.appendChild(toast);
+
+            // Auto remove
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 600);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
