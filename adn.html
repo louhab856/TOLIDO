@@ -358,20 +358,20 @@
           opacity: 1;
         }
       }
-/* Preloader */
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: #0a192f;
-  z-index: 9999;
-  
-  /* This ensures perfect centering */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
+      /* Preloader */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: #0a192f;
+        z-index: 9999;
+
+        /* This ensures perfect centering */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
 
       /* Utilities */
       .video-overlay {
@@ -486,15 +486,15 @@
   <body
     class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans"
   >
-  <div id="preloader">
-    <!-- The image is now a direct child of the flex container, guaranteeing it is centered -->
-    <img 
-      src="./TOLEDO-consulting.png" 
-      alt="Toledo Consulting" 
-      class="floating" 
-      style="max-width: 250px; width: 100%; height: auto; display: block;"
-    >
-</div>
+    <div id="preloader">
+      <!-- The image is now a direct child of the flex container, guaranteeing it is centered -->
+      <img
+        src="./TOLEDO-consulting.png"
+        alt="Toledo Consulting"
+        class="floating"
+        style="max-width: 250px; width: 100%; height: auto; display: block"
+      />
+    </div>
 
     <div id="toast-container"></div>
 
@@ -534,6 +534,16 @@
           </a>
 
           <nav class="hidden xl:flex space-x-10 items-center">
+            <a
+              href="./index.html"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-vision">Accueil</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+
             <a
               href="#vision"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
@@ -645,18 +655,13 @@
             playsinline
             style="width: 100%; height: 100%; object-fit: cover"
           >
-            <source
-              src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-              type="video/mp4"
-            />
+            <source src="./video.mp4" type="video/mp4" />
           </video>
           <div class="video-overlay"></div>
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-white">
           <div class="max-w-5xl reveal active">
-    
-
             <h1
               id="t-hero-title"
               class="text-2xl md:text-5xl font-serif font-black leading-[0.9] mb-8 italic"
@@ -778,62 +783,136 @@
       </section>
 
       <!-- VISION SECTION: Content from Page 2 -->
-      <section id="vision" class="py-40 bg-white reveal">
+      <section
+        id="vision"
+        class="py-40 bg-slate-50/50 reveal relative overflow-hidden"
+      >
+        <!-- Decorative Background Blob -->
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-3xl -z-10"
+        ></div>
+
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- LEFT : TEXT CONTENT -->
             <div>
-              <span
-                id="t-dna-badge"
-                class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block"
-                >01 — Notre Vision</span
-              >
+              <!-- Badge -->
+              <div class="mb-6">
+                <span
+                  id="t-dna-badge"
+                  class="inline-block text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] bg-blue-50 px-4 py-2 rounded-full"
+                >
+                  01 — Notre Vision
+                </span>
+              </div>
+
+              <!-- Main Title -->
               <h2
                 id="t-dna-title"
-                class="text-6xl md:text-7xl font-serif font-black text-toledo-blue mb-12 leading-[0.95] italic"
+                class="text-2xl md:text-3xl font-serif font-black text-toledo-blue mb-10 leading-[0.95] italic"
               >
-                Un Prisme Bicéphale : <br /><span
-                  class="text-blue-600 not-italic"
-                  >Analyse et Action</span
-                >.
+                Un Prisme Bicéphale : <br />
+                <span class="text-blue-600 not-italic">Analyse et Action</span>.
               </h2>
+
+              <!-- Intro Text -->
               <div
-                class="space-y-8 text-slate-600 font-light text-xl leading-relaxed"
+                class="text-slate-600 font-light text-xl leading-relaxed mb-12"
               >
-                <p id="t-dna-desc">
+                <p id="t-dna-desc-intro">
                   J’ai toujours considéré l’Afrique comme une
-                  <strong class="text-toledo-blue font-serif"
-                    >mosaïque d’opportunités</strong
-                  >
+                  <strong class="text-toledo-blue font-serif">
+                    mosaïque d’opportunités
+                  </strong>
                   exigeant du respect, de la rigueur et une approche ancrée dans
-                  les réalités locales. Mon parcours de 24 ans témoigne de cette
-                  diversité.
-                </p>
-                <blockquote
-                  class="pl-8 border-l-4 border-toledo-gold text-slate-800 font-serif italic text-3xl leading-snug"
-                >
-                  « Réfléchir en homme d’action et agir en homme de réflexion. »
-                </blockquote>
-                <p class="flex flex-col">
-                  <strong class="text-toledo-blue font-serif text-2xl font-bold"
-                    >Hicham Bekkali</strong
-                  >
-                  <span
-                    id="t-dna-role"
-                    class="text-sm text-slate-400 uppercase tracking-[0.15em] mt-2"
-                    >Fondateur</span
-                  >
+                  les réalités locales.
                 </p>
               </div>
-            </div>
-            <div class="relative group">
-              <!-- Using placeholder from Page 1 for visual consistency -->
+
+              <!-- Quote -->
+              <blockquote
+                class="pl-8 border-l-4 border-toledo-gold text-slate-800 font-serif italic text-3xl leading-snug mb-12"
+              >
+                « Réfléchir en homme d’action et agir en homme de réflexion. »
+              </blockquote>
+
+              <!-- Career Journey -->
               <div
-                class="absolute -inset-6 bg-gradient-to-br from-blue-600/30 to-transparent rounded-3xl blur-3xl group-hover:blur-[100px] transition duration-1000"
+                class="bg-white p-8 rounded-3xl shadow-lg border border-slate-100 mb-12"
+              >
+                <h3
+                  class="text-slate-900 font-bold uppercase tracking-widest text-xs mb-4 text-center"
+                >
+                  Parcours Professionnel
+                </h3>
+                <p
+                  class="text-slate-600 font-light text-lg leading-relaxed text-justify"
+                >
+                  Après plus de 24 ans de carrière passée à ses côtés, mon
+                  parcours témoigne de cette diversité : du secteur de
+                  l’éducation, où j’ai contribué au lancement de la première
+                  université privée au Maroc (Mundiapolis), à celui des médias
+                  et de la communication (Underground Media, City Pub), jusqu'au
+                  développement de franchises internationales comme Glup’s et au
+                  lobbying stratégique pour des fondations médicales.
+                  <br /><br />
+                  Aujourd'hui, cette passion pour le continent ne fait que
+                  grandir.
+                </p>
+              </div>
+
+              <!-- Academic & Philosophy -->
+              <div class="bg-slate-900 text-white p-10 rounded-3xl shadow-xl">
+                <h3
+                  class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-6 text-center"
+                >
+                  Parcours Académique & Philosophie
+                </h3>
+
+                <div
+                  class="space-y-6 text-lg leading-relaxed font-light text-slate-300"
+                >
+                  <p>
+                    Du Master en Communication des organisations à
+                    Saint-Quentin-en-Yvelines à mon MSc en Gestion de Projet à
+                    l’UQAC, jusqu’à mes recherches doctorales (DBA) à l’IAE Côte
+                    d’Azur sur le repreneuriat familial au Maroc — ce parcours
+                    m’a doté d’une vision bicéphale unique.
+                  </p>
+
+                  <div class="border-t border-slate-700 pt-6">
+                    <p class="mb-4">
+                      J’ai construit mon paradigme sur le triptyque :
+                      <span class="text-white font-bold">
+                        innovation, création de valeur et recherche de
+                        croissance </span
+                      >.
+                    </p>
+                    <p
+                      class="font-serif font-bold text-2xl text-white italic text-center"
+                    >
+                      Mon leitmotiv se résume en un seul verbe : Oser.
+                      <br />
+                      <span class="text-lg text-blue-300 font-normal">
+                        Oser essayer, oser entreprendre, oser innover.
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT : IMAGE -->
+            <div
+              class="relative w-full group flex justify-center lg:justify-end"
+            >
+              <div
+                class="absolute -inset-6 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-[3rem] blur-3xl group-hover:blur-[90px] transition duration-700"
               ></div>
               <img
                 src="https://www.toledoconsulting.ma/wp-content/uploads/2025/01/photo-4.png"
                 alt="Hicham Bekkali"
-                class="relative rounded-3xl shadow-2xl w-full object-cover grayscale hover:grayscale-0 transition duration-1000"
+                class="relative rounded-[2.5rem] shadow-2xl w-full max-w-md object-cover grayscale hover:grayscale-0 transition duration-1000"
               />
             </div>
           </div>
@@ -841,29 +920,61 @@
       </section>
 
       <!-- EXPERTISES SECTION: Grid from Page 2 integrated -->
-      <section id="expertises" class="py-40 bg-slate-50 reveal">
+      <section
+        id="expertises"
+        class="py-40 bg-slate-50 relative reveal overflow-hidden"
+      >
+        <!-- Subtle Background Decoration -->
+        <div
+          class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] -z-10 pointer-events-none"
+        ></div>
+
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <!-- Section Header -->
           <div class="text-center mb-20">
             <span
               id="t-expertises-badge"
-              class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
+              class="inline-block text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] bg-blue-50 px-4 py-2 rounded-full mb-6"
               >02 — Core Competencies</span
             >
             <h2
               id="t-expertises-title"
-              class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
+              class="text-5xl md:text-6xl font-serif font-black text-toledo-blue mb-6 italic"
             >
               Nos Expertises
             </h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div class="mb-12">
+            <h4
+              class="text-toledo-blue text-[11px] font-black uppercase tracking-[0.2em] mb-4"
+            >
+              Toledo Consulting
+            </h4>
+            <h3
+              class="font-serif text-3xl font-black text-toledo-blue mb-6 italic"
+            >
+              Créateur de Croissance
+            </h3>
+            <p
+              class="text-slate-600 font-light text-lg leading-relaxed max-w-2xl mx-auto"
+            >
+              C’est dans cet esprit qu’est né en 2024 Toledo Consulting. Notre
+              mission est d'offrir des solutions
+              <strong class="text-toledo-blue">insight-driven</strong> aux
+              entreprises désireuses de générer une croissance pérenne et de
+              donner un nouveau souffle à leurs ambitions.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Card 1: Investir -->
-            <div
-              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            <a
+              href="./investir_en_afrique.html"
+              class="group block bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full cursor-pointer no-underline"
             >
               <div
-                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8"
+                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300"
               >
                 <svg
                   class="w-8 h-8"
@@ -881,26 +992,28 @@
               </div>
               <h4
                 id="t-card-inv-title"
-                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+                class="font-black text-toledo-blue text-2xl mb-4 tracking-wide group-hover:text-blue-600 transition-colors"
               >
                 Investir en Afrique
               </h4>
               <p
                 id="t-card-inv-desc"
-                class="text-slate-500 font-light leading-relaxed"
+                class="text-slate-500 font-light leading-relaxed flex-grow"
               >
-                Prospection commerciale, lobbying stratégique, mise en relation
-                d'affaires et résolution de litiges pour une implantation
-                réussie.
+                Nous accompagnons les entreprises dans leur expansion sur le
+                continent à travers la prospection commerciale, le lobbying
+                stratégique, la mise en relation d'affaires, l'implantation
+                opérationnelle, le recouvrement et la résolution de litiges.
               </p>
-            </div>
+            </a>
 
             <!-- Card 2: Etudes -->
-            <div
-              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            <a
+              href=""
+              class="group block bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full cursor-pointer no-underline"
             >
               <div
-                class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8"
+                class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8 group-hover:bg-toledo-gold group-hover:text-white transition-colors duration-300"
               >
                 <svg
                   class="w-8 h-8"
@@ -918,25 +1031,31 @@
               </div>
               <h4
                 id="t-card-stud-title"
-                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+                class="font-black text-toledo-blue text-2xl mb-4 tracking-wide group-hover:text-blue-600 transition-colors"
               >
                 Études Sectorielles
               </h4>
               <p
                 id="t-card-stud-desc"
-                class="text-slate-500 font-light leading-relaxed"
+                class="text-slate-500 font-light leading-relaxed flex-grow"
               >
-                Analyses de marché de haut niveau. Partenaire privilégié du
-                <strong>BREI Canada</strong> pour le programme ÉFIA.
+                Nous menons des études de marché et de positionnement marketing
+                de haut niveau. Récemment, le Bureau des Relations et de
+                l’Éducation internationales (BREI) du Nouveau-Brunswick (Canada)
+                a confié à Toledo Consulting la mission d’analyser le paysage
+                éducatif africain pour le déploiement du Programme ÉFIA Canada,
+                identifiant ainsi les leviers de croissance majeurs sur le
+                continent.
               </p>
-            </div>
+            </a>
 
             <!-- Card 3: Executive -->
-            <div
-              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            <a
+              href="./est.html"
+              class="group block bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full cursor-pointer no-underline"
             >
               <div
-                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8"
+                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300"
               >
                 <svg
                   class="w-8 h-8"
@@ -954,25 +1073,28 @@
               </div>
               <h4
                 id="t-card-exec-title"
-                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+                class="font-black text-toledo-blue text-2xl mb-4 tracking-wide group-hover:text-blue-600 transition-colors"
               >
                 Executive Study Tours
               </h4>
               <p
                 id="t-card-exec-desc"
-                class="text-slate-500 font-light leading-relaxed"
+                class="text-slate-500 font-light leading-relaxed flex-grow"
               >
-                Voyages d’immersion exclusifs mêlant intelligence économique,
-                réseautage de haut niveau et découverte culturelle.
+                Nous organisons des voyages d’immersion exclusifs pour les
+                décideurs et chefs d’entreprise, mêlant business de haut niveau,
+                découverte culturelle, réseautage stratégique et intelligence
+                économique.
               </p>
-            </div>
+            </a>
 
             <!-- Card 4: Formation -->
-            <div
-              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            <a
+              href="./formation.html"
+              class="group block bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full cursor-pointer no-underline"
             >
               <div
-                class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8"
+                class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8 group-hover:bg-toledo-gold group-hover:text-white transition-colors duration-300"
               >
                 <svg
                   class="w-8 h-8"
@@ -990,25 +1112,28 @@
               </div>
               <h4
                 id="t-card-form-title"
-                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+                class="font-black text-toledo-blue text-2xl mb-4 tracking-wide group-hover:text-blue-600 transition-colors"
               >
                 Ingénierie de Formation
               </h4>
               <p
                 id="t-card-form-desc"
-                class="text-slate-500 font-light leading-relaxed"
+                class="text-slate-500 font-light leading-relaxed flex-grow"
               >
-                Développement de programmes à haute valeur ajoutée avec des
-                standards internationaux (Partenariat EM Strasbourg).
+                Nous développons des programmes de formation à haute valeur
+                ajoutée. Grâce à des partenariats d’exception, notamment avec
+                l’EMSC , nous apportons des standards internationaux
+                répondant aux exigences des cadres et dirigeants africains.
               </p>
-            </div>
+            </a>
 
             <!-- Card 5: Education -->
-            <div
-              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            <a
+              href="./education.html"
+              class="group block bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full cursor-pointer no-underline"
             >
               <div
-                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8"
+                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300"
               >
                 <svg
                   class="w-8 h-8"
@@ -1026,29 +1151,52 @@
               </div>
               <h4
                 id="t-card-edu-title"
-                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+                class="font-black text-toledo-blue text-2xl mb-4 tracking-wide group-hover:text-blue-600 transition-colors"
               >
-                Éducation & CAMES
+                Éducation
               </h4>
               <p
                 id="t-card-edu-desc"
-                class="text-slate-500 font-light leading-relaxed"
+                class="text-slate-500 font-light leading-relaxed flex-grow"
               >
-                Transformation de l’accréditation africaine en levier
-                stratégique et création d'établissements clés en main.
+                Pour les institutions d’enseignement et de formation, nous
+                concevons une ingénierie dédiée afin de transformer
+                l'accréditation africaine CAMES en un levier stratégique de
+                reconnaissance sur le marché africain. Nous accompagnons
+                également les investisseurs, clés en main, dans la création
+                d'établissements scolaires (du primaire au supérieur).
               </p>
-            </div>
+            </a>
 
-            <div
-              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            <!-- Card 6: Image (Animated & Zoom Link) -->
+            <a
+              href="#vision"
+              class="group block relative overflow-hidden rounded-3xl shadow-lg h-full min-h-[350px] cursor-pointer no-underline"
             >
-             
-              <img src="./visual_adn.jpeg" alt="">
-            </div>
+              <!-- Image Container -->
+              <img
+                src="./visual_adn.jpeg"
+                alt="Toledo Consulting Vision"
+                class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 brightness-90 group-hover:brightness-100"
+              />
+
+              <!-- Optional Overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60"
+              ></div>
+
+              <!-- Optional Caption -->
+              <div class="absolute bottom-6 left-6 right-6">
+                <span
+                  class="text-white text-xs font-black uppercase tracking-widest bg-white/20 backdrop-blur-md px-3 py-1 rounded-md border border-white/20"
+                >
+                  Notre Vision
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
-
 
       <!-- CONTACT SECTION: Formspree integration -->
       <section
@@ -1065,10 +1213,19 @@
           </h2>
           <p
             id="t-contact-desc"
-            class="text-slate-400 text-2xl font-light mb-24 max-w-2xl mx-auto leading-relaxed"
+            class="text-slate-400 text-1xl font-light mb-24 mx-auto leading-relaxed"
           >
-            Toledo Consulting mobilise ses experts pour vos ambitions. Discutons
-            de votre projet avec Hicham Bekkali.
+            Toledo Consulting mobilise des experts chevronnés pour garantir un
+            rendu exceptionnel et une intervention de haute qualité. Notre
+            approche repose sur une écoute active, une analyse fine du contexte
+            et une proposition de solutions sur-mesure. Mon rôle est de mettre
+            notre réseau, notre créativité et notre connaissance des écosystèmes
+            complexes au service de la performance de votre organisation Toledo
+            Consulting est fier d'être membres du Club des Dirigeants du Maroc
+            (CDD), un écosystème entrepreneurial puissant réunissant plus de 6
+            700 entreprises. La croissance en Afrique est plus qu’un objectif
+            économique ; c’est un acte entrepreneurial qui mérite d’être bien
+            accompagné.
           </p>
 
           <div
@@ -1077,6 +1234,14 @@
             <div
               class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-toledo-gold to-blue-600"
             ></div>
+
+            <!-- Updated Paragraph: Added 'text-center' and styling for better visual balance -->
+            <p
+              id="t-contact-desc"
+              class="text-slate-400 text-2xl font-light mb-24 mx-auto leading-relaxed text-center max-w-2xl"
+            >
+              Discutons de votre projet avec Hicham Bekkali.
+            </p>
 
             <form
               action="https://formspree.io/f/manager@toledoconsulting.ma"
