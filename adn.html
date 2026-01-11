@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Title & Meta from Page 2 -->
     <title>
       Toledo Consulting | Conseil Stratégique et Croissance en Afrique
@@ -36,7 +36,9 @@
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
         };
         if (!f._fbq) f._fbq = n;
         n.push = n;
@@ -47,7 +49,12 @@
         t.async = !0;
         s = b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t, s);
-      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
       fbq("init", "VOTRE_ID_PIXEL");
       fbq("track", "PageView");
     </script>
@@ -94,8 +101,6 @@
         overflow-x: hidden;
       }
 
-
-      
       .lang-switcher {
         position: relative;
       }
@@ -353,18 +358,20 @@
           opacity: 1;
         }
       }
-
-      /* Preloader */
-      #preloader {
-        position: fixed;
-        inset: 0;
-        background: #0a192f;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.8s ease, visibility 0.8s ease;
-      }
+/* Preloader */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #0a192f;
+  z-index: 9999;
+  
+  /* This ensures perfect centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
 
       /* Utilities */
       .video-overlay {
@@ -479,22 +486,15 @@
   <body
     class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans"
   >
-    <div id="preloader">
-      <div class="text-center">
-        <h1
-          class="text-6xl font-serif font-black italic text-white mb-8 tracking-tighter floating"
-        >
-          TOLEDO
-        </h1>
-        <div class="w-20 h-1 bg-blue-500 mx-auto animate-pulse"></div>
-        <p
-          id="t-preloader"
-          class="text-blue-200 text-xs mt-6 tracking-[0.4em] uppercase animate-pulse"
-        >
-          Excellence en chargement
-        </p>
-      </div>
-    </div>
+  <div id="preloader">
+    <!-- The image is now a direct child of the flex container, guaranteeing it is centered -->
+    <img 
+      src="./TOLEDO-consulting.png" 
+      alt="Toledo Consulting" 
+      class="floating" 
+      style="max-width: 250px; width: 100%; height: auto; display: block;"
+    >
+</div>
 
     <div id="toast-container"></div>
 
@@ -509,7 +509,9 @@
         ><span class="sidebar-tooltip" id="t-tooltip-vision">Vision</span></a
       >
       <a href="#expertises" class="sidebar-dot" data-target="expertises"
-        ><span class="sidebar-tooltip" id="t-tooltip-invest">Expertises</span></a
+        ><span class="sidebar-tooltip" id="t-tooltip-invest"
+          >Expertises</span
+        ></a
       >
       <a href="#contact" class="sidebar-dot" data-target="contact"
         ><span class="sidebar-tooltip" id="t-tooltip-contact">Contact</span></a
@@ -528,7 +530,7 @@
               >TOLEDO
               <span class="text-blue-600 font-light">CONSULTING</span></span
             > -->
-            <img src="./TOLEDO-consulting.png" alt="" width="50%">
+            <img src="./TOLEDO-consulting.png" alt="" width="50%" />
           </a>
 
           <nav class="hidden xl:flex space-x-10 items-center">
@@ -653,23 +655,7 @@
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-white">
           <div class="max-w-5xl reveal active">
-            <div
-              class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 backdrop-blur-xl mb-10"
-            >
-              <span class="relative flex h-2.5 w-2.5">
-                <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
-                ></span>
-                <span
-                  class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400"
-                ></span>
-              </span>
-              <span
-                id="t-hero-badge"
-                class="text-blue-300 text-[11px] font-black uppercase tracking-[0.25em]"
-                >Hicham BEKKALI</span
-              >
-            </div>
+    
 
             <h1
               id="t-hero-title"
@@ -712,8 +698,14 @@
                 class="lg:col-span-5 relative h-96 lg:h-auto overflow-hidden bg-toledo-blue flex items-center justify-center"
               >
                 <!-- Placeholder icon for PDF -->
-                <svg class="w-48 h-48 text-blue-500 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M10.92,12.31C10.68,11.54 10.15,9.08 11.55,9.04C12.95,9 12.03,12.16 12.03,12.16C12.42,13.65 14.05,14.72 14.05,14.72C14.55,14.57 17.4,14.24 17,15.72C16.57,17.2 13.5,15.81 13.5,15.81C12.35,16.61 10.16,16.61 10.16,16.61C10.16,16.61 7.5,16.03 7.84,14.5C8.18,12.96 10,13.55 10,13.55C10.63,13.11 10.68,12.62 10.92,12.31Z" />
+                <svg
+                  class="w-48 h-48 text-blue-500 opacity-50"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M10.92,12.31C10.68,11.54 10.15,9.08 11.55,9.04C12.95,9 12.03,12.16 12.03,12.16C12.42,13.65 14.05,14.72 14.05,14.72C14.55,14.57 17.4,14.24 17,15.72C16.57,17.2 13.5,15.81 13.5,15.81C12.35,16.61 10.16,16.61 10.16,16.61C10.16,16.61 7.5,16.03 7.84,14.5C8.18,12.96 10,13.55 10,13.55C10.63,13.11 10.68,12.62 10.92,12.31Z"
+                  />
                 </svg>
                 <div
                   class="absolute top-8 left-8 bg-toledo-gold text-white px-5 py-2 text-[11px] font-black uppercase tracking-[0.15em] shadow-xl rounded-full"
@@ -746,13 +738,15 @@
                   id="t-guide-title"
                   class="text-5xl font-serif font-black text-toledo-blue mb-8 italic leading-tight"
                 >
-                  Guide Stratégique <span class="text-blue-600 not-italic">Afrique</span>
+                  Guide Stratégique
+                  <span class="text-blue-600 not-italic">Afrique</span>
                 </h2>
                 <p
                   id="t-guide-desc"
                   class="text-slate-600 font-light mb-12 leading-relaxed text-xl"
                 >
-                  Réussir son expansion sur le continent africain : Leviers de croissance et opportunités. Découvrez nos analyses exclusives.
+                  Réussir son expansion sur le continent africain : Leviers de
+                  croissance et opportunités. Découvrez nos analyses exclusives.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6">
                   <a
@@ -761,7 +755,19 @@
                     onclick="trackDownload()"
                     class="btn-primary bg-blue-600 text-white px-10 py-5 rounded-full font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-700 transition-all shadow-xl glow-effect flex items-center justify-center gap-3"
                   >
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      ></path>
+                    </svg>
                     <span id="t-guide-cta">Télécharger le Guide (PDF)</span>
                   </a>
                 </div>
@@ -794,7 +800,13 @@
                 class="space-y-8 text-slate-600 font-light text-xl leading-relaxed"
               >
                 <p id="t-dna-desc">
-                    J’ai toujours considéré l’Afrique comme une <strong class="text-toledo-blue font-serif">mosaïque d’opportunités</strong> exigeant du respect, de la rigueur et une approche ancrée dans les réalités locales. Mon parcours de 24 ans témoigne de cette diversité.
+                  J’ai toujours considéré l’Afrique comme une
+                  <strong class="text-toledo-blue font-serif"
+                    >mosaïque d’opportunités</strong
+                  >
+                  exigeant du respect, de la rigueur et une approche ancrée dans
+                  les réalités locales. Mon parcours de 24 ans témoigne de cette
+                  diversité.
                 </p>
                 <blockquote
                   class="pl-8 border-l-4 border-toledo-gold text-slate-800 font-serif italic text-3xl leading-snug"
@@ -814,7 +826,7 @@
               </div>
             </div>
             <div class="relative group">
-                <!-- Using placeholder from Page 1 for visual consistency -->
+              <!-- Using placeholder from Page 1 for visual consistency -->
               <div
                 class="absolute -inset-6 bg-gradient-to-br from-blue-600/30 to-transparent rounded-3xl blur-3xl group-hover:blur-[100px] transition duration-1000"
               ></div>
@@ -831,89 +843,212 @@
       <!-- EXPERTISES SECTION: Grid from Page 2 integrated -->
       <section id="expertises" class="py-40 bg-slate-50 reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <span
-                  id="t-expertises-badge"
-                  class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
-                  >02 — Core Competencies</span
+          <div class="text-center mb-20">
+            <span
+              id="t-expertises-badge"
+              class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
+              >02 — Core Competencies</span
+            >
+            <h2
+              id="t-expertises-title"
+              class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
+            >
+              Nos Expertises
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Card 1: Investir -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            >
+              <div
+                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8"
+              >
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                <h2
-                  id="t-expertises-title"
-                  class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
-                >
-                  Nos Expertises
-                </h2>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-card-inv-title"
+                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+              >
+                Investir en Afrique
+              </h4>
+              <p
+                id="t-card-inv-desc"
+                class="text-slate-500 font-light leading-relaxed"
+              >
+                Prospection commerciale, lobbying stratégique, mise en relation
+                d'affaires et résolution de litiges pour une implantation
+                réussie.
+              </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Card 1: Investir -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine">
-                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h4 id="t-card-inv-title" class="font-black text-toledo-blue text-xl mb-4 tracking-wide">Investir en Afrique</h4>
-                    <p id="t-card-inv-desc" class="text-slate-500 font-light leading-relaxed">Prospection commerciale, lobbying stratégique, mise en relation d'affaires et résolution de litiges pour une implantation réussie.</p>
-                </div>
-
-                <!-- Card 2: Etudes -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine">
-                    <div class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h4 id="t-card-stud-title" class="font-black text-toledo-blue text-xl mb-4 tracking-wide">Études Sectorielles</h4>
-                    <p id="t-card-stud-desc" class="text-slate-500 font-light leading-relaxed">Analyses de marché de haut niveau. Partenaire privilégié du <strong>BREI Canada</strong> pour le programme ÉFIA.</p>
-                </div>
-
-                <!-- Card 3: Executive -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine">
-                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h4 id="t-card-exec-title" class="font-black text-toledo-blue text-xl mb-4 tracking-wide">Executive Study Tours</h4>
-                    <p id="t-card-exec-desc" class="text-slate-500 font-light leading-relaxed">Voyages d’immersion exclusifs mêlant intelligence économique, réseautage de haut niveau et découverte culturelle.</p>
-                </div>
-
-                <!-- Card 4: Formation -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine">
-                    <div class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h4 id="t-card-form-title" class="font-black text-toledo-blue text-xl mb-4 tracking-wide">Ingénierie de Formation</h4>
-                    <p id="t-card-form-desc" class="text-slate-500 font-light leading-relaxed">Développement de programmes à haute valeur ajoutée avec des standards internationaux (Partenariat EM Strasbourg).</p>
-                </div>
-
-                <!-- Card 5: Education -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine">
-                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    </div>
-                    <h4 id="t-card-edu-title" class="font-black text-toledo-blue text-xl mb-4 tracking-wide">Éducation & CAMES</h4>
-                    <p id="t-card-edu-desc" class="text-slate-500 font-light leading-relaxed">Transformation de l’accréditation africaine en levier stratégique et création d'établissements clés en main.</p>
-                </div>
+            <!-- Card 2: Etudes -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            >
+              <div
+                class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8"
+              >
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-card-stud-title"
+                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+              >
+                Études Sectorielles
+              </h4>
+              <p
+                id="t-card-stud-desc"
+                class="text-slate-500 font-light leading-relaxed"
+              >
+                Analyses de marché de haut niveau. Partenaire privilégié du
+                <strong>BREI Canada</strong> pour le programme ÉFIA.
+              </p>
             </div>
-        </div>
-      </section>
 
-      <!-- PARTNERS (From Page 1 style, but content from Page 2 context) -->
-      <section class="py-20 border-b border-slate-100 bg-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-          <p
-            id="t-partners-label"
-            class="text-xs font-black text-slate-400 uppercase tracking-[0.25em] mb-16"
-          >
-            Réseau & Partenaires
-          </p>
-          <div
-            class="flex flex-wrap justify-center items-center gap-20 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 reveal"
-          >
-            <span class="text-3xl font-serif font-black text-slate-500 italic">CAMES</span>
-            <span class="text-3xl font-serif font-black text-slate-500 italic">BREI Canada</span>
-            <span class="text-3xl font-serif font-black text-slate-500 italic">ESG+ UQAM</span>
-            <span class="text-3xl font-serif font-black text-slate-500 italic">EM Strasbourg</span>
-            <span class="text-3xl font-serif font-black text-slate-500 italic">CDD Maroc</span>
+            <!-- Card 3: Executive -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            >
+              <div
+                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8"
+              >
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-card-exec-title"
+                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+              >
+                Executive Study Tours
+              </h4>
+              <p
+                id="t-card-exec-desc"
+                class="text-slate-500 font-light leading-relaxed"
+              >
+                Voyages d’immersion exclusifs mêlant intelligence économique,
+                réseautage de haut niveau et découverte culturelle.
+              </p>
+            </div>
+
+            <!-- Card 4: Formation -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            >
+              <div
+                class="w-16 h-16 bg-toledo-gold/10 rounded-2xl flex items-center justify-center text-toledo-gold mb-8"
+              >
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-card-form-title"
+                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+              >
+                Ingénierie de Formation
+              </h4>
+              <p
+                id="t-card-form-desc"
+                class="text-slate-500 font-light leading-relaxed"
+              >
+                Développement de programmes à haute valeur ajoutée avec des
+                standards internationaux (Partenariat EM Strasbourg).
+              </p>
+            </div>
+
+            <!-- Card 5: Education -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            >
+              <div
+                class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8"
+              >
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-card-edu-title"
+                class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
+              >
+                Éducation & CAMES
+              </h4>
+              <p
+                id="t-card-edu-desc"
+                class="text-slate-500 font-light leading-relaxed"
+              >
+                Transformation de l’accréditation africaine en levier
+                stratégique et création d'établissements clés en main.
+              </p>
+            </div>
+
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
+            >
+             
+              <img src="./visual_adn.jpeg" alt="">
+            </div>
           </div>
         </div>
       </section>
+
 
       <!-- CONTACT SECTION: Formspree integration -->
       <section
@@ -925,49 +1060,110 @@
             id="t-contact-title"
             class="text-7xl md:text-8xl font-serif font-black mb-16 italic"
           >
-            Votre Succès, <span class="text-blue-400 not-italic">Notre Engagement</span>
+            Votre Succès,
+            <span class="text-blue-400 not-italic">Notre Engagement</span>
           </h2>
           <p
             id="t-contact-desc"
             class="text-slate-400 text-2xl font-light mb-24 max-w-2xl mx-auto leading-relaxed"
           >
-            Toledo Consulting mobilise ses experts pour vos ambitions. Discutons de votre projet avec Hicham Bekkali.
+            Toledo Consulting mobilise ses experts pour vos ambitions. Discutons
+            de votre projet avec Hicham Bekkali.
           </p>
-          
-          <div class="bg-white rounded-2xl p-8 md:p-12 text-left max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-toledo-gold to-blue-600"></div>
-            
-            <form action="https://formspree.io/f/manager@toledoconsulting.ma" method="POST" id="mainContactForm" class="space-y-8 relative z-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <label class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]">Nom complet</label>
-                        <input type="text" name="name" required class="form-input w-full p-5 rounded-xl text-slate-800" placeholder="Votre nom">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]">Email Professionnel</label>
-                        <input type="email" name="email" required class="form-input w-full p-5 rounded-xl text-slate-800" placeholder="nom@entreprise.ma">
-                    </div>
-                </div>
-                
-                <div>
-                    <label class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]">Votre besoin prioritaire</label>
-                    <select name="besoin" class="form-input w-full p-5 rounded-xl text-slate-800">
-                        <option value="Investissement">Investissement & Implantation</option>
-                        <option value="Etudes">Études de marché</option>
-                        <option value="Formation">Formation & Éducation</option>
-                        <option value="Lobbying">Lobbying & Mise en relation</option>
-                    </select>
-                </div>
 
-                <div>
-                    <label class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]">Message</label>
-                    <textarea name="message" rows="5" required class="form-input w-full p-5 rounded-xl text-slate-800" placeholder="Décrivez votre projet..."></textarea>
-                </div>
+          <div
+            class="bg-white rounded-2xl p-8 md:p-12 text-left max-w-4xl mx-auto shadow-2xl relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-toledo-gold to-blue-600"
+            ></div>
 
-                <button type="submit" class="btn-primary w-full bg-toledo-blue text-white py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-900 transition-all rounded-full shadow-2xl glow-effect flex justify-center items-center gap-3">
-                    <span id="t-form-submit">Envoyer à Hicham BEKKALI</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </button>
+            <form
+              action="https://formspree.io/f/manager@toledoconsulting.ma"
+              method="POST"
+              id="mainContactForm"
+              class="space-y-8 relative z-10"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <label
+                    class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]"
+                    >Nom complet</label
+                  >
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    class="form-input w-full p-5 rounded-xl text-slate-800"
+                    placeholder="Votre nom"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]"
+                    >Email Professionnel</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    class="form-input w-full p-5 rounded-xl text-slate-800"
+                    placeholder="nom@entreprise.ma"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]"
+                  >Votre besoin prioritaire</label
+                >
+                <select
+                  name="besoin"
+                  class="form-input w-full p-5 rounded-xl text-slate-800"
+                >
+                  <option value="Investissement">
+                    Investissement & Implantation
+                  </option>
+                  <option value="Etudes">Études de marché</option>
+                  <option value="Formation">Formation & Éducation</option>
+                  <option value="Lobbying">Lobbying & Mise en relation</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  class="block text-[11px] font-black uppercase text-slate-500 mb-3 tracking-[0.15em]"
+                  >Message</label
+                >
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  class="form-input w-full p-5 rounded-xl text-slate-800"
+                  placeholder="Décrivez votre projet..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn-primary w-full bg-toledo-blue text-white py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-900 transition-all rounded-full shadow-2xl glow-effect flex justify-center items-center gap-3"
+              >
+                <span id="t-form-submit">Envoyer à Hicham BEKKLI</span>
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </button>
             </form>
           </div>
         </div>
@@ -985,11 +1181,11 @@
           >
             © 2026 Toledo Consulting
           </p>
-          <p
-            id="t-footer-tag"
-            class="text-slate-400 text-sm tracking-[0.1em]"
-          >
-            Fier d'être membre du <strong class="text-toledo-gold">Club des Dirigeants du Maroc (CDD)</strong>
+          <p id="t-footer-tag" class="text-slate-400 text-sm tracking-[0.1em]">
+            Fier d'être membre du
+            <strong class="text-toledo-gold"
+              >Club des Dirigeants du Maroc (CDD)</strong
+            >
           </p>
         </div>
       </div>
@@ -998,8 +1194,12 @@
     <script>
       // === 1. TRACKING FUNCTIONS (From Page 2) ===
       function trackDownload() {
-        if(typeof gtag === 'function') { gtag('event', 'download_guide'); }
-        if(typeof fbq === 'function') { fbq('track', 'ViewContent'); }
+        if (typeof gtag === "function") {
+          gtag("event", "download_guide");
+        }
+        if (typeof fbq === "function") {
+          fbq("track", "ViewContent");
+        }
         // Trigger toast
         showToast("Téléchargement du guide lancé...");
       }
@@ -1009,35 +1209,48 @@
         fr: {
           "t-preloader": "Excellence en chargement",
           "t-hero-badge": "Hicham BEKKALI",
-          "t-hero-title": "L’Afrique : Une <br> Passion, <span class='text-blue-400 not-italic gradient-text'>24 Ans</span> <br> d’Engagement.",
+          "t-hero-title":
+            "L’Afrique : Une <br> Passion, <span class='text-blue-400 not-italic gradient-text'>24 Ans</span> <br> d’Engagement.",
           "t-hero-desc": "Toledo Consulting | Créateur de Croissance Durable.",
           "t-cta-start": "Démarrer un projet",
           "t-guide-badge": "Nouveau",
-          "t-guide-title": "Guide Stratégique <span class='text-blue-600 not-italic'>Afrique</span>",
-          "t-guide-desc": "Réussir son expansion sur le continent africain : Leviers de croissance et opportunités.",
+          "t-guide-title":
+            "Guide Stratégique <span class='text-blue-600 not-italic'>Afrique</span>",
+          "t-guide-desc":
+            "Réussir son expansion sur le continent africain : Leviers de croissance et opportunités.",
           "t-guide-cta": "Télécharger le Guide (PDF)",
           "t-dna-badge": "01 — Notre Vision",
-          "t-dna-title": "Un Prisme Bicéphale : <br><span class='text-blue-600 not-italic'>Analyse et Action</span>.",
+          "t-dna-title":
+            "Un Prisme Bicéphale : <br><span class='text-blue-600 not-italic'>Analyse et Action</span>.",
           "t-dna-role": "Fondateur",
-          "t-dna-desc": "J’ai toujours considéré l’Afrique comme une <strong class='text-toledo-blue font-serif'>mosaïque d’opportunités</strong> exigeant du respect, de la rigueur et une approche ancrée dans les réalités locales.",
+          "t-dna-desc":
+            "J’ai toujours considéré l’Afrique comme une <strong class='text-toledo-blue font-serif'>mosaïque d’opportunités</strong> exigeant du respect, de la rigueur et une approche ancrée dans les réalités locales.",
           "t-expertises-badge": "02 — Core Competencies",
           "t-expertises-title": "Nos Expertises",
           "t-card-inv-title": "Investir en Afrique",
-          "t-card-inv-desc": "Prospection commerciale, lobbying stratégique, mise en relation d'affaires et résolution de litiges.",
+          "t-card-inv-desc":
+            "Prospection commerciale, lobbying stratégique, mise en relation d'affaires et résolution de litiges.",
           "t-card-stud-title": "Études Sectorielles",
-          "t-card-stud-desc": "Analyses de marché de haut niveau. Partenaire privilégié du <strong>BREI Canada</strong> pour le programme ÉFIA.",
+          "t-card-stud-desc":
+            "Analyses de marché de haut niveau. Partenaire privilégié du <strong>BREI Canada</strong> pour le programme ÉFIA.",
           "t-card-exec-title": "Executive Study Tours",
-          "t-card-exec-desc": "Voyages d’immersion exclusifs mêlant intelligence économique, réseautage de haut niveau.",
+          "t-card-exec-desc":
+            "Voyages d’immersion exclusifs mêlant intelligence économique, réseautage de haut niveau.",
           "t-card-form-title": "Ingénierie de Formation",
-          "t-card-form-desc": "Développement de programmes à haute valeur ajoutée avec des standards internationaux.",
+          "t-card-form-desc":
+            "Développement de programmes à haute valeur ajoutée avec des standards internationaux.",
           "t-card-edu-title": "Éducation & CAMES",
-          "t-card-edu-desc": "Transformation de l’accréditation africaine en levier stratégique et création d'établissements clés en main.",
+          "t-card-edu-desc":
+            "Transformation de l’accréditation africaine en levier stratégique et création d'établissements clés en main.",
           "t-partners-label": "Réseau & Partenaires",
-          "t-contact-title": "Votre Succès, <span class='text-blue-400 not-italic'>Notre Engagement</span>",
-          "t-contact-desc": "Toledo Consulting mobilise ses experts pour vos ambitions. Discutons de votre projet.",
+          "t-contact-title":
+            "Votre Succès, <span class='text-blue-400 not-italic'>Notre Engagement</span>",
+          "t-contact-desc":
+            "Toledo Consulting mobilise ses experts pour vos ambitions. Discutons de votre projet.",
           "t-form-submit": "Envoyer à Hicham BEKKALI",
           "t-footer-copy": "© 2026 Toledo Consulting",
-          "t-footer-tag": "Fier d'être membre du <strong class='text-toledo-gold'>Club des Dirigeants du Maroc (CDD)</strong>",
+          "t-footer-tag":
+            "Fier d'être membre du <strong class='text-toledo-gold'>Club des Dirigeants du Maroc (CDD)</strong>",
           // Nav
           "t-nav-vision": "Vision",
           "t-nav-expertises": "Expertises",
@@ -1053,35 +1266,48 @@
         en: {
           "t-preloader": "Loading Excellence",
           "t-hero-badge": "Hicham BEKKALI",
-          "t-hero-title": "Africa: A Passion, <br> <span class='text-blue-400 not-italic gradient-text'>24 Years</span> <br> of Commitment.",
+          "t-hero-title":
+            "Africa: A Passion, <br> <span class='text-blue-400 not-italic gradient-text'>24 Years</span> <br> of Commitment.",
           "t-hero-desc": "Toledo Consulting | Creator of Sustainable Growth.",
           "t-cta-start": "Start a project",
           "t-guide-badge": "New",
-          "t-guide-title": "Strategic Guide <span class='text-blue-600 not-italic'>Africa</span>",
-          "t-guide-desc": "Succeeding in your expansion across the African continent: Growth levers and opportunities.",
+          "t-guide-title":
+            "Strategic Guide <span class='text-blue-600 not-italic'>Africa</span>",
+          "t-guide-desc":
+            "Succeeding in your expansion across the African continent: Growth levers and opportunities.",
           "t-guide-cta": "Download Guide (PDF)",
           "t-dna-badge": "01 — Our Vision",
-          "t-dna-title": "A Bicephalous Prism: <br><span class='text-blue-600 not-italic'>Analysis and Action</span>.",
+          "t-dna-title":
+            "A Bicephalous Prism: <br><span class='text-blue-600 not-italic'>Analysis and Action</span>.",
           "t-dna-role": "Founder",
-          "t-dna-desc": "I have always considered Africa as a <strong class='text-toledo-blue font-serif'>mosaic of opportunities</strong> requiring respect, rigor, and a locally anchored approach.",
+          "t-dna-desc":
+            "I have always considered Africa as a <strong class='text-toledo-blue font-serif'>mosaic of opportunities</strong> requiring respect, rigor, and a locally anchored approach.",
           "t-expertises-badge": "02 — Core Competencies",
           "t-expertises-title": "Our Expertise",
           "t-card-inv-title": "Investing in Africa",
-          "t-card-inv-desc": "Commercial prospecting, strategic lobbying, business matchmaking, and dispute resolution.",
+          "t-card-inv-desc":
+            "Commercial prospecting, strategic lobbying, business matchmaking, and dispute resolution.",
           "t-card-stud-title": "Sectoral Studies",
-          "t-card-stud-desc": "High-level market analysis. Privileged partner of <strong>BREI Canada</strong> for the EFIA program.",
+          "t-card-stud-desc":
+            "High-level market analysis. Privileged partner of <strong>BREI Canada</strong> for the EFIA program.",
           "t-card-exec-title": "Executive Study Tours",
-          "t-card-exec-desc": "Exclusive immersion trips combining economic intelligence and high-level networking.",
+          "t-card-exec-desc":
+            "Exclusive immersion trips combining economic intelligence and high-level networking.",
           "t-card-form-title": "Training Engineering",
-          "t-card-form-desc": "Development of high-value-added programs with international standards.",
+          "t-card-form-desc":
+            "Development of high-value-added programs with international standards.",
           "t-card-edu-title": "Education & CAMES",
-          "t-card-edu-desc": "Transforming African accreditation into a strategic lever and turnkey establishment creation.",
+          "t-card-edu-desc":
+            "Transforming African accreditation into a strategic lever and turnkey establishment creation.",
           "t-partners-label": "Network & Partners",
-          "t-contact-title": "Your Success, <span class='text-blue-400 not-italic'>Our Commitment</span>",
-          "t-contact-desc": "Toledo Consulting mobilizes its experts for your ambitions. Let's discuss your project.",
+          "t-contact-title":
+            "Your Success, <span class='text-blue-400 not-italic'>Our Commitment</span>",
+          "t-contact-desc":
+            "Toledo Consulting mobilizes its experts for your ambitions. Let's discuss your project.",
           "t-form-submit": "Send to Hicham BEKKALI",
           "t-footer-copy": "© 2026 Toledo Consulting",
-          "t-footer-tag": "Proud member of the <strong class='text-toledo-gold'>Club of Dirigeants of Morocco (CDD)</strong>",
+          "t-footer-tag":
+            "Proud member of the <strong class='text-toledo-gold'>Club of Dirigeants of Morocco (CDD)</strong>",
           // Nav
           "t-nav-vision": "Vision",
           "t-nav-expertises": "Expertise",
@@ -1097,35 +1323,46 @@
         ar: {
           "t-preloader": "التميز في التحميل",
           "t-hero-badge": "هشام بيكالي",
-          "t-hero-title": "أفريقيا: شغف، <br> <span class='text-blue-400 not-italic gradient-text'>24 عامًا</span> <br> من الالتزام.",
+          "t-hero-title":
+            "أفريقيا: شغف، <br> <span class='text-blue-400 not-italic gradient-text'>24 عامًا</span> <br> من الالتزام.",
           "t-hero-desc": "توليدو كونسلتينغ | صانع النمو المستدام.",
           "t-cta-start": "ابدأ مشروعًا",
           "t-guide-badge": "جديد",
-          "t-guide-title": "الدليل الاستراتيجي <span class='text-blue-600 not-italic'>أفريقيا</span>",
-          "t-guide-desc": "النجاح في التوسع عبر القارة الأفريقية: رافعات النمو والفرص.",
+          "t-guide-title":
+            "الدليل الاستراتيجي <span class='text-blue-600 not-italic'>أفريقيا</span>",
+          "t-guide-desc":
+            "النجاح في التوسع عبر القارة الأفريقية: رافعات النمو والفرص.",
           "t-guide-cta": "تحميل الدليل (PDF)",
           "t-dna-badge": "01 — رؤيتنا",
-          "t-dna-title": "منظور ثنائي: <br><span class='text-blue-600 not-italic'>التحليل والعمل</span>.",
+          "t-dna-title":
+            "منظور ثنائي: <br><span class='text-blue-600 not-italic'>التحليل والعمل</span>.",
           "t-dna-role": "المؤسس",
-          "t-dna-desc": "لقد نظرت دائمًا إلى أفريقيا على أنها <strong class='text-toledo-blue font-serif'>فسيفساء من الفرص</strong> تتطلب الاحترام والصرامة.",
+          "t-dna-desc":
+            "لقد نظرت دائمًا إلى أفريقيا على أنها <strong class='text-toledo-blue font-serif'>فسيفساء من الفرص</strong> تتطلب الاحترام والصرامة.",
           "t-expertises-badge": "02 — الكفاءات الأساسية",
           "t-expertises-title": "خبراتنا",
           "t-card-inv-title": "الاستثمار في أفريقيا",
-          "t-card-inv-desc": "الاستكشاف التجاري، اللوبي الاستراتيجي، وربط الأعمال.",
+          "t-card-inv-desc":
+            "الاستكشاف التجاري، اللوبي الاستراتيجي، وربط الأعمال.",
           "t-card-stud-title": "الدراسات القطاعية",
-          "t-card-stud-desc": "تحليلات السوق عالية المستوى. شريك مميز لـ <strong>BREI Canada</strong>.",
+          "t-card-stud-desc":
+            "تحليلات السوق عالية المستوى. شريك مميز لـ <strong>BREI Canada</strong>.",
           "t-card-exec-title": "جولات الدراسة التنفيذية",
-          "t-card-exec-desc": "رحلات غمر حصرية تجمع بين الذكاء الاقتصادي والشبكات عالية المستوى.",
+          "t-card-exec-desc":
+            "رحلات غمر حصرية تجمع بين الذكاء الاقتصادي والشبكات عالية المستوى.",
           "t-card-form-title": "هندسة التدريب",
           "t-card-form-desc": "تطوير برامج عالية القيمة المضافة بمعايير دولية.",
           "t-card-edu-title": "التعليم وكاميس",
           "t-card-edu-desc": "تحويل الاعتماد الأفريقي إلى رافعة استراتيجية.",
           "t-partners-label": "الشبكة والشركاء",
-          "t-contact-title": "نجاحكم، <span class='text-blue-400 not-italic'>التزامنا</span>",
-          "t-contact-desc": "توليدو كونسلتينغ تعبئ خبرائها لطموحاتكم. لنتحدث عن مشروعك.",
+          "t-contact-title":
+            "نجاحكم، <span class='text-blue-400 not-italic'>التزامنا</span>",
+          "t-contact-desc":
+            "توليدو كونسلتينغ تعبئ خبرائها لطموحاتكم. لنتحدث عن مشروعك.",
           "t-form-submit": "إرسال إلى هشام بيكالي",
           "t-footer-copy": "© 2026 توليدو كونسلتينغ",
-          "t-footer-tag": "فخورون بكوننا أعضاء في <strong class='text-toledo-gold'>نادي مديري المغرب (CDD)</strong>",
+          "t-footer-tag":
+            "فخورون بكوننا أعضاء في <strong class='text-toledo-gold'>نادي مديري المغرب (CDD)</strong>",
           // Nav
           "t-nav-vision": "رؤية",
           "t-nav-expertises": "خبرات",
@@ -1257,26 +1494,33 @@
 
       // === 4. GESTION DES FORMULAIRES (REAL SUBMISSION + UI) ===
       // Modified to handle Formspree submission while keeping UI animations
-      document.getElementById('mainContactForm').addEventListener('submit', function(e) {
-        // Tracking from Page 2
-        if(typeof gtag === 'function') { gtag('event', 'generate_lead'); }
-        if(typeof fbq === 'function') { fbq('track', 'Lead'); }
+      document
+        .getElementById("mainContactForm")
+        .addEventListener("submit", function (e) {
+          // Tracking from Page 2
+          if (typeof gtag === "function") {
+            gtag("event", "generate_lead");
+          }
+          if (typeof fbq === "function") {
+            fbq("track", "Lead");
+          }
 
-        // UI Feedback
-        const btn = this.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<span class="animate-pulse">Envoi en cours...</span>';
-        btn.disabled = true;
-        
-        // Show Success Toast (Assuming success because Formspree redirects or handles error)
-        setTimeout(() => {
+          // UI Feedback
+          const btn = this.querySelector('button[type="submit"]');
+          const originalText = btn.innerHTML;
+          btn.innerHTML =
+            '<span class="animate-pulse">Envoi en cours...</span>';
+          btn.disabled = true;
+
+          // Show Success Toast (Assuming success because Formspree redirects or handles error)
+          setTimeout(() => {
             btn.innerHTML = originalText;
             btn.disabled = false;
             showToast("Votre demande a été envoyée avec succès !");
             // Note: Formspree will handle the actual page redirect on success.
             // If AJAX integration is used later, logic goes here.
-        }, 1500);
-      });
+          }, 1500);
+        });
 
       // === 5. TOAST NOTIFICATION SYSTEM ===
       function showToast(message) {

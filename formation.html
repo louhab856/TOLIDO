@@ -350,17 +350,20 @@
         }
       }
 
-      /* Preloader */
-      #preloader {
-        position: fixed;
-        inset: 0;
-        background: #0a192f;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.8s ease, visibility 0.8s ease;
-      }
+/* Preloader */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #0a192f;
+  z-index: 9999;
+  
+  /* This ensures perfect centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
 
       /* Utilities */
       .video-overlay {
@@ -485,22 +488,15 @@
   <body
     class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans"
   >
-    <div id="preloader">
-      <div class="text-center">
-        <h1
-          class="text-6xl font-serif font-black italic text-white mb-8 tracking-tighter floating"
-        >
-          TOLEDO
-        </h1>
-        <div class="w-20 h-1 bg-blue-500 mx-auto animate-pulse"></div>
-        <p
-          id="t-preloader"
-          class="text-blue-200 text-xs mt-6 tracking-[0.4em] uppercase animate-pulse"
-        >
-          Excellence en chargement
-        </p>
-      </div>
-    </div>
+<div id="preloader">
+    <!-- The image is now a direct child of the flex container, guaranteeing it is centered -->
+    <img 
+      src="./TOLEDO-consulting.png" 
+      alt="Toledo Consulting" 
+      class="floating" 
+      style="max-width: 250px; width: 100%; height: auto; display: block;"
+    >
+</div>
 
     <div id="toast-container"></div>
 

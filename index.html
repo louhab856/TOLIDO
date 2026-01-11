@@ -249,18 +249,20 @@
         }
       }
 
-      /* Preloader */
-      #preloader {
-        position: fixed;
-        inset: 0;
-        background: #0a192f;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.8s ease, visibility 0.8s ease;
-      }
-
+  /* Preloader */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #0a192f;
+  z-index: 9999;
+  
+  /* This ensures perfect centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
       /* Lang Switcher */
 
       .lang-switcher {
@@ -442,22 +444,14 @@
   <body
     class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans"
   >
-    <div id="preloader">
-      <div class="text-center">
-        <h1
-          class="text-6xl font-serif font-black italic text-white mb-8 tracking-tighter floating"
-        >
-          TOLEDO
-        </h1>
-        <div class="w-20 h-1 bg-blue-500 mx-auto animate-pulse"></div>
-        <p
-          id="t-preloader"
-          class="text-blue-200 text-xs mt-6 tracking-[0.4em] uppercase animate-pulse"
-        >
-          Excellence en chargement
-        </p>
-      </div>
-    </div>
+   <div id="preloader">
+    <img 
+      src="./TOLEDO-consulting.png" 
+      alt="Toledo Consulting" 
+      class="floating" 
+      style="max-width: 250px; width: 100%; height: auto; display: block;"
+    >
+</div>
 
     <div id="toast-container"></div>
 
@@ -500,12 +494,6 @@
       <div class="max-w-7xl mx-auto w-full px-6 lg:px-8">
         <div class="flex justify-between items-center w-full">
           <a href="#" class="group flex-shrink-70">
-            <!-- <span
-              class="text-3xl font-black tracking-tighter text-toledo-blue group-hover:text-blue-700 transition-all duration-300"
-              >TOLEDO
-              <span class="text-blue-600 font-light">CONSULTING</span></span
-            > -->
-
             <img src="./TOLEDO-consulting.png" alt="" width="95%">
           </a>
 
@@ -2044,7 +2032,7 @@
         setTimeout(() => {
           preloader.style.opacity = "0";
           preloader.style.visibility = "hidden";
-        }, 1500);
+        },2500);
 
         // Effet Header au scroll
         const header = document.getElementById("main-header");
