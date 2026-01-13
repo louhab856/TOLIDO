@@ -362,20 +362,20 @@
         }
       }
 
-/* Preloader */
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: #0a192f;
-  z-index: 9999;
-  
-  /* This ensures perfect centering */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
+      /* Preloader */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: #0a192f;
+        z-index: 9999;
+
+        /* This ensures perfect centering */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
 
       /* Utilities */
       .video-overlay {
@@ -490,14 +490,14 @@
   <body
     class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans"
   >
- <div id="preloader">
-    <img 
-      src="./TOLEDO-consulting.png" 
-      alt="Toledo Consulting" 
-      class="floating" 
-      style="max-width: 250px; width: 100%; height: auto; display: block;"
-    >
-</div>
+    <div id="preloader">
+      <img
+        src="./TOLEDO-consulting.png"
+        alt="Toledo Consulting"
+        class="floating"
+        style="max-width: 250px; width: 100%; height: auto; display: block"
+      />
+    </div>
 
     <div id="toast-container"></div>
 
@@ -530,8 +530,7 @@
               >TOLEDO
               <span class="text-blue-600 font-light">CONSULTING</span></span
             > -->
-                                    <img src="./TOLEDO-consulting.png" alt="" width="50%">
-
+            <img src="./TOLEDO-consulting.png" alt="" width="50%" />
           </a>
 
           <nav class="hidden xl:flex space-x-10 items-center">
@@ -637,10 +636,7 @@
             playsinline
             style="width: 100%; height: 100%; object-fit: cover"
           >
-            <source
-              src="./video.mp4"
-              type="video/mp4"
-            />
+            <source src="./video.mp4" type="video/mp4" />
           </video>
           <div class="video-overlay"></div>
         </div>
@@ -694,33 +690,126 @@
         </div>
       </section>
 
-      <!-- SERVICES SECTION -->
       <section id="services" class="py-40 bg-slate-50 reveal">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-          <div class="text-center mb-20">
-            <span
-              id="t-services-badge"
-              class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
-              >01 — Notre Approche</span
-            >
-            <h2
-              id="t-services-title"
-              class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
-            >
-              Une Croissance Durable
-            </h2>
-            <p
-              id="t-services-intro"
-              class="text-slate-600 text-xl max-w-3xl mx-auto"
-            >
-              Naviguer dans les marchés africains exige une expertise locale et
-              un réseau solide. Toledo Consulting transforme vos défis en
-              leviers de succès.
-            </p>
-          </div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Card 1: Études -->
+    <!-- Header -->
+    <div class="mb-20">
+      <span
+        id="t-services-badge"
+        class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
+      >
+        01 — Notre Approche
+      </span>
+
+      <h2
+        id="t-services-title"
+        class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
+      >
+        Une Croissance Durable
+      </h2>
+
+      <p id="t-services-intro" class="text-slate-600 text-xl max-w-3xl">
+        Naviguer dans les marchés africains exige une expertise locale et
+        un réseau solide. Toledo Consulting transforme vos défis en
+        leviers de succès.
+      </p>
+    </div>
+
+    <!-- Texte descriptif -->
+    <div class="max-w-4xl mb-24 text-slate-600 text-lg leading-relaxed space-y-6">
+      <p>
+        Le continent africain offre des opportunités d'investissement sans
+        précédent, mais naviguer dans ses marchés exige une expertise locale,
+        un réseau solide et une approche sur mesure. Chez
+        <strong class="text-toledo-blue">Toledo Consulting</strong>, nous
+        transformons ces défis en leviers de succès.
+      </p>
+
+      <p class="font-medium text-toledo-blue">
+        Notre mission est de sécuriser et d'accélérer votre projet à chaque étape clé :
+      </p>
+
+      <ul class="space-y-4 pl-6 list-disc marker:text-blue-600">
+        <li>
+          <strong>Valider la viabilité de votre projet :</strong>
+          Analyses de marché, études de faisabilité et stratégie d'entrée.
+        </li>
+        <li>
+          <strong>Sécuriser le cadre juridique et financier :</strong>
+          Structuration de société, optimisation fiscale et conformité réglementaire.
+        </li>
+        <li>
+          <strong>Connecter aux bons acteurs :</strong>
+          Accès à notre réseau de partenaires financiers, institutionnels et opérationnels.
+        </li>
+        <li>
+          <strong>Piloter le déploiement opérationnel :</strong>
+          Coordination de projet, de l’implantation jusqu’au lancement.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Choisir Toledo -->
+    <div class="mb-32 max-w-5xl">
+      <h2 class="text-6xl font-serif font-black text-toledo-blue mb-8 italic">
+        Choisir Toledo
+      </h2>
+
+      <p class="text-slate-600 text-xl mb-16">
+        <strong>Toledo Consulting</strong>, les piliers de votre réussite.
+        Notre engagement est simple : sécuriser et optimiser votre investissement
+        à travers un partenariat fondé sur l'efficacité et la transparence.
+      </p>
+
+      <div class="space-y-12">
+        <div>
+          <h3 class="text-2xl font-black text-toledo-blue mb-3">
+            Expertise Locale Approfondie
+          </h3>
+          <p class="text-slate-600 leading-relaxed">
+            Loin des approches prêtes à l’emploi, notre équipe maîtrise les
+            réglementations, les marchés et les réalités culturelles locales.
+            Nous anticipons les obstacles et révélons les opportunités cachées.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-black text-toledo-blue mb-3">
+            Un Réseau de Partenaires de Confiance
+          </h3>
+          <p class="text-slate-600 leading-relaxed">
+            Avocats d'affaires, experts-comptables, opérateurs logistiques,
+            institutions publiques : notre écosystème fiable accélère vos démarches
+            et sécurise chaque phase de votre projet.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-black text-toledo-blue mb-3">
+            Des Solutions Sur Mesure
+          </h3>
+          <p class="text-slate-600 leading-relaxed">
+            Chaque projet est unique. Nous concevons des stratégies personnalisées,
+            parfaitement alignées avec votre vision, vos objectifs et votre budget.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-black text-toledo-blue mb-3">
+            Un Accompagnement Personnalisé
+          </h3>
+          <p class="text-slate-600 leading-relaxed">
+            Un consultant dédié vous accompagne comme interlocuteur unique,
+            garantissant une communication fluide, une réactivité constante
+            et une coordination sans faille.
+          </p>
+        </div>
+      </div>
+    </div>
+
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Card 1 -->
             <div
               class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
             >
@@ -738,25 +827,21 @@
                     stroke-linejoin="round"
                     stroke-width="1.5"
                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  ></path>
+                  />
                 </svg>
               </div>
               <h4
-                id="t-card-marketing-title"
                 class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
               >
                 Études Marketing
               </h4>
-              <p
-                id="t-card-marketing-desc"
-                class="text-slate-500 font-light leading-relaxed"
-              >
+              <p class="text-slate-500 font-light leading-relaxed">
                 Analyses de marché sectorielles, études de faisabilité et
                 identification des barrières à l'entrée.
               </p>
             </div>
 
-            <!-- Card 2: Distribution -->
+            <!-- Card 2 -->
             <div
               class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
             >
@@ -774,26 +859,22 @@
                     stroke-linejoin="round"
                     stroke-width="1.5"
                     d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
+                  />
                 </svg>
               </div>
               <h4
-                id="t-card-dist-title"
                 class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
               >
                 Distribution & Vente
               </h4>
-              <p
-                id="t-card-dist-desc"
-                class="text-slate-500 font-light leading-relaxed"
-              >
+              <p class="text-slate-500 font-light leading-relaxed">
                 Sourcing de distributeurs qualifiés, mise en place de réseaux de
                 vente et logistique (Sénégal, Côte d'Ivoire, RDC, Nigeria,
                 Cameroun, Gabon).
               </p>
             </div>
 
-            <!-- Card 3: Conciergerie -->
+            <!-- Card 3 -->
             <div
               class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
             >
@@ -811,26 +892,28 @@
                     stroke-linejoin="round"
                     stroke-width="1.5"
                     d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  ></path>
+                  />
                 </svg>
               </div>
               <h4
-                id="t-card-conc-title"
                 class="font-black text-toledo-blue text-xl mb-4 tracking-wide"
               >
                 Conciergerie Corporate
               </h4>
-              <p
-                id="t-card-conc-desc"
-                class="text-slate-500 font-light leading-relaxed"
-              >
+              <p class="text-slate-500 font-light leading-relaxed">
                 Accompagnement VIP, mobilité des cadres, relocation et
                 organisation d'événements d'affaires exclusifs.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+    
+  </div>
+</section>
+
+
+
+
+        
 
       <!-- CASE STUDY SECTION (AGRIMEC) -->
       <section id="case-study" class="py-40 bg-white reveal">
