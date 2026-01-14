@@ -24,6 +24,13 @@
       referrerpolicy="no-referrer"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
     <script>
       tailwind.config = {
         theme: {
@@ -162,7 +169,6 @@
         }
       }
 
-
       /* Header Styles */
       header {
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -221,9 +227,17 @@
         max-width: 420px;
         animation: slideInRight 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
+      /* Error State for Toast */
+      .toast.error {
+        border-left-color: #ef4444;
+      }
+
       html[dir="rtl"] .toast {
         border-left: none;
         border-right: 5px solid #3b82f6;
+      }
+      html[dir="rtl"] .toast.error {
+        border-right-color: #ef4444;
       }
       html[dir="rtl"] .toast {
         animation-name: slideInLeft;
@@ -494,11 +508,13 @@
     >
       <div class="max-w-7xl mx-auto w-full px-6 lg:px-8">
         <div class="flex justify-between items-center w-full">
-          <a href="#" class="group flex-shrink-70">
-            <img src="./TOLEDO-consulting.png" alt="" width="80%" />
-          </a>
+          <nav class="hidden xl:flex space-x-6 items-center">
+            <img
+              src="./TOLEDO-consulting.png"
+              alt="TOLEDO Consulting"
+              class="w-40 h-auto"
+            />
 
-          <nav class="hidden xl:flex space-x-10 items-center">
             <!-- Link: ADN -->
             <a
               href="#adn"
@@ -638,6 +654,17 @@
                 </div>
               </div>
             </div>
+
+            <!-- Link: Etudes -->
+            <a
+              href="#blogs"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-studies">Blog</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
           </nav>
 
           <div class="flex items-center space-x-16 ml-12">
@@ -750,20 +777,18 @@
               id="t-hero-title"
               class="text-4xl md:text-5xl font-serif font-black leading-[0.85] mb-12 italic"
             >
-              L'Intelligence <br />
-              au service de
-              <span class="text-blue-400 not-italic gradient-text"
-                >l'Action</span
-              >.
+             
+
+
+              Créateur de Croissance 
+
             </h1>
 
             <p
               id="t-hero-desc"
               class="text-xl md:text-1xl text-slate-300 font-light leading-relaxed mb-14 max-w-3xl border-l-4 border-blue-500/60 pl-8"
             >
-              Depuis plus de deux décennies, nous sécurisons les investissements
-              et transformons la donnée brute en opportunités concrètes en
-              Afrique.
+             Nous sécurisons vos investissements en transformant la donnée brute en leviers de croissance durable en Afrique.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6">
@@ -886,242 +911,8 @@
         </div>
       </section>
 
-      <section class="py-24 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-          <p
-            id="t-partners-label"
-            class="text-xs font-black text-slate-400 uppercase tracking-[0.25em] mb-16"
-          >
-            TOLedo Consulting | Membre du Club des Dirigeants du Maroc
-          </p>
-        </div>
 
-        <!-- Subtle Background Decoration -->
-        <div
-          class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 skew-x-12 -z-10 opacity-60"
-        ></div>
-
-        <div class="max-w-7xl mx-auto px-6">
-          <!-- GRID LAYOUT: Text on Left, Image on Right -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <!-- LEFT COLUMN: Content -->
-            <div class="text-center lg:text-left">
-              <!-- Title -->
-              <h2
-                class="text-4xl md:text-5xl font-serif font-black text-toledo-blue mb-6 italic leading-tight"
-              >
-                Club des Dirigeants Maroc
-              </h2>
-
-              <!-- Description -->
-              <p
-                class="text-lg text-slate-600 font-light leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0"
-              >
-                Un puissant réseau d'affaires qui connecte les chefs
-                d'entreprises pour créer des synergies concrètes. Vous
-                construisez ainsi votre réseau professionnel directement avec
-                les décideurs locaux.
-              </p>
-
-              <!-- Stats Card -->
-              <div
-                class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10 text-left overflow-hidden relative group"
-              >
-                <!-- Hover Effect Gradient -->
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                ></div>
-
-                <h3
-                  class="text-blue-600 text-[11px] font-black uppercase tracking-[0.25em] mb-8 text-center relative z-10"
-                >
-                  Le CDD en Chiffres
-                </h3>
-
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 relative z-10"
-                >
-                  <!-- Stat 1 -->
-                  <div class="flex items-start gap-4">
-                    <div
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
-                    >
-                      <svg
-                        class="w-3.5 h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="3"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong class="block text-toledo-blue font-bold text-lg"
-                        >+ 6 000 Membres</strong
-                      >
-                      <span class="text-slate-500 text-sm font-light"
-                        >décideurs (PDG, DG, Cadres Supérieurs).</span
-                      >
-                    </div>
-                  </div>
-
-                  <!-- Stat 2 -->
-                  <div class="flex items-start gap-4">
-                    <div
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
-                    >
-                      <svg
-                        class="w-3.5 h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="3"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong class="block text-toledo-blue font-bold text-lg"
-                        >Présence Mondiale</strong
-                      >
-                      <span class="text-slate-500 text-sm font-light"
-                        >Représenté dans +30 pays sur 4 continents.</span
-                      >
-                    </div>
-                  </div>
-
-                  <!-- Stat 3 -->
-                  <div class="flex items-start gap-4">
-                    <div
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
-                    >
-                      <svg
-                        class="w-3.5 h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="3"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong class="block text-toledo-blue font-bold text-lg"
-                        >Ancrage Local</strong
-                      >
-                      <span class="text-slate-500 text-sm font-light"
-                        >Présent dans les 12 régions du Royaume.</span
-                      >
-                    </div>
-                  </div>
-
-                  <!-- Stat 4 -->
-                  <div class="flex items-start gap-4">
-                    <div
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
-                    >
-                      <svg
-                        class="w-3.5 h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="3"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong class="block text-toledo-blue font-bold text-lg"
-                        >Dynamisme</strong
-                      >
-                      <span class="text-slate-500 text-sm font-light"
-                        >17 commissions sectorielles et 10 cercles d'affaires
-                        actifs.</span
-                      >
-                    </div>
-                  </div>
-
-                  <!-- Stat 5 (Full Width) -->
-                  <div
-                    class="md:col-span-2 pt-4 border-t border-slate-100 flex flex-col md:flex-row items-center md:items-start gap-4 justify-center"
-                  >
-                    <div
-                      class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
-                    >
-                      <svg
-                        class="w-3.5 h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="3"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                    </div>
-                    <div class="text-center md:text-left">
-                      <strong class="block text-toledo-blue font-bold text-lg"
-                        >QG : Basé au Technopark Casablanca</strong
-                      >
-                      <span class="text-slate-500 text-sm font-light"
-                        >le cœur de l'innovation marocaine.</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                
-          <a
-          target="_blank"
-            href="https://www.clubdesdirigeants.ma/"
-            class="mt-16 btn-gate locked btn-primary inline-flex items-center bg-toledo-blue text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-blue-900 transition-all shadow-2xl gap-4 glow-effect"
-          >
-            Club des Dirigeant
-          </a>
-              </div>
-            </div>
-
-            <div
-              class="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl mt-10 lg:mt-0 group"
-            >
-              <!-- The animated wrapper -->
-              <div class="absolute inset-0 animate-slow-zoom">
-                <!-- Professional Meeting / Business Placeholder Image -->
-                <img
-                  src="./derigant_index.jpeg"
-                  alt="Réunion de affaires CDD"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"
-              ></div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-
+      
       <section id="adn" class="py-40 bg-white reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
@@ -1187,6 +978,410 @@
           </a>
         </div>
       </section>
+
+      <section class="py-24 bg-white relative overflow-hidden">
+        <!-- Styles nécessaires pour l'animation et les couleurs personnalisées -->
+        <style>
+          .text-toledo-blue {
+            color: #0f2b46;
+          }
+          .bg-toledo-blue {
+            background-color: #0f2b46;
+          }
+          @keyframes slow-zoom {
+            0% {
+              transform: scale(1);
+            }
+            100% {
+              transform: scale(1.1);
+            }
+          }
+          .animate-slow-zoom {
+            animation: slow-zoom 10s ease-in-out infinite alternate;
+          }
+        </style>
+
+        <!-- Background Decoration -->
+        <div
+          class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 skew-x-12 -z-10 opacity-60"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-6">
+          <!-- Header / Intro -->
+          <header class="text-center mb-20 max-w-3xl mx-auto">
+            <p
+              class="text-xxl font-black text-slate-400 uppercase tracking-[0.25em] mb-4"
+            >
+              TOLedo Consulting | Alliances Stratégiques & Croissance
+            </p>
+            <p
+              class="text-left text-lg md:text-xl text-slate-600 font-light mb-0 border-l-4 border-blue-500/60 pl-6 leading-relaxed"
+            >
+              Bâtir l'avenir économique du continent exige des alliances
+              solides. Nous connectons les décideurs et les talents au sein d'un
+              écosystème de confiance dédié à la création de valeur durable et à
+              l'émergence d'opportunités concrètes sur l'axe Maroc-Afrique.
+            </p>
+          </header>
+
+          <!-- === PARTNER 1: CDD (Consolidated Layout) === -->
+          <div class="mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+              <!-- LEFT COLUMN: Content & Stats (7/12) -->
+              <div class="lg:col-span-7 flex flex-col gap-8">
+                <div>
+                  <span
+                    class="text-blue-600 text-[20px] font-black uppercase tracking-widest mb-2 block"
+                  >
+                    Membre du Club des Dirigeants (CDD) Maroc
+                  </span>
+                  <h2
+                    class="text-3xl md:text-4xl font-serif font-black text-toledo-blue mb-6 italic leading-tight"
+                  >
+                    Réseautage et Opportunités d'Affaires
+                  </h2>
+                  <p class="text-lg text-slate-600 font-light leading-relaxed">
+               Le Club des Dirigeants s'affirme comme le catalyseur de croissance du chiffre d'affaires en connectant un écosystème d'entrepreneurs leaders. Il transforme les synergies stratégiques en opportunités concrètes pour bâtir un développement durable, où la performance économique et l'engagement responsable se rencontrent pour façonner l'avenir du Maroc et de l'Afrique.
+                  </p>
+                </div>
+
+                <!-- Stats Card -->
+                <div
+                  class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 relative overflow-hidden group"
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-r from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  ></div>
+
+                  <h3
+                    class="text-blue-600 text-[22px] font-black uppercase tracking-[0.25em] mb-8 text-center border-b border-slate-100 pb-4 relative z-10"
+                  >
+                    Le CDD en Chiffres
+                  </h3>
+
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 relative z-10"
+                  >
+                    <!-- Stat 1 -->
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
+                      >
+                        <svg
+                          class="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong class="block text-toledo-blue font-bold text-lg"
+                          >+ 6 000 Membres</strong
+                        >
+                        <span class="text-slate-500 text-sm font-light"
+                          >Décideurs (PDG, DG, Cadres Supérieurs).</span
+                        >
+                      </div>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
+                      >
+                        <svg
+                          class="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong class="block text-toledo-blue font-bold text-lg"
+                          >Présence Mondiale</strong
+                        >
+                        <span class="text-slate-500 text-sm font-light"
+                          >Représenté dans +30 pays sur 4 continents.</span
+                        >
+                      </div>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
+                      >
+                        <svg
+                          class="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong class="block text-toledo-blue font-bold text-lg"
+                          >Ancrage Local</strong
+                        >
+                        <span class="text-slate-500 text-sm font-light"
+                          >Présent dans les 12 régions du Royaume.</span
+                        >
+                      </div>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mt-1"
+                      >
+                        <svg
+                          class="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <strong class="block text-toledo-blue font-bold text-lg"
+                          >Dynamisme</strong
+                        >
+                        <span class="text-slate-500 text-sm font-light"
+                          >17 commissions sectorielles et 10 cercles d'affaires
+                          actifs.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-10 text-center">
+                    <a
+                      target="_blank"
+                      href="https://www.clubdesdirigeants.ma/"
+                      class="btn-primary inline-flex items-center justify-center bg-toledo-blue text-white px-8 py-3 rounded-full font-black uppercase tracking-[0.15em] text-xs hover:bg-blue-900 transition-all shadow-lg gap-4"
+                    >
+                      Visiter le Club des Dirigeants
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT COLUMN: Visuals (5/12) -->
+              <div class="lg:col-span-5 flex flex-col gap-6">
+                <!-- Logo Image -->
+                <div
+                  class="relative overflow-hidden shadow-lg h-64 bg-slate-100"
+                >
+                  <div
+                    class="absolute inset-0 flex items-center justify-center p-8"
+                  >
+                    <img
+                      src="./logo_cdd.png"
+                      alt="Logo CDD"
+                      class="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <!-- Meeting Image -->
+                <div
+                  class="relative overflow-hidden shadow-2xl h-80 group flex-grow"
+                >
+                  <div class="absolute inset-0 animate-slow-zoom">
+                    <img
+                      src="./derigant_index.jpeg"
+                      alt="Réunion CDD"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- === PARTNER 2: ZB CONSULTING === -->
+          <div class="mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <!-- LEFT: Content -->
+              <div class="order-2 lg:order-1">
+                <div
+                  class="relative overflow-hidden shadow-2xl h-[450px] group"
+                >
+                  <div class="absolute inset-0 animate-slow-zoom">
+                    <img
+                      src="./zbc_consulting.jpeg"
+                      alt="ZB Consulting Partnership"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"
+                  ></div>
+                </div>
+              </div>
+
+              <!-- RIGHT: Content -->
+              <div class="order-1 lg:order-2 text-center lg:text-left">
+                <span
+                  class="text-blue-600 text-[20px] font-black uppercase tracking-widest mb-2 block"
+                >
+                  Partenariat Stratégique
+                </span>
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-black text-toledo-blue mb-4 italic leading-tight"
+                >
+                  Toledo Consulting & ZB Consulting
+                </h2>
+                <h4 class="text-xl font-bold text-slate-700 mb-2">
+                  Le Pont Maroc-Afrique Centrale
+                </h4>
+                <p
+                  class="text-sm text-slate-500 font-bold uppercase tracking-wide mb-6"
+                >
+                  Expertise Zone CEMAC (Centrafrique, Congo, BEAC)
+                </p>
+
+                <p
+                  class="text-lg text-slate-600 font-light leading-relaxed mb-6"
+                >
+                  Pour bâtir l'avenir économique du continent, Toledo Consulting
+                  unit ses forces à ZB Consulting, cabinet de référence en zone
+                  CEMAC. Une expertise multidisciplinaire au service de votre
+                  croissance :
+                </p>
+
+                <ul
+                  class="text-slate-600 font-light space-y-4 mb-8 text-left inline-block"
+                >
+                  <li class="flex items-start gap-3">
+                    <span class="text-blue-500 font-bold mt-1">•</span>
+                    <span
+                      ><strong>Ancrage Régional Fort :</strong> Présence à
+                      Casablanca, Bangui, Brazzaville et Paris.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-blue-500 font-bold mt-1">•</span>
+                    <span
+                      ><strong>Secteurs de Pointe :</strong> Santé (AKDITAL),
+                      Énergie (CAPS - CEMAC) et Hydrocarbures.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-blue-500 font-bold mt-1">•</span>
+                    <span
+                      ><strong>Ingénierie Financière :</strong> Accompagnement
+                      BEAC, BGFI Bank et Institutions.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- === PARTNER 3: ESCM STRASBOURG === -->
+          <div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <!-- LEFT: Content -->
+              <div>
+                <span
+                  class="text-blue-600 text-[20px] font-black uppercase tracking-widest mb-2 block"
+                >
+                  Développement du Capital Humain
+                </span>
+                <h2
+                  class="text-3xl md:text-4xl font-serif font-black text-toledo-blue mb-4 italic leading-tight"
+                >
+                  Partenariat ESCM Strasbourg
+                </h2>
+                <h4 class="text-xl font-bold text-slate-700 mb-2">
+                  Programmes de Formation Diplômante (MBA)
+                </h4>
+
+                <p
+                  class="text-lg text-slate-600 font-light leading-relaxed mb-6"
+                >
+                  Pour accompagner la montée en compétences des leaders, Toledo
+                  Consulting s'associe à l'ESCM Strasbourg pour lancer des
+                  programmes MBA transformant le potentiel humain en levier de
+                  performance.
+                </p>
+
+                <ul class="text-slate-600 font-light space-y-4 mb-8">
+                  <li class="flex items-start gap-3">
+                    <span class="text-blue-500 font-bold mt-1">•</span>
+                    <span
+                      ><strong>Transformation Digitale :</strong> Piloter
+                      l’innovation et la modernisation.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-blue-500 font-bold mt-1">•</span>
+                    <span
+                      ><strong>Finance & Gestion :</strong> Maîtriser
+                      l'ingénierie financière.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-blue-500 font-bold mt-1">•</span>
+                    <span
+                      ><strong>Vente & Force Commerciale :</strong> Optimiser
+                      les stratégies de croissance.</span
+                    >
+                  </li>
+                </ul>
+
+                <blockquote
+                  class="border-l-4 border-toledo-blue pl-4 italic text-slate-500 text-sm"
+                >
+                  "La croissance durable d'une entreprise repose avant tout sur
+                  la valeur de son Capital Humain."
+                </blockquote>
+              </div>
+
+              <!-- RIGHT: Content -->
+              <div class="relative overflow-hidden shadow-2xl h-[450px] group">
+                <div class="absolute inset-0 animate-slow-zoom">
+                  <img
+                    src="./escm.jpeg"
+                    alt="ESCM Strasbourg Partnership"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <section id="investir" class="py-40 bg-slate-50 reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1887,7 +2082,7 @@
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <a
-              href="mailto:contact@toledoconsulting.ma"
+              href="mailto:manager@toledoconsulting.ma"
               class="group p-12 border-2 border-white/10 hover:bg-white/5 hover:border-blue-500/50 transition-all rounded-2xl flex flex-col items-center justify-center gap-8 hover-lift"
             >
               <svg
@@ -1953,6 +2148,20 @@
     </footer>
 
     <script>
+      // =====================================================
+      // CONFIGURATION EMAILJS
+      // Remplacez ces valeurs par celles de votre compte EmailJS
+      // =====================================================
+      const EMAILJS_PUBLIC_KEY = "vhZKuGh6kdxOAyuvN"; // Ex: "user_abc123xyz"
+      const EMAILJS_SERVICE_ID = "service_07hltyp"; // Ex: "service_gmail"
+      const EMAILJS_TEMPLATE_ID = "template_gkyhlph"; // Ex: "template_contact"
+      // =====================================================
+
+      // Initialisation d'EmailJS
+      (function () {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+      })();
+
       // === 1. DONNÉES DE TRADUCTION ===
       const translations = {
         fr: {
@@ -2377,36 +2586,65 @@
         });
       });
 
-      // === 4. GESTION DES FORMULAIRES (MOCKUP) ===
+      // === 4. GESTION DES FORMULAIRES AVEC EMAILJS ===
       function handleFormSubmit(event) {
         event.preventDefault();
         const form = event.target;
-        const category = form.dataset.category || "Formulaire";
+        const category = form.dataset.category || "Contact";
         const btn = form.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
 
-        // Simulation d'envoi
+        // Création d'un champ caché pour inclure la catégorie dans l'email
+        const categoryInput = document.createElement("input");
+        categoryInput.type = "hidden";
+        categoryInput.name = "category";
+        categoryInput.value = category;
+        form.appendChild(categoryInput);
+
+        // État de chargement
         btn.innerHTML = '<span class="animate-pulse">Envoi en cours...</span>';
         btn.disabled = true;
 
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.disabled = false;
-          form.reset();
-          showToast(
-            `Succès ! Votre demande pour "${category}" a bien été reçue.`
-          );
-        }, 1500);
+        // Envoi via EmailJS
+        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form).then(
+          function () {
+            // Succès
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            form.reset();
+            // Retirer le champ caché
+            form.removeChild(categoryInput);
+            showToast(`Succès ! Votre demande "${category}" a bien été reçue.`);
+          },
+          function (error) {
+            // Erreur
+            console.error("FAILED...", error);
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            // Retirer le champ caché
+            form.removeChild(categoryInput);
+            showToast(
+              "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+              true
+            );
+          }
+        );
       }
 
       // === 5. TOAST NOTIFICATION SYSTEM ===
-      function showToast(message) {
+      function showToast(message, isError = false) {
         const container = document.getElementById("toast-container");
         const toast = document.createElement("div");
-        toast.className = "toast";
+        toast.className = `toast ${isError ? "error" : ""}`;
+
+        let iconColor = isError ? "bg-red-500" : "bg-blue-500";
+        let iconSvg = isError
+          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
+          : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>';
+
         toast.innerHTML = `
-                <div class="bg-blue-500 rounded-full p-2 text-white shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <div class="${iconColor} rounded-full p-2 text-white shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">${iconSvg}</svg>
                 </div>
                 <p class="font-medium text-slate-700">${message}</p>
             `;
