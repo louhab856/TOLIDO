@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Études de Marché & Intelligence Stratégique | Toledo Consulting</title>
+    <meta name="description" content="Expertise en intelligence de marché en Afrique. Téléchargez notre Livre Blanc exclusif après consultation. Référence : Programme ÉFIA Canada NB." />
+
+    <!-- Tracking -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "VOTRE_ID_PIXEL");
+      fbq("track", "PageView");
+    </script>
+
+    <!-- Assets & Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.5.0/css/flag-icons.min.css"
+      integrity="sha512-+WVTaUIzUw5LFzqIqXOT3JVAc5SrMuvHm230I9QAZa6s+QRk8NDPswbHo2miIZj3yiFyV9lAgzO1wVrjdoO4tw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+              arabic: ["Cairo", "sans-serif"],
+            },
+            colors: {
+              toledo: {
+                blue: "#0A192F",
+                gold: "#C5A059",
+                accent: "#3B82F6",
+                dark: "#020c1b",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* ... Base Styles from previous design ... */
+      * { box-sizing: border-box; }
+      body { background: #ffffff; color: #1e293b; overflow-x: hidden; }
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.active { opacity: 1; transform: translateY(0); }
+      
+      .sidebar-nav {
+        position: fixed; right: 2rem; top: 50%; transform: translateY(-50%);
+        z-index: 50; display: flex; flex-direction: column; gap: 1.25rem;
+        background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
+        padding: 1.75rem 1rem; border-radius: 50px; border: 1px solid rgba(0,0,0,0.06);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      }
+      html[dir="rtl"] .sidebar-nav { right: auto; left: 2rem; }
+      .sidebar-dot {
+        width: 10px; height: 10px; background: rgba(10, 25, 47, 0.25); border-radius: 50%;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: pointer; position: relative;
+      }
+      .sidebar-dot:hover, .sidebar-dot.active {
+        background: #3b82f6; transform: scale(1.6); box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+      }
+      .sidebar-tooltip {
+        position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
+        background: #0a192f; color: white; padding: 8px 16px; border-radius: 6px;
+        font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+        white-space: nowrap; opacity: 0; visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .sidebar-tooltip::after {
+        content: ""; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+        border: 6px solid transparent; border-left-color: #0a192f;
+      }
+      html[dir="rtl"] .sidebar-tooltip { right: auto; left: 40px; }
+      html[dir="rtl"] .sidebar-tooltip::after { right: auto; left: -6px; border-left-color: transparent; border-right-color: #0a192f; }
+      .sidebar-dot:hover .sidebar-tooltip { opacity: 1; visibility: visible; }
+      html[dir="ltr"] .sidebar-dot:hover .sidebar-tooltip { right: 50px; }
+      html[dir="rtl"] .sidebar-dot:hover .sidebar-tooltip { left: 50px; }
+      @media (max-width: 1024px) { .sidebar-nav { display: none; } }
+
+      header { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06); border-bottom: 1px solid rgba(0, 0, 0, 0.04); height: 5rem;
+      }
+      header.scrolled h1 span { font-size: 1.5rem; }
+
+      .form-input {
+        transition: all 0.3s ease; border: 1.5px solid #e2e8f0; background: #f8fafc;
+      }
+      .form-input:focus {
+        background: #fff; border-color: #3b82f6;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08); outline: none; transform: translateY(-2px);
+      }
+  #preloader {
+        position: fixed;
+        inset: 0;
+        background: #0a192f;
+        z-index: 9999;
+
+        /* This ensures perfect centering */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+      .video-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(135deg, #0a192f 0%, rgba(10, 25, 47, 0.95) 50%, rgba(10, 25, 47, 0.7) 100%);
+      }
+      .hover-lift { transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+      .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15); }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      .floating { animation: float 6s ease-in-out infinite; }
+      .gradient-text {
+        background: linear-gradient(135deg, #0a192f 0%, #3b82f6 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      }
+      .btn-primary {
+        position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 1;
+      }
+      .btn-primary::before {
+        content: ""; position: absolute; inset: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        transform: translateX(-100%); transition: transform 0.6s ease; z-index: -1;
+      }
+      .btn-primary:hover::before { transform: translateX(100%); }
+      .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans">
+    <div id="preloader">
+      <img
+        src="./TOLEDO-consulting.png"
+        alt="Toledo Consulting"
+        class="floating"
+        style="max-width: 250px; width: 100%; height: auto; display: block"
+      />
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Navigation Rapide">
+      <a href="#hero" class="sidebar-dot active" data-target="hero"><span class="sidebar-tooltip">Accueil</span></a>
+      <a href="#whitepaper" class="sidebar-dot" data-target="whitepaper"><span class="sidebar-tooltip">Livre Blanc</span></a>
+      <a href="#brei-case" class="sidebar-dot" data-target="brei-case"><span class="sidebar-tooltip">Case Study</span></a>
+      <a href="#form-section" class="sidebar-dot" data-target="form-section"><span class="sidebar-tooltip">Télécharger</span></a>
+    </nav>
+
+    <header id="main-header" class="fixed w-full top-0 z-20 bg-white/90 backdrop-blur-xl border-b border-transparent h-28 flex items-center">
+      <div class="max-w-7xl mx-auto w-full px-6 lg:px-8">
+        <div class="flex justify-between items-center w-full">
+          <a href="#" class="group flex-shrink-70">
+           <img
+        src="./TOLEDO-consulting.png"
+        alt="Toledo Consulting"
+        style="max-width: 250px; width: 100%; height: auto; display: block"
+      />
+          </a>
+
+          <nav class="hidden xl:flex space-x-10 items-center">
+            <a href="#whitepaper" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+              <span>Ressource</span>
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#brei-case" class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group">
+              <span>Expertise</span>
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+            </a>
+          </nav>
+
+          <div class="flex items-center space-x-16 ml-12">
+            <a href="#form-section" class="btn-primary mr-4 group bg-toledo-blue text-white px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.15em] hover:bg-blue-800 transition-all shadow-2xl flex items-center gap-3">
+              <span>Accès Gratuit</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-28">
+      <!-- HERO SECTION -->
+      <section id="hero" class="relative flex items-center bg-toledo-blue overflow-hidden" style="height: 70vh; min-height: 450px;">
+        <div class="absolute inset-0 z-0">
+          <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover">
+             <source src="./video.mp4" type="video/mp4" />
+          </video>
+          <div class="video-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-white">
+          <div class="max-w-5xl reveal active">
+             <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 backdrop-blur-xl mb-10">
+               <span class="relative flex h-2.5 w-2.5">
+                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400"></span>
+               </span>
+               <span class="text-blue-300 text-[11px] font-black uppercase tracking-[0.25em]">Intelligence de Marché</span>
+             </div>
+
+            <h1 class="text-4xl md:text-6xl font-serif font-black leading-[0.9] mb-12 italic">
+              Intelligence <br />
+              <span class="text-blue-400 not-italic gradient-text">Stratégique</span> Afrique.
+            </h1>
+
+            <p class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-14 max-w-3xl border-l-4 border-blue-500/60 pl-8">
+              De la Donnée à la Décision : Sécurisez vos investissements au Maroc et sur le continent.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHITEPAPER GATED CONTENT -->
+      <section id="whitepaper" class="py-24 bg-white reveal relative z-20 -mt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="bg-toledo-blue rounded-2xl shadow-2xl overflow-hidden border border-toledo-gold/30 flex flex-col md:flex-row items-center">
+             <div class="p-12 md:p-20 md:w-2/3 text-white relative z-10">
+               <div class="absolute top-0 right-0 w-64 h-64 bg-toledo-gold/20 rounded-full blur-3xl"></div>
+               <h2 class="text-3xl md:text-4xl font-serif font-black mb-6 italic">
+                 Livre Blanc <span class="text-toledo-gold">Offert</span>
+               </h2>
+               <h3 class="text-xl md:text-2xl font-bold mb-6 leading-tight">
+                 "Réussir son expansion éducative et commerciale en Afrique : Le guide des décideurs."
+               </h3>
+               <p class="text-blue-100 mb-8 font-light text-lg">
+                 Découvrez les leviers de croissance identifiés lors de nos mandats internationaux pour le Nouveau-Brunswick (Canada).
+               </p>
+               <a href="#form-section" class="btn-primary inline-flex items-center justify-center bg-white text-toledo-blue px-10 py-4 rounded-full font-black uppercase tracking-[0.15em] text-sm hover:bg-slate-100 transition-all shadow-xl">
+                 Accéder au téléchargement
+               </a>
+               <p class="text-xs text-blue-300 mt-4 uppercase tracking-widest text-center md:text-left">(Après validation du formulaire)</p>
+             </div>
+             <div class="md:w-1/3 h-64 md:h-auto relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-60 mix-blend-overlay" alt="Book">
+                <div class="absolute inset-0 bg-gradient-to-l from-transparent via-toledo-blue/50 to-toledo-blue"></div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CASE STUDY BREI -->
+      <section id="brei-case" class="py-40 bg-slate-50 reveal">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+           <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+              <div class="space-y-8">
+                <span class="inline-block bg-red-600 text-white px-4 py-1.5 rounded text-xs font-black uppercase tracking-widest shadow-lg">
+                  Mandat Gouvernemental
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif font-black text-toledo-blue italic leading-tight">
+                  Programme <br/>ÉFIA Canada NB
+                </h2>
+                <div class="text-xl text-slate-600 font-light leading-relaxed space-y-6">
+                  <p>
+                    Toledo Consulting a été mandaté par le <strong class="text-toledo-blue">Bureau des Relations et de l'Éducation internationales (BREI)</strong> du ministère de l'Éducation du Nouveau-Brunswick.
+                  </p>
+                  <div class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-toledo-gold">
+                    <ul class="space-y-4">
+                      <li class="flex items-start gap-3">
+                        <span class="w-2 h-2 mt-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                        <span>Analyse comparative des modèles d'enseignement privé en Afrique.</span>
+                      </li>
+                      <li class="flex items-start gap-3">
+                        <span class="w-2 h-2 mt-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                        <span>Identification des facteurs stratégiques et leviers de croissance pour le positionnement du Programme ÉFIA.</span>
+                      </li>
+                      <li class="flex items-start gap-3">
+                        <span class="w-2 h-2 mt-2 rounded-full bg-blue-500 flex-shrink-0"></span>
+                        <span>Évaluation des opportunités émergentes dans les marchés cibles pour éclairer l'expansion internationale.</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <p class="text-sm text-slate-400 italic pl-4 border-l border-slate-200">
+                    Travail réalisé sous la direction de <strong>Julie Forest</strong>, Cheffe du secteur des opérations.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="relative group">
+                 <div class="absolute -inset-4 bg-gradient-to-br from-blue-600/20 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition duration-1000"></div>
+                 <div class="relative bg-white p-4 rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+                    <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?auto=format&fit=crop&q=80&w=1000" alt="Canada Project" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+                             <svg class="w-16 h-16 text-white opacity-80" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      <!-- FORM SECTION (Gated Logic) -->
+      <section id="form-section" class="py-40 bg-white reveal">
+        <div class="max-w-3xl mx-auto px-6 lg:px-8">
+          <div class="bg-slate-50 p-12 md:p-16 rounded-3xl shadow-2xl border border-slate-100 text-center relative overflow-hidden">
+            <!-- Decoration -->
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-toledo-gold to-blue-600"></div>
+
+            <h2 class="text-3xl md:text-4xl font-serif font-black text-toledo-blue mb-4 italic">Recevoir le Livre Blanc</h2>
+            <p class="text-slate-600 font-light text-lg mb-10 max-w-xl mx-auto">
+              Remplissez vos coordonnées pour débloquer le lien de téléchargement et planifier votre consultation.
+            </p>
+
+            <!-- FORM -->
+            <form action="https://formspree.io/f/manager@toledoconsulting.ma" method="POST" id="leadForm" class="text-left">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                 <div>
+                    <label class="block text-[11px] font-black uppercase text-slate-400 mb-2 tracking-[0.15em]">Nom et prénom *</label>
+                    <input type="text" name="nom" required class="form-input w-full p-4 rounded-xl focus:ring-0">
+                 </div>
+                 <div>
+                    <label class="block text-[11px] font-black uppercase text-slate-400 mb-2 tracking-[0.15em]">Entreprise *</label>
+                    <input type="text" name="entreprise" required class="form-input w-full p-4 rounded-xl focus:ring-0">
+                 </div>
+                 <div>
+                    <label class="block text-[11px] font-black uppercase text-slate-400 mb-2 tracking-[0.15em]">E-mail professionnel *</label>
+                    <input type="email" name="email" required class="form-input w-full p-4 rounded-xl focus:ring-0">
+                 </div>
+                 <div>
+                    <label class="block text-[11px] font-black uppercase text-slate-400 mb-2 tracking-[0.15em]">Téléphone</label>
+                    <input type="tel" name="telephone" class="form-input w-full p-4 rounded-xl focus:ring-0">
+                 </div>
+              </div>
+              <div class="mb-8">
+                 <label class="block text-[11px] font-black uppercase text-slate-400 mb-2 tracking-[0.15em]">Votre projet *</label>
+                 <textarea name="projet" rows="4" required placeholder="Décrivez brièvement votre projet..." class="form-input w-full p-4 rounded-xl focus:ring-0"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full bg-toledo-blue text-white py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-900 transition-all rounded-full shadow-2xl">
+                 Valider et Télécharger le Livre Blanc
+              </button>
+            </form>
+
+            <!-- SUCCESS MESSAGE (Hidden by default) -->
+            <div id="success-message" class="hidden text-left bg-white p-10 rounded-2xl shadow-inner border border-green-100">
+              <div class="flex items-center gap-4 mb-6 text-green-600">
+                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                 <h3 class="text-2xl font-serif font-bold">Merci ! Votre demande a été envoyée.</h3>
+              </div>
+              <p class="text-slate-600 mb-8">Cliquez ci-dessous pour télécharger votre ressource :</p>
+              <a href="URL_DE_VOTRE_LIVRE_BLANC.pdf" target="_blank" class="btn-primary inline-flex items-center justify-center gap-3 bg-green-600 text-white px-10 py-4 rounded-full font-bold hover:bg-green-700 transition-all shadow-lg">
+                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                 Télécharger le Livre Blanc (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-black py-12 border-t border-white/10 text-center">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-slate-500 text-[11px] uppercase tracking-[0.25em] font-black">
+          © 2026 Toledo Consulting
+        </p>
+        <p class="text-slate-600 text-[11px] mt-4 tracking-wide">
+          Expertise B2B en intelligence de marché, accréditation CAMES et ingénierie de formation.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // === 1. UI INTERACTION ===
+      document.addEventListener("DOMContentLoaded", () => {
+        const preloader = document.getElementById("preloader");
+        setTimeout(() => {
+          preloader.style.opacity = "0";
+          preloader.style.visibility = "hidden";
+        }, 1500);
+
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) header.classList.add("scrolled");
+          else header.classList.remove("scrolled");
+        });
+
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("active");
+          });
+        }, observerOptions);
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+        // Sidebar Active State
+        const sections = document.querySelectorAll("section");
+        const navDots = document.querySelectorAll(".sidebar-dot");
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 300) current = section.getAttribute("id");
+          });
+          navDots.forEach((dot) => {
+            dot.classList.toggle("active", dot.getAttribute("data-target") === current);
+          });
+        });
+      });
+
+      // === 2. GATED FORM LOGIC (From Code 3) ===
+      const form = document.getElementById('leadForm');
+      const successMessage = document.getElementById('success-message');
+
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        // Visual feedback during fetch
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span class="animate-pulse">Envoi en cours...</span>';
+        btn.disabled = true;
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            // Hide Form, Show Download Link
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Tracking
+            if(typeof gtag === 'function') { 
+              gtag('event', 'generate_lead', { 'event_label': 'Livre Blanc Etudes' }); 
+            }
+            if(typeof fbq === 'function') { fbq('track', 'Lead'); }
+          } else {
+            // Error handling
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            alert("Une erreur est survenue. Veuillez réessayer.");
+          }
+        } catch (error) {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          alert("Une erreur est survenue. Veuillez réessayer.");
+        }
+      };
+    </script>
+  </body>
+</html>
