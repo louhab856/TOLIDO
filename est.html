@@ -503,35 +503,164 @@
 
     <header
       id="main-header"
-      class="fixed w-full top-0 z-20 bg-white/90 backdrop-blur-xl border-b border-transparent h-28 flex items-center"
+      class="fixed w-full top-0 z-20 bg-white/90 backdrop-blur-xl border-b border-transparent h-28 flex items-center transition-all duration-300"
     >
       <div class="max-w-7xl mx-auto w-full px-6 lg:px-8">
         <div class="flex justify-between items-center w-full">
-          <a href="#" class="group flex-shrink-70">
-            <!-- <span
-              class="text-3xl font-black tracking-tighter text-toledo-blue group-hover:text-blue-700 transition-all duration-300"
-              >TOLEDO
-              <span class="text-blue-600 font-light">CONSULTING</span></span
-            > -->
-                        <img src="./TOLEDO-consulting.png" alt="" width="50%">
+          <nav class="hidden xl:flex space-x-6 items-center">
+            <img
+              src="./TOLEDO-consulting.png"
+              alt="TOLEDO Consulting"
+              class="w-40 h-auto cursor-pointer"
+              onclick="window.location.href = 'index.html'"
+            />
 
-          </a>
-
-          <nav class="hidden xl:flex space-x-10 items-center">
+            <!-- Link: ADN -->
             <a
-              href="#concept"
+              href="./adn.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
-              <span id="t-nav-concept">Concept</span>
+              <span id="t-nav-dna">ADN</span>
               <span
                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
               ></span>
             </a>
+
+            <!-- Link: Investir -->
             <a
-              href="#programme"
+              href="./investir_en_afrique.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
-              <span id="t-nav-programme">Programme</span>
+              <span id="t-nav-invest">Investir en afrique</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+
+            <!-- Link: Etudes -->
+            <a
+              href="./etudes.html"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-studies">Études sectorielles</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+
+            <!-- Link: Executive -->
+            <a
+              href="est.html"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-exec">Executive study Tour</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+
+            <!-- Dropdown: Éducation -->
+            <div class="relative group h-28 flex items-center">
+              <button
+                class="flex items-center gap-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative focus:outline-none"
+              >
+                <span id="t-nav-edu">Éducation</span>
+                <svg
+                  class="w-2.5 h-2.5 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+                <!-- Underline -->
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+                ></span>
+              </button>
+
+              <!-- Dropdown Content -->
+              <div
+                class="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50"
+              >
+                <div
+                  class="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl border border-slate-100 overflow-hidden"
+                >
+                  <a
+                    href="#education"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Accréditation CAMES
+                  </a>
+                  <a
+                    href="#schools"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Création d'écoles
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dropdown: Formation -->
+            <div class="relative group h-28 flex items-center">
+              <button
+                class="flex items-center gap-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative focus:outline-none"
+              >
+                <span id="t-nav-form">Formation</span>
+                <svg
+                  class="w-2.5 h-2.5 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+                <!-- Underline -->
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+                ></span>
+              </button>
+
+              <!-- Dropdown Content -->
+              <div
+                class="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50"
+              >
+                <div
+                  class="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl border border-slate-100 overflow-hidden"
+                >
+                  <a
+                    href="#formation"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Ingénierie de Formation
+                  </a>
+                  <a
+                    href="#catalogue"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Catalogue 2025
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Link: Etudes -->
+            <a
+              href="#blogs"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-studies">Blog</span>
               <span
                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
               ></span>

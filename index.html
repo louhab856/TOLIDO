@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -276,7 +276,9 @@
         justify-content: center;
         align-items: center;
 
-        transition: opacity 0.8s ease, visibility 0.8s ease;
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
       }
       /* Lang Switcher */
 
@@ -512,12 +514,13 @@
             <img
               src="./TOLEDO-consulting.png"
               alt="TOLEDO Consulting"
-              class="w-40 h-auto"
+              class="w-40 h-auto cursor-pointer"
+              onclick="window.location.href = 'index.html'"
             />
 
             <!-- Link: ADN -->
             <a
-              href="#adn"
+              href="./adn.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
               <span id="t-nav-dna">ADN</span>
@@ -528,7 +531,7 @@
 
             <!-- Link: Investir -->
             <a
-              href="#investir"
+              href="./investir_en_afrique.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
               <span id="t-nav-invest">Investir en afrique</span>
@@ -539,7 +542,7 @@
 
             <!-- Link: Etudes -->
             <a
-              href="#etudes"
+              href="./etudes.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
               <span id="t-nav-studies">Études sectorielles</span>
@@ -550,7 +553,7 @@
 
             <!-- Link: Executive -->
             <a
-              href="#executive"
+              href="est.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
               <span id="t-nav-exec">Executive study Tour</span>
@@ -784,16 +787,16 @@
               id="t-hero-desc"
               class="text-xl md:text-1xl text-slate-300 font-light leading-relaxed mb-14 max-w-3xl border-l-4 border-blue-500/60 pl-8"
             >
-              Nous sécurisons vos investissements en transformant la donnée
-              brute en leviers de croissance durable en Afrique.
+              Nous sécurisons vos investissements en transformant chaque
+              opportunité en levier de croissance durable en Afrique.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6">
               <a
-                href="#investir"
+                href="#contact"
                 class="btn-primary inline-flex items-center justify-center bg-white text-toledo-blue px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-xs hover:bg-slate-100 transition-all shadow-2xl glow-effect"
               >
-                <span id="t-cta-start">Démarrer un projet</span>
+                <span id="t-cta-start">Démarrez un projet</span>
               </a>
               <a
                 href="#announcements"
@@ -880,7 +883,7 @@
                     href="#contact"
                     class="btn-primary bg-blue-600 text-white px-10 py-5 rounded-full font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-700 transition-all shadow-xl glow-effect"
                   >
-                    <span id="t-news-cta">Réserver ma place</span>
+                    <span id="t-news-cta">Réservez ma place</span>
                   </a>
                   <a
                     href="#"
@@ -899,7 +902,7 @@
                         d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                       ></path>
                     </svg>
-                    <span id="t-news-download">Télécharger le programme</span>
+                    <span id="t-news-download">Téléchargez le programme</span>
                   </a>
                 </div>
               </div>
@@ -946,10 +949,11 @@
                   >
                 </p>
                 <p id="t-dna-desc">
-                  J’ai toujours considéré l’Afrique non pas comme un continent
-                  de défis, mais comme une mosaïque d’opportunités exigeant du
-                  respect, de la rigueur et une approche profondément ancrée
-                  dans les réalités locales.
+                  Je vois l’Afrique comme un carrefour de promesses plutôt que
+                  comme une somme de défis. Ma démarche repose sur une
+                  conviction simple : pour libérer la valeur de cette mosaïque
+                  de talents, il faut savoir allier l'exigence professionnelle à
+                  une compréhension intime des contextes locaux
                 </p>
               </div>
             </div>
@@ -1026,11 +1030,6 @@
                   >
                     Toledo Consulting, Membre du Club des Dirigeants (CDD) Maroc
                   </span>
-                  <!-- <h2
-                    class="text-3xl md:text-4xl font-serif font-black text-toledo-blue mb-6 italic leading-tight"
-                  >
-                    Réseautage et Opportunités d'Affaires
-                  </h2> -->
                   <p class="text-lg text-slate-600 font-light leading-relaxed">
                     Le Club des Dirigeants s'affirme comme le catalyseur de
                     croissance du chiffre d'affaires en connectant un écosystème
@@ -1178,7 +1177,7 @@
                       href="https://www.clubdesdirigeants.ma/"
                       class="btn-primary inline-flex items-center justify-center bg-toledo-blue text-white px-8 py-3 rounded-full font-black uppercase tracking-[0.15em] text-xs hover:bg-blue-900 transition-all shadow-lg gap-4"
                     >
-                      Visiter le Club des Dirigeants
+                      Visitez le Club des Dirigeants
                     </a>
                   </div>
                 </div>
@@ -1395,18 +1394,6 @@
                   "La croissance durable d'une entreprise repose avant tout sur
                   la valeur de son Capital Humain."
                 </blockquote>
-
-                <!-- <div class="relative h-64">
-                  <div
-                    class="absolute inset-0 flex items-center justify-center p-8"
-                  >
-                    <img
-                      src="./bonoit_djian.jpeg"
-                      alt="Logo CDD"
-                      class="max-w-full max-h-full object-contain"
-                    />
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>
@@ -1610,9 +1597,7 @@
                     type="submit"
                     class="btn-primary w-full bg-white text-toledo-blue py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-50 transition-all rounded-full shadow-2xl"
                   >
-                    <span class="t-form-proposal"
-                      >Recevoir une proposition</span
-                    >
+                    <span class="t-form-proposal">Recevez une proposition</span>
                   </button>
                 </div>
               </form>
@@ -1645,7 +1630,7 @@
               </p>
               <div
                 class="p-10 bg-slate-50 border-l-4 border-blue-600 mb-12 rounded-xl"
-                onclick="window.location.href='./etudes.html'"
+                onclick="window.location.href = './etudes.html'"
                 style="cursor: pointer"
               >
                 <h5
@@ -1670,138 +1655,144 @@
         </div>
       </section>
 
-     <section
+      <section
         id="executive"
         class="py-20 md:py-32 lg:py-40 bg-toledo-blue text-white relative overflow-hidden flex items-center justify-center reveal min-h-screen"
-    >
+      >
         <!-- Background Image & Overlay -->
         <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
-            <img
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=2000"
-                class="w-full h-full object-cover"
-                alt="Background"
-            />
+          <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=2000"
+            class="w-full h-full object-cover"
+            alt="Background"
+          />
         </div>
         <div
-            class="absolute inset-0 bg-gradient-to-t from-toledo-blue via-toledo-blue/95 to-transparent pointer-events-none"
+          class="absolute inset-0 bg-gradient-to-t from-toledo-blue via-toledo-blue/95 to-transparent pointer-events-none"
         ></div>
 
         <!-- Grid Container: 1 Column on Mobile, 2 Columns on Desktop -->
         <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                
-                <!-- LEFT COLUMN: Text Content -->
-                <div class="flex flex-col order-2 lg:order-1 text-center lg:text-left animate-fade-in-up">
-                    
-                    <!-- Badge -->
-                    <span
-                        class="inline-block py-2 px-5 border border-blue-400/30 rounded-full text-blue-400 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-6 md:mb-8 w-fit mx-auto lg:mx-0 bg-blue-900/20 backdrop-blur-sm"
-                        id="t-exec-badge"
-                    >
-                        04 — Expérience Immersive
-                    </span>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+          >
+            <!-- LEFT COLUMN: Text Content -->
+            <div
+              class="flex flex-col order-2 lg:order-1 text-center lg:text-left animate-fade-in-up"
+            >
+              <!-- Badge -->
+              <span
+                class="inline-block py-2 px-5 border border-blue-400/30 rounded-full text-blue-400 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-6 md:mb-8 w-fit mx-auto lg:mx-0 bg-blue-900/20 backdrop-blur-sm"
+                id="t-exec-badge"
+              >
+                04 — Expérience Immersive
+              </span>
 
-                    <!-- Title -->
-                    <h2
-                        id="t-exec-title"
-                        class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 lg:mb-8 italic leading-tight"
-                    >
-                        Executive <span class="text-blue-400 not-italic">Study Tour</span>
-                    </h2>
+              <!-- Title -->
+              <h2
+                id="t-exec-title"
+                class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 lg:mb-8 italic leading-tight"
+              >
+                Executive
+                <span class="text-blue-400 not-italic">Study Tour</span>
+              </h2>
 
-                    <!-- Description Paragraph -->
-                    <div class="relative">
-                        <div class="absolute -left-0 lg:-left-6 top-0 bottom-0 w-1 bg-blue-500/40 hidden lg:block"></div>
-                        <p
-                            class="text-base md:text-lg text-slate-300 font-light leading-relaxed mb-8 lg:mb-10 border-l-4 border-blue-500/60 pl-4 lg:pl-0 lg:border-0 text-justify lg:text-left"
-                        >
-                            La Stratégie d'Investissement par l'Immersion Le Concept : Business,
-                            Culture et Réalité de Terrain Chez Toledo Consulting, nous sommes
-                            convaincus que les décisions d'investissement en Afrique ne peuvent
-                            être pérennes que si elles s'appuient sur une compréhension intime
-                            des écosystèmes locaux. L’Executive Study Tour (EST) est notre
-                            réponse à cette exigence : un programme exclusif et sur mesure,
-                            conçu pour fusionner l'exploration de la culture locale avec
-                            l'identification d'opportunités d'affaires de premier plan. Plus
-                            qu'un simple voyage d'affaires, l'EST est une immersion d'excellence
-                            « de l'intérieur ». Ce parcours est dédié aux chefs d'entreprise et
-                            investisseurs visionnaires qui cherchent à s'implanter durablement
-                            et avec succès sur le continent.
-                        </p>
-                    </div>
+              <!-- Description Paragraph -->
+              <div class="relative">
+                <div
+                  class="absolute -left-0 lg:-left-6 top-0 bottom-0 w-1 bg-blue-500/40 hidden lg:block"
+                ></div>
+                <p
+                  class="text-base md:text-lg text-slate-300 font-light leading-relaxed mb-8 lg:mb-10 border-l-4 border-blue-500/60 pl-4 lg:pl-0 lg:border-0 text-justify lg:text-left"
+                >
+                  La Stratégie d'Investissement par l'Immersion Le Concept :
+                  Business, Culture et Réalité de Terrain Chez Toledo
+                  Consulting, nous sommes convaincus que les décisions
+                  d'investissement en Afrique ne peuvent être pérennes que si
+                  elles s'appuient sur une compréhension intime des écosystèmes
+                  locaux. L’Executive Study Tour (EST) est notre réponse à cette
+                  exigence : un programme exclusif et sur mesure, conçu pour
+                  fusionner l'exploration de la culture locale avec
+                  l'identification d'opportunités d'affaires de premier plan.
+                  Plus qu'un simple voyage d'affaires, l'EST est une immersion
+                  d'excellence « de l'intérieur ». Ce parcours est dédié aux
+                  chefs d'entreprise et investisseurs visionnaires qui cherchent
+                  à s'implanter durablement et avec succès sur le continent.
+                </p>
+              </div>
 
-                    <!-- CTA Button -->
-                    <div class="mt-2">
-                        <a
-                            href="#"
-                            class="btn-gate locked btn-primary inline-flex items-center justify-center bg-white text-toledo-blue px-8 md:px-12 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-blue-50 transition-all shadow-2xl glow-effect gap-3 group"
-                            onclick="handleGateClick(this)"
-                        >
-                            <svg
-                                class="w-5 h-5 transition-transform group-hover:translate-x-1"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                                ></path>
-                            </svg>
-                            <span id="t-exec-program">Programme complet</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- RIGHT COLUMN: Video/Image Container -->
-                <div class="order-1 lg:order-2 flex justify-center lg:justify-end w-full animate-fade-in-up" style="animation-delay: 0.2s;">
-                    <div
-                        class="relative w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer transform hover:scale-[1.01] transition-all duration-500"
-                        onclick="playVideo(this)"
-                    >
-                        <!-- Image Container (Aspect Ratio 16:9) -->
-                        <div class="relative w-full aspect-video bg-black">
-                            <!-- Placeholder Image -->
-                            <img
-                                src="https://images.unsplash.com/photo-1544531696-60c348e1d8a3?auto=format&fit=crop&q=80&w=1600"
-                                class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                                alt="Study Tour"
-                            />
-                            
-                            <!-- Overlay Gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                            <!-- Play Button Centered -->
-                            <div
-                                class="absolute inset-0 flex items-center justify-center transition-all duration-300"
-                            >
-                                <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500/80 transition-all duration-300 shadow-lg">
-                                    <svg
-                                        class="w-8 h-8 text-white ml-1 group-hover:scale-110 transition-transform"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Caption / Decorative element at bottom of video -->
-                        <div class="absolute bottom-4 left-6 right-6 flex justify-between items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white text-xs font-mono tracking-widest uppercase">Replay Video</span>
-                            <div class="h-1 flex-1 mx-4 bg-white/20 rounded-full overflow-hidden">
-                                <div class="h-full w-1/3 bg-blue-400"></div>
-                            </div>
-                            <span class="text-white text-xs font-mono">01:45</span>
-                        </div>
-                    </div>
-                </div>
-
+              <!-- CTA Button -->
+              <div class="mt-2">
+                <a
+                  href="#"
+                  class="btn-gate locked btn-primary inline-flex items-center justify-center bg-white text-toledo-blue px-8 md:px-12 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-blue-50 transition-all shadow-2xl glow-effect gap-3 group"
+                  onclick="handleGateClick(this)"
+                >
+                  <span id="t-exec-program">Programme complet</span>
+                </a>
+              </div>
             </div>
+
+            <!-- RIGHT COLUMN: Video/Image Container -->
+            <div
+              class="order-1 lg:order-2 flex justify-center lg:justify-end w-full animate-fade-in-up"
+              style="animation-delay: 0.2s"
+            >
+              <div
+                class="relative w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer transform hover:scale-[1.01] transition-all duration-500"
+                onclick="playVideo(this)"
+              >
+                <!-- Image Container (Aspect Ratio 16:9) -->
+                <div class="relative w-full aspect-video bg-black">
+                  <!-- Placeholder Image -->
+                  <img
+                    src="https://images.unsplash.com/photo-1544531696-60c348e1d8a3?auto=format&fit=crop&q=80&w=1600"
+                    class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                    alt="Study Tour"
+                  />
+
+                  <!-- Overlay Gradient -->
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                  ></div>
+                  <!-- Play Button Centered -->
+                  <div
+                    class="absolute inset-0 flex items-center justify-center transition-all duration-300"
+                  >
+                    <div
+                      class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500/80 transition-all duration-300 shadow-lg"
+                    >
+                      <svg
+                        class="w-8 h-8 text-white ml-1 group-hover:scale-110 transition-transform"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Caption / Decorative element at bottom of video -->
+                <div
+                  class="absolute bottom-4 left-6 right-6 flex justify-between items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  <span
+                    class="text-white text-xs font-mono tracking-widest uppercase"
+                    >Replay Video</span
+                  >
+                  <div
+                    class="h-1 flex-1 mx-4 bg-white/20 rounded-full overflow-hidden"
+                  >
+                    <div class="h-full w-1/3 bg-blue-400"></div>
+                  </div>
+                  <span class="text-white text-xs font-mono">01:45</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
       <section id="education" class="py-40 bg-slate-50 reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1809,7 +1800,7 @@
             <div>
               <span
                 id="t-edu-badge"
-                class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block"
+                class="text-blue-600 text-[20px] font-black uppercase tracking-[0.3em] mb-8 block"
                 >05 — Éducation</span
               >
               <h2
@@ -1897,19 +1888,6 @@
                 href="#"
                 class="btn-gate locked btn-primary inline-flex items-center bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-blue-700 transition-all shadow-2xl glow-effect gap-4"
               >
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                  ></path>
-                </svg>
                 <span id="t-edu-brief">Le Brief CAMES</span>
               </a>
             </div>
@@ -1946,7 +1924,7 @@
                   type="submit"
                   class="btn-primary w-full bg-toledo-blue text-white py-5 font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-900 transition-all rounded-full shadow-2xl glow-effect"
                 >
-                  <span class="t-form-submit">Soumettre</span>
+                  <span class="t-form-submit">Soumettez</span>
                 </button>
               </form>
             </div>
@@ -1988,19 +1966,6 @@
                   href="#"
                   class="btn-gate locked text-blue-600 font-black text-[11px] uppercase tracking-[0.15em] hover:underline flex items-center gap-3"
                 >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                    ></path>
-                  </svg>
                   <span id="t-train-catalog">Catalogue 2025</span>
                 </a>
               </div>
@@ -2058,7 +2023,7 @@
                     type="submit"
                     class="btn-primary w-full bg-white text-toledo-blue py-5 font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-50 transition-all shadow-2xl rounded-full"
                   >
-                    <span id="t-train-submit">Recevoir le programme</span>
+                    <span id="t-train-submit">Recevez le programme</span>
                   </button>
                 </form>
               </div>
@@ -2484,9 +2449,8 @@
 
         // Mettre à jour le drapeau affiché
         const flagMap = { fr: "fi-fr", en: "fi-us", ar: "fi-ma" };
-        document.getElementById(
-          "current-flag"
-        ).className = `fi ${flagMap[lang]}`;
+        document.getElementById("current-flag").className =
+          `fi ${flagMap[lang]}`;
 
         // Mettre à jour les états actifs
         document.querySelectorAll(".lang-btn").forEach((btn) => {
@@ -2498,7 +2462,7 @@
         // Le reste du code setLanguage reste identique
         document.documentElement.setAttribute(
           "dir",
-          lang === "ar" ? "rtl" : "ltr"
+          lang === "ar" ? "rtl" : "ltr",
         );
         document.documentElement.setAttribute("lang", lang);
 
@@ -2630,9 +2594,9 @@
             form.removeChild(categoryInput);
             showToast(
               "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
-              true
+              true,
             );
-          }
+          },
         );
       }
 

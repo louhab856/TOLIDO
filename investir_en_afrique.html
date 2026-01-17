@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -56,7 +56,7 @@
         window,
         document,
         "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
+        "https://connect.facebook.net/en_US/fbevents.js",
       );
       fbq("init", "VOTRE_ID_PIXEL");
       fbq("track", "PageView");
@@ -374,7 +374,9 @@
         justify-content: center;
         align-items: center;
 
-        transition: opacity 0.8s ease, visibility 0.8s ease;
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
       }
 
       /* Utilities */
@@ -520,34 +522,164 @@
 
     <header
       id="main-header"
-      class="fixed w-full top-0 z-20 bg-white/90 backdrop-blur-xl border-b border-transparent h-28 flex items-center"
+      class="fixed w-full top-0 z-20 bg-white/90 backdrop-blur-xl border-b border-transparent h-28 flex items-center transition-all duration-300"
     >
       <div class="max-w-7xl mx-auto w-full px-6 lg:px-8">
         <div class="flex justify-between items-center w-full">
-          <a href="#" class="group flex-shrink-70">
-            <!-- <span
-              class="text-3xl font-black tracking-tighter text-toledo-blue group-hover:text-blue-700 transition-all duration-300"
-              >TOLEDO
-              <span class="text-blue-600 font-light">CONSULTING</span></span
-            > -->
-            <img src="./TOLEDO-consulting.png" alt="" width="50%" />
-          </a>
+          <nav class="hidden xl:flex space-x-6 items-center">
+            <img
+              src="./TOLEDO-consulting.png"
+              alt="TOLEDO Consulting"
+              class="w-40 h-auto cursor-pointer"
+              onclick="window.location.href = 'index.html'"
+            />
 
-          <nav class="hidden xl:flex space-x-10 items-center">
+            <!-- Link: ADN -->
             <a
-              href="#services"
+              href="./adn.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
-              <span id="t-nav-services">Approche</span>
+              <span id="t-nav-dna">ADN</span>
               <span
                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
               ></span>
             </a>
+
+            <!-- Link: Investir -->
             <a
-              href="#case-study"
+              href="./investir_en_afrique.html"
               class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
             >
-              <span id="t-nav-case">Cas Concret</span>
+              <span id="t-nav-invest">Investir en afrique</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+
+            <!-- Link: Etudes -->
+            <a
+              href="./etudes.html"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-studies">Études sectorielles</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+
+            <!-- Link: Executive -->
+            <a
+              href="est.html"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-exec">Executive study Tour</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+
+            <!-- Dropdown: Éducation -->
+            <div class="relative group h-28 flex items-center">
+              <button
+                class="flex items-center gap-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative focus:outline-none"
+              >
+                <span id="t-nav-edu">Éducation</span>
+                <svg
+                  class="w-2.5 h-2.5 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+                <!-- Underline -->
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+                ></span>
+              </button>
+
+              <!-- Dropdown Content -->
+              <div
+                class="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50"
+              >
+                <div
+                  class="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl border border-slate-100 overflow-hidden"
+                >
+                  <a
+                    href="#education"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Accréditation CAMES
+                  </a>
+                  <a
+                    href="#schools"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Création d'écoles
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dropdown: Formation -->
+            <div class="relative group h-28 flex items-center">
+              <button
+                class="flex items-center gap-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative focus:outline-none"
+              >
+                <span id="t-nav-form">Formation</span>
+                <svg
+                  class="w-2.5 h-2.5 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+                <!-- Underline -->
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+                ></span>
+              </button>
+
+              <!-- Dropdown Content -->
+              <div
+                class="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50"
+              >
+                <div
+                  class="bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl border border-slate-100 overflow-hidden"
+                >
+                  <a
+                    href="#formation"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Ingénierie de Formation
+                  </a>
+                  <a
+                    href="#catalogue"
+                    class="block px-6 py-3 text-xs font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                  >
+                    Catalogue 2025
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Link: Etudes -->
+            <a
+              href="#blogs"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-studies">Blog</span>
               <span
                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
               ></span>
@@ -620,7 +752,6 @@
         </div>
       </div>
     </header>
-
     <main class="pt-28">
       <!-- HERO SECTION -->
       <section
@@ -691,124 +822,134 @@
       </section>
 
       <section id="services" class="py-40 bg-slate-50 reveal">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <!-- Header -->
+          <div class="mb-20">
+            <span
+              id="t-services-badge"
+              class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
+            >
+              01 — Notre Approche
+            </span>
 
-    <!-- Header -->
-    <div class="mb-20">
-      <span
-        id="t-services-badge"
-        class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
-      >
-        01 — Notre Approche
-      </span>
+            <h2
+              id="t-services-title"
+              class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
+            >
+              Une Croissance Durable
+            </h2>
 
-      <h2
-        id="t-services-title"
-        class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
-      >
-        Une Croissance Durable
-      </h2>
+            <p id="t-services-intro" class="text-slate-600 text-xl max-w-3xl">
+              Naviguer dans les marchés africains exige une expertise locale et
+              un réseau solide. Toledo Consulting transforme vos défis en
+              leviers de succès.
+            </p>
+          </div>
 
-      <p id="t-services-intro" class="text-slate-600 text-xl max-w-3xl">
-        Naviguer dans les marchés africains exige une expertise locale et
-        un réseau solide. Toledo Consulting transforme vos défis en
-        leviers de succès.
-      </p>
-    </div>
+          <!-- Texte descriptif -->
+          <div
+            class="max-w-4xl mb-24 text-slate-600 text-lg leading-relaxed space-y-6"
+          >
+            <p>
+              Le continent africain offre des opportunités d'investissement sans
+              précédent, mais naviguer dans ses marchés exige une expertise
+              locale, un réseau solide et une approche sur mesure. Chez
+              <strong class="text-toledo-blue">Toledo Consulting</strong>, nous
+              transformons ces défis en leviers de succès.
+            </p>
 
-    <!-- Texte descriptif -->
-    <div class="max-w-4xl mb-24 text-slate-600 text-lg leading-relaxed space-y-6">
-      <p>
-        Le continent africain offre des opportunités d'investissement sans
-        précédent, mais naviguer dans ses marchés exige une expertise locale,
-        un réseau solide et une approche sur mesure. Chez
-        <strong class="text-toledo-blue">Toledo Consulting</strong>, nous
-        transformons ces défis en leviers de succès.
-      </p>
+            <p class="font-medium text-toledo-blue">
+              Notre mission est de sécuriser et d'accélérer votre projet à
+              chaque étape clé :
+            </p>
 
-      <p class="font-medium text-toledo-blue">
-        Notre mission est de sécuriser et d'accélérer votre projet à chaque étape clé :
-      </p>
+            <ul class="space-y-4 pl-6 list-disc marker:text-blue-600">
+              <li>
+                <strong>Valider la viabilité de votre projet :</strong>
+                Analyses de marché, études de faisabilité et stratégie d'entrée.
+              </li>
+              <li>
+                <strong>Sécuriser le cadre juridique et financier :</strong>
+                Structuration de société, optimisation fiscale et conformité
+                réglementaire.
+              </li>
+              <li>
+                <strong>Connecter aux bons acteurs :</strong>
+                Accès à notre réseau de partenaires financiers, institutionnels
+                et opérationnels.
+              </li>
+              <li>
+                <strong>Piloter le déploiement opérationnel :</strong>
+                Coordination de projet, de l’implantation jusqu’au lancement.
+              </li>
+            </ul>
+          </div>
 
-      <ul class="space-y-4 pl-6 list-disc marker:text-blue-600">
-        <li>
-          <strong>Valider la viabilité de votre projet :</strong>
-          Analyses de marché, études de faisabilité et stratégie d'entrée.
-        </li>
-        <li>
-          <strong>Sécuriser le cadre juridique et financier :</strong>
-          Structuration de société, optimisation fiscale et conformité réglementaire.
-        </li>
-        <li>
-          <strong>Connecter aux bons acteurs :</strong>
-          Accès à notre réseau de partenaires financiers, institutionnels et opérationnels.
-        </li>
-        <li>
-          <strong>Piloter le déploiement opérationnel :</strong>
-          Coordination de projet, de l’implantation jusqu’au lancement.
-        </li>
-      </ul>
-    </div>
+          <!-- Choisir Toledo -->
+          <div class="mb-32 max-w-5xl">
+            <h2
+              class="text-6xl font-serif font-black text-toledo-blue mb-8 italic"
+            >
+              Choisir Toledo
+            </h2>
 
-    <!-- Choisir Toledo -->
-    <div class="mb-32 max-w-5xl">
-      <h2 class="text-6xl font-serif font-black text-toledo-blue mb-8 italic">
-        Choisir Toledo
-      </h2>
+            <p class="text-slate-600 text-xl mb-16">
+              <strong>Toledo Consulting</strong>, les piliers de votre réussite.
+              Notre engagement est simple : sécuriser et optimiser votre
+              investissement à travers un partenariat fondé sur l'efficacité et
+              la transparence.
+            </p>
 
-      <p class="text-slate-600 text-xl mb-16">
-        <strong>Toledo Consulting</strong>, les piliers de votre réussite.
-        Notre engagement est simple : sécuriser et optimiser votre investissement
-        à travers un partenariat fondé sur l'efficacité et la transparence.
-      </p>
+            <div class="space-y-12">
+              <div>
+                <h3 class="text-2xl font-black text-toledo-blue mb-3">
+                  Expertise Locale Approfondie
+                </h3>
+                <p class="text-slate-600 leading-relaxed">
+                  Loin des approches prêtes à l’emploi, notre équipe maîtrise
+                  les réglementations, les marchés et les réalités culturelles
+                  locales. Nous anticipons les obstacles et révélons les
+                  opportunités cachées.
+                </p>
+              </div>
 
-      <div class="space-y-12">
-        <div>
-          <h3 class="text-2xl font-black text-toledo-blue mb-3">
-            Expertise Locale Approfondie
-          </h3>
-          <p class="text-slate-600 leading-relaxed">
-            Loin des approches prêtes à l’emploi, notre équipe maîtrise les
-            réglementations, les marchés et les réalités culturelles locales.
-            Nous anticipons les obstacles et révélons les opportunités cachées.
-          </p>
-        </div>
+              <div>
+                <h3 class="text-2xl font-black text-toledo-blue mb-3">
+                  Un Réseau de Partenaires de Confiance
+                </h3>
+                <p class="text-slate-600 leading-relaxed">
+                  Avocats d'affaires, experts-comptables, opérateurs
+                  logistiques, institutions publiques : notre écosystème fiable
+                  accélère vos démarches et sécurise chaque phase de votre
+                  projet.
+                </p>
+              </div>
 
-        <div>
-          <h3 class="text-2xl font-black text-toledo-blue mb-3">
-            Un Réseau de Partenaires de Confiance
-          </h3>
-          <p class="text-slate-600 leading-relaxed">
-            Avocats d'affaires, experts-comptables, opérateurs logistiques,
-            institutions publiques : notre écosystème fiable accélère vos démarches
-            et sécurise chaque phase de votre projet.
-          </p>
-        </div>
+              <div>
+                <h3 class="text-2xl font-black text-toledo-blue mb-3">
+                  Des Solutions Sur Mesure
+                </h3>
+                <p class="text-slate-600 leading-relaxed">
+                  Chaque projet est unique. Nous concevons des stratégies
+                  personnalisées, parfaitement alignées avec votre vision, vos
+                  objectifs et votre budget.
+                </p>
+              </div>
 
-        <div>
-          <h3 class="text-2xl font-black text-toledo-blue mb-3">
-            Des Solutions Sur Mesure
-          </h3>
-          <p class="text-slate-600 leading-relaxed">
-            Chaque projet est unique. Nous concevons des stratégies personnalisées,
-            parfaitement alignées avec votre vision, vos objectifs et votre budget.
-          </p>
-        </div>
+              <div>
+                <h3 class="text-2xl font-black text-toledo-blue mb-3">
+                  Un Accompagnement Personnalisé
+                </h3>
+                <p class="text-slate-600 leading-relaxed">
+                  Un consultant dédié vous accompagne comme interlocuteur
+                  unique, garantissant une communication fluide, une réactivité
+                  constante et une coordination sans faille.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <div>
-          <h3 class="text-2xl font-black text-toledo-blue mb-3">
-            Un Accompagnement Personnalisé
-          </h3>
-          <p class="text-slate-600 leading-relaxed">
-            Un consultant dédié vous accompagne comme interlocuteur unique,
-            garantissant une communication fluide, une réactivité constante
-            et une coordination sans faille.
-          </p>
-        </div>
-      </div>
-    </div>
-
-   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <!-- Card 1 -->
             <div
               class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift card-shine"
@@ -906,14 +1047,8 @@
               </p>
             </div>
           </div>
-    
-  </div>
-</section>
-
-
-
-
-        
+        </div>
+      </section>
 
       <!-- CASE STUDY SECTION (AGRIMEC) -->
       <section id="case-study" class="py-40 bg-white reveal">
@@ -1309,9 +1444,8 @@
         document.getElementById("lang-dropdown").classList.remove("active");
 
         const flagMap = { fr: "fi-fr", en: "fi-us", ar: "fi-ma" };
-        document.getElementById(
-          "current-flag"
-        ).className = `fi ${flagMap[lang]}`;
+        document.getElementById("current-flag").className =
+          `fi ${flagMap[lang]}`;
 
         document.querySelectorAll(".lang-btn").forEach((btn) => {
           btn.classList.toggle("active", btn.dataset.lang === lang);
@@ -1321,7 +1455,7 @@
       function setLanguage(lang) {
         document.documentElement.setAttribute(
           "dir",
-          lang === "ar" ? "rtl" : "ltr"
+          lang === "ar" ? "rtl" : "ltr",
         );
         document.documentElement.setAttribute("lang", lang);
 
