@@ -2331,10 +2331,12 @@
                 id="t-dna-title"
                 class="text-3xl md:text-5xl font-serif font-black text-toledo-blue mb-12 leading-[0.95] italic"
               >
-                INTELLIGENCE <br /><span class="text-blue-600 not-italic"
-                  >&</span
+                INTELLIGENCE & INSIGHTS <br /><span
+                  class="text-blue-600 not-italic"
                 >
-                INSIGHTS MARCHÉ.
+                  MARCHÉ
+                </span>
+                .
               </h2>
 
               <h4 class="text-xl font-bold text-slate-700 mb-12">
@@ -2528,22 +2530,36 @@
               <span
                 id="t-edu-badge"
                 class="text-blue-600 text-[20px] font-black uppercase tracking-[0.3em] mb-8 block"
-                >05 — Éducation</span
+                >05 — Accréditation CAMES :</span
               >
               <h2
                 id="t-edu-title"
                 class="text-6xl font-serif font-black text-toledo-blue mb-12 italic"
               >
-                Accréditation
-                <span class="text-blue-600 not-italic">CAMES</span>
+                La reconnaissance africaine la plus 
+
+                <span class="text-blue-600 not-italic">crédible</span> .
               </h2>
               <p
                 id="t-edu-desc"
                 class="text-slate-600 font-light mb-12 leading-relaxed text-xl"
               >
-                La reconnaissance internationale est la clé de l'attractivité.
-                Nous vous accompagnons dans l'obtention de l'accréditation
-                CAMES, ouvrant vos portes à 19 pays membres.
+                Le Conseil Africain et Malgache pour l'Enseignement Supérieur
+                CAMES est l'institution intergouvernementale de référence
+                chargée de coordonner et d'harmoniser les systèmes
+                d'enseignement supérieur et de recherche au sein de ses 19 pays
+                membres en Afrique francophone et à Madagascar. Véritable garant
+                de la qualité académique sur le continent, il assure la
+                reconnaissance et l'équivalence des diplômes à travers le
+                programme PRED, tout en gérant les carrières des
+                enseignants-chercheurs. L'accréditation par le CAMES constitue
+                un levier de crédibilité majeur, car elle garantit la pleine
+                reconnaissance des diplômes délivrés par les institutions
+                accréditées au sein de tout l'espace commun. Elle facilite ainsi
+                la mobilité des étudiants et certifie un niveau d'excellence
+                conforme aux standards internationaux, offrant aux diplômés une
+                légitimité incontestable sur le marché de l'emploi africain et
+                mondial.
               </p>
               <ul class="space-y-8 mb-16 text-lg text-slate-600 font-medium">
                 <li class="flex items-center gap-5">
@@ -2612,10 +2628,11 @@
                 </li>
               </ul>
               <a
-                href="#"
+                target="_blank"
+                href="https://www.lecames.org/programmes/pred/"
                 class="btn-gate locked btn-primary inline-flex items-center bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-blue-700 transition-all shadow-2xl glow-effect gap-4"
               >
-                <span id="t-edu-brief">Le Brief CAMES</span>
+                <span id="t-edu-brief">En savoir plus sur le CAMES</span>
               </a>
             </div>
             <div
@@ -3932,415 +3949,480 @@
         });
       });
 
+      (function () {
+        // --- State Management ---
+        let currentStepInvest = 1;
+        let captchaInvest = { a: 0, b: 0 };
 
+        const formDataInvest = {
+          nom: "",
+          email: "",
+          prefixe: "+212",
+          telephone: "",
+          secteur: "",
+          paysCible: "",
+          stadeProjet: "",
+          besoins: [],
+        };
 
-(function() {
-    // --- State Management ---
-    let currentStepInvest = 1;
-    let captchaInvest = { a: 0, b: 0 };
-    
-    const formDataInvest = {
-        nom: '',
-        email: '',
-        prefixe: '+212',
-        telephone: '',
-        secteur: '',
-        paysCible: '',
-        stadeProjet: '',
-        besoins: []
-    };
+        // --- DOM Elements ---
+        const screensInvest = {
+          1: document.getElementById("step-invest-1"),
+          2: document.getElementById("step-invest-2"),
+          3: document.getElementById("step-invest-3"),
+        };
 
-    // --- DOM Elements ---
-    const screensInvest = {
-        1: document.getElementById('step-invest-1'),
-        2: document.getElementById('step-invest-2'),
-        3: document.getElementById('step-invest-3')
-    };
-    
-    const progressBarsInvest = {
-        1: document.getElementById('progress-invest-1'),
-        2: document.getElementById('progress-invest-2'),
-        3: document.getElementById('progress-invest-3')
-    };
-    
-    const btnPrevInvest = document.getElementById('btn-prev-invest');
-    const btnNextInvest = document.getElementById('btn-next-invest');
-    const btnSubmitInvest = document.getElementById('btn-submit-invest');
-    const stepLabelInvest = document.getElementById('step-label-invest');
-    const successScreenInvest = document.getElementById('success-screen-invest');
-    const formScreenInvest = document.getElementById('form-screen-invest');
+        const progressBarsInvest = {
+          1: document.getElementById("progress-invest-1"),
+          2: document.getElementById("progress-invest-2"),
+          3: document.getElementById("progress-invest-3"),
+        };
 
-    // --- Initialization ---
-    function initInvestForm() {
-        generateCaptchaInvest();
-        setupValidationListenersInvest();
-        setupCheckboxListenersInvest();
-        validateCurrentStepInvest();
-    }
+        const btnPrevInvest = document.getElementById("btn-prev-invest");
+        const btnNextInvest = document.getElementById("btn-next-invest");
+        const btnSubmitInvest = document.getElementById("btn-submit-invest");
+        const stepLabelInvest = document.getElementById("step-label-invest");
+        const successScreenInvest = document.getElementById(
+          "success-screen-invest",
+        );
+        const formScreenInvest = document.getElementById("form-screen-invest");
 
-    // --- Functions ---
-    function generateCaptchaInvest() {
-        captchaInvest.a = Math.floor(Math.random() * 9) + 1;
-        captchaInvest.b = Math.floor(Math.random() * 9) + 1;
-        document.getElementById('captcha-text-invest').innerText = `${captchaInvest.a} + ${captchaInvest.b} =`;
-        document.getElementById('captcha-input-invest').value = '';
-    }
+        // --- Initialization ---
+        function initInvestForm() {
+          generateCaptchaInvest();
+          setupValidationListenersInvest();
+          setupCheckboxListenersInvest();
+          validateCurrentStepInvest();
+        }
 
-    function updateUIInvest() {
-        // Hide all screens
-        Object.values(screensInvest).forEach(el => {
+        // --- Functions ---
+        function generateCaptchaInvest() {
+          captchaInvest.a = Math.floor(Math.random() * 9) + 1;
+          captchaInvest.b = Math.floor(Math.random() * 9) + 1;
+          document.getElementById("captcha-text-invest").innerText =
+            `${captchaInvest.a} + ${captchaInvest.b} =`;
+          document.getElementById("captcha-input-invest").value = "";
+        }
+
+        function updateUIInvest() {
+          // Hide all screens
+          Object.values(screensInvest).forEach((el) => {
             if (el) {
-                el.classList.add('hidden');
-                el.classList.remove('block');
+              el.classList.add("hidden");
+              el.classList.remove("block");
             }
-        });
-        
-        // Show current screen
-        if (screensInvest[currentStepInvest]) {
-            screensInvest[currentStepInvest].classList.remove('hidden');
-            screensInvest[currentStepInvest].classList.add('block');
-        }
+          });
 
-        // Update Progress Bar
-        for (let i = 1; i <= 3; i++) {
+          // Show current screen
+          if (screensInvest[currentStepInvest]) {
+            screensInvest[currentStepInvest].classList.remove("hidden");
+            screensInvest[currentStepInvest].classList.add("block");
+          }
+
+          // Update Progress Bar
+          for (let i = 1; i <= 3; i++) {
             if (progressBarsInvest[i]) {
-                if (i <= currentStepInvest) {
-                    progressBarsInvest[i].classList.remove('bg-slate-200');
-                    progressBarsInvest[i].classList.add('bg-indigo-600');
-                } else {
-                    progressBarsInvest[i].classList.add('bg-slate-200');
-                    progressBarsInvest[i].classList.remove('bg-indigo-600');
-                }
+              if (i <= currentStepInvest) {
+                progressBarsInvest[i].classList.remove("bg-slate-200");
+                progressBarsInvest[i].classList.add("bg-indigo-600");
+              } else {
+                progressBarsInvest[i].classList.add("bg-slate-200");
+                progressBarsInvest[i].classList.remove("bg-indigo-600");
+              }
             }
-        }
+          }
 
-        // Update Buttons
-        if (stepLabelInvest) {
+          // Update Buttons
+          if (stepLabelInvest) {
             stepLabelInvest.innerText = `Étape ${currentStepInvest} / 3`;
-        }
-        
-        if (btnPrevInvest) {
+          }
+
+          if (btnPrevInvest) {
             if (currentStepInvest > 1) {
-                btnPrevInvest.classList.remove('hidden');
-                btnPrevInvest.classList.add('flex');
+              btnPrevInvest.classList.remove("hidden");
+              btnPrevInvest.classList.add("flex");
             } else {
-                btnPrevInvest.classList.add('hidden');
-                btnPrevInvest.classList.remove('flex');
+              btnPrevInvest.classList.add("hidden");
+              btnPrevInvest.classList.remove("flex");
             }
-        }
+          }
 
-        if (btnNextInvest && btnSubmitInvest) {
+          if (btnNextInvest && btnSubmitInvest) {
             if (currentStepInvest < 3) {
-                btnNextInvest.classList.remove('hidden');
-                btnNextInvest.classList.add('flex');
-                btnSubmitInvest.classList.add('hidden');
-                btnSubmitInvest.classList.remove('flex');
+              btnNextInvest.classList.remove("hidden");
+              btnNextInvest.classList.add("flex");
+              btnSubmitInvest.classList.add("hidden");
+              btnSubmitInvest.classList.remove("flex");
             } else {
-                btnNextInvest.classList.add('hidden');
-                btnNextInvest.classList.remove('flex');
-                btnSubmitInvest.classList.remove('hidden');
-                btnSubmitInvest.classList.add('flex');
+              btnNextInvest.classList.add("hidden");
+              btnNextInvest.classList.remove("flex");
+              btnSubmitInvest.classList.remove("hidden");
+              btnSubmitInvest.classList.add("flex");
             }
+          }
+
+          validateCurrentStepInvest();
         }
 
-        validateCurrentStepInvest();
-    }
-
-    window.changeStepInvest = function(direction) {
-        const newStep = currentStepInvest + direction;
-        if (newStep >= 1 && newStep <= 3 && isStepValidInvest(currentStepInvest)) {
+        window.changeStepInvest = function (direction) {
+          const newStep = currentStepInvest + direction;
+          if (
+            newStep >= 1 &&
+            newStep <= 3 &&
+            isStepValidInvest(currentStepInvest)
+          ) {
             currentStepInvest = newStep;
             updateUIInvest();
-        }
-    }
+          }
+        };
 
-    function isStepValidInvest(step) {
-        if (step === 1) {
-            return formDataInvest.nom && 
-                   isValidEmailInvest(formDataInvest.email) && 
-                   isValidPhoneInvest(formDataInvest.telephone);
+        function isStepValidInvest(step) {
+          if (step === 1) {
+            return (
+              formDataInvest.nom &&
+              isValidEmailInvest(formDataInvest.email) &&
+              isValidPhoneInvest(formDataInvest.telephone)
+            );
+          }
+          if (step === 2) {
+            return (
+              formDataInvest.secteur &&
+              formDataInvest.paysCible &&
+              formDataInvest.stadeProjet
+            );
+          }
+          return true;
         }
-        if (step === 2) {
-            return formDataInvest.secteur && formDataInvest.paysCible && formDataInvest.stadeProjet;
-        }
-        return true;
-    }
 
-    function validateCurrentStepInvest() {
-        const isValid = isStepValidInvest(currentStepInvest);
-        
-        // Update Next Button State
-        if (currentStepInvest < 3 && btnNextInvest) {
+        function validateCurrentStepInvest() {
+          const isValid = isStepValidInvest(currentStepInvest);
+
+          // Update Next Button State
+          if (currentStepInvest < 3 && btnNextInvest) {
             if (isValid) {
-                btnNextInvest.classList.remove('bg-slate-100', 'text-slate-300', 'cursor-not-allowed');
-                btnNextInvest.classList.add('bg-indigo-600', 'text-white', 'hover:bg-indigo-700', 'shadow-indigo-100');
+              btnNextInvest.classList.remove(
+                "bg-slate-100",
+                "text-slate-300",
+                "cursor-not-allowed",
+              );
+              btnNextInvest.classList.add(
+                "bg-indigo-600",
+                "text-white",
+                "hover:bg-indigo-700",
+                "shadow-indigo-100",
+              );
             } else {
-                btnNextInvest.classList.add('bg-slate-100', 'text-slate-300', 'cursor-not-allowed');
-                btnNextInvest.classList.remove('bg-indigo-600', 'text-white', 'hover:bg-indigo-700', 'shadow-indigo-100');
+              btnNextInvest.classList.add(
+                "bg-slate-100",
+                "text-slate-300",
+                "cursor-not-allowed",
+              );
+              btnNextInvest.classList.remove(
+                "bg-indigo-600",
+                "text-white",
+                "hover:bg-indigo-700",
+                "shadow-indigo-100",
+              );
             }
+          }
         }
-    }
 
-    // --- Input Handling & Validation ---
-    function isValidEmailInvest(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
+        // --- Input Handling & Validation ---
+        function isValidEmailInvest(email) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
 
-    function isValidPhoneInvest(phone) {
-        return /^[0-9]{8,15}$/.test(phone);
-    }
+        function isValidPhoneInvest(phone) {
+          return /^[0-9]{8,15}$/.test(phone);
+        }
 
-    function setupValidationListenersInvest() {
-        // Name
-        const nomInput = document.getElementById('nom-invest');
-        if (nomInput) {
-            nomInput.addEventListener('input', (e) => {
-                formDataInvest.nom = e.target.value;
-                validateCurrentStepInvest();
+        function setupValidationListenersInvest() {
+          // Name
+          const nomInput = document.getElementById("nom-invest");
+          if (nomInput) {
+            nomInput.addEventListener("input", (e) => {
+              formDataInvest.nom = e.target.value;
+              validateCurrentStepInvest();
             });
-        }
+          }
 
-        // Email
-        const emailInput = document.getElementById('email-invest');
-        const emailError = document.getElementById('error-email-invest');
-        const emailCheck = document.getElementById('email-check-invest');
+          // Email
+          const emailInput = document.getElementById("email-invest");
+          const emailError = document.getElementById("error-email-invest");
+          const emailCheck = document.getElementById("email-check-invest");
 
-        if (emailInput) {
-            emailInput.addEventListener('input', (e) => {
-                const val = e.target.value;
-                formDataInvest.email = val;
-                
-                if (val && !isValidEmailInvest(val)) {
-                    if (emailError) emailError.classList.remove('hidden');
-                    emailInput.classList.add('border-red-400');
-                    emailInput.classList.remove('border-slate-200');
-                    if (emailCheck) emailCheck.classList.add('hidden');
-                } else {
-                    if (emailError) emailError.classList.add('hidden');
-                    emailInput.classList.remove('border-red-400');
-                    emailInput.classList.add('border-slate-200');
-                    if (emailCheck && isValidEmailInvest(val)) {
-                        emailCheck.classList.remove('hidden');
-                    } else if (emailCheck) {
-                        emailCheck.classList.add('hidden');
-                    }
+          if (emailInput) {
+            emailInput.addEventListener("input", (e) => {
+              const val = e.target.value;
+              formDataInvest.email = val;
+
+              if (val && !isValidEmailInvest(val)) {
+                if (emailError) emailError.classList.remove("hidden");
+                emailInput.classList.add("border-red-400");
+                emailInput.classList.remove("border-slate-200");
+                if (emailCheck) emailCheck.classList.add("hidden");
+              } else {
+                if (emailError) emailError.classList.add("hidden");
+                emailInput.classList.remove("border-red-400");
+                emailInput.classList.add("border-slate-200");
+                if (emailCheck && isValidEmailInvest(val)) {
+                  emailCheck.classList.remove("hidden");
+                } else if (emailCheck) {
+                  emailCheck.classList.add("hidden");
                 }
-                validateCurrentStepInvest();
+              }
+              validateCurrentStepInvest();
             });
+          }
+
+          // Phone
+          const telInput = document.getElementById("telephone-invest");
+          const telError = document.getElementById("error-telephone-invest");
+
+          if (telInput) {
+            telInput.addEventListener("input", (e) => {
+              const val = e.target.value;
+              formDataInvest.telephone = val;
+
+              if (val && !isValidPhoneInvest(val)) {
+                if (telError) telError.classList.remove("hidden");
+                telInput.classList.add("border-red-400");
+                telInput.classList.remove("border-slate-200");
+              } else {
+                if (telError) telError.classList.add("hidden");
+                telInput.classList.remove("border-red-400");
+                telInput.classList.add("border-slate-200");
+              }
+              validateCurrentStepInvest();
+            });
+          }
+
+          // Prefixe
+          const prefixeInput = document.getElementById("prefixe-invest");
+          if (prefixeInput) {
+            prefixeInput.addEventListener("change", (e) => {
+              formDataInvest.prefixe = e.target.value;
+            });
+          }
+
+          // Step 2 Inputs
+          const secteurInput = document.getElementById("secteur-invest");
+          if (secteurInput) {
+            secteurInput.addEventListener("change", (e) => {
+              formDataInvest.secteur = e.target.value;
+              validateCurrentStepInvest();
+            });
+          }
+
+          const paysInput = document.getElementById("paysCible-invest");
+          if (paysInput) {
+            paysInput.addEventListener("input", (e) => {
+              formDataInvest.paysCible = e.target.value;
+              validateCurrentStepInvest();
+            });
+          }
         }
 
-        // Phone
-        const telInput = document.getElementById('telephone-invest');
-        const telError = document.getElementById('error-telephone-invest');
-
-        if (telInput) {
-            telInput.addEventListener('input', (e) => {
-                const val = e.target.value;
-                formDataInvest.telephone = val;
-                
-                if (val && !isValidPhoneInvest(val)) {
-                    if (telError) telError.classList.remove('hidden');
-                    telInput.classList.add('border-red-400');
-                    telInput.classList.remove('border-slate-200');
-                } else {
-                    if (telError) telError.classList.add('hidden');
-                    telInput.classList.remove('border-red-400');
-                    telInput.classList.add('border-slate-200');
-                }
-                validateCurrentStepInvest();
-            });
-        }
-
-        // Prefixe
-        const prefixeInput = document.getElementById('prefixe-invest');
-        if (prefixeInput) {
-            prefixeInput.addEventListener('change', (e) => {
-                formDataInvest.prefixe = e.target.value;
-            });
-        }
-
-        // Step 2 Inputs
-        const secteurInput = document.getElementById('secteur-invest');
-        if (secteurInput) {
-            secteurInput.addEventListener('change', (e) => {
-                formDataInvest.secteur = e.target.value;
-                validateCurrentStepInvest();
-            });
-        }
-
-        const paysInput = document.getElementById('paysCible-invest');
-        if (paysInput) {
-            paysInput.addEventListener('input', (e) => {
-                formDataInvest.paysCible = e.target.value;
-                validateCurrentStepInvest();
-            });
-        }
-    }
-
-    // --- Stage Selection Logic ---
-    window.selectStageInvest = function(stage, btnElement) {
-        formDataInvest.stadeProjet = stage;
-        const hiddenInput = document.getElementById('stadeProjet-invest');
-        if (hiddenInput) {
+        // --- Stage Selection Logic ---
+        window.selectStageInvest = function (stage, btnElement) {
+          formDataInvest.stadeProjet = stage;
+          const hiddenInput = document.getElementById("stadeProjet-invest");
+          if (hiddenInput) {
             hiddenInput.value = stage;
+          }
+
+          // Reset styling
+          document.querySelectorAll(".stage-btn").forEach((btn) => {
+            btn.className =
+              "stage-btn p-4 rounded-2xl border-2 text-sm font-bold transition-all flex flex-col items-center gap-2 bg-white border-slate-100 text-slate-500 hover:border-indigo-200";
+          });
+
+          // Set active styling
+          btnElement.className =
+            "stage-btn p-4 rounded-2xl border-2 text-sm font-bold transition-all flex flex-col items-center gap-2 bg-indigo-600 border-indigo-600 text-white shadow-lg shadow-indigo-100";
+
+          validateCurrentStepInvest();
+        };
+
+        // --- Checkbox Logic ---
+        function setupCheckboxListenersInvest() {
+          const checkboxes = document.querySelectorAll(".need-checkbox-invest");
+          checkboxes.forEach((cb) => {
+            cb.addEventListener("change", (e) => {
+              const val = e.target.value;
+              const parent = e.target.closest(".need-item");
+              const box = parent.querySelector(".need-box");
+
+              if (e.target.checked) {
+                formDataInvest.besoins.push(val);
+                parent.classList.remove(
+                  "bg-slate-50",
+                  "border-slate-50",
+                  "hover:border-slate-200",
+                );
+                parent.classList.add(
+                  "bg-slate-900",
+                  "text-white",
+                  "border-slate-900",
+                );
+                box.classList.remove("bg-white", "border-slate-300");
+                box.classList.add("bg-indigo-500", "border-indigo-500");
+                box.innerHTML =
+                  '<svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+              } else {
+                formDataInvest.besoins = formDataInvest.besoins.filter(
+                  (b) => b !== val,
+                );
+                parent.classList.add(
+                  "bg-slate-50",
+                  "border-slate-50",
+                  "hover:border-slate-200",
+                );
+                parent.classList.remove(
+                  "bg-slate-900",
+                  "text-white",
+                  "border-slate-900",
+                );
+                box.classList.add("bg-white", "border-slate-300");
+                box.classList.remove("bg-indigo-500", "border-indigo-500");
+                box.innerHTML = "";
+              }
+            });
+          });
         }
 
-        // Reset styling
-        document.querySelectorAll('.stage-btn').forEach(btn => {
-            btn.className = 'stage-btn p-4 rounded-2xl border-2 text-sm font-bold transition-all flex flex-col items-center gap-2 bg-white border-slate-100 text-slate-500 hover:border-indigo-200';
-        });
+        // --- Form Submission ---
+        window.handleSubmitInvest = function (e) {
+          e.preventDefault();
 
-        // Set active styling
-        btnElement.className = 'stage-btn p-4 rounded-2xl border-2 text-sm font-bold transition-all flex flex-col items-center gap-2 bg-indigo-600 border-indigo-600 text-white shadow-lg shadow-indigo-100';
-        
-        validateCurrentStepInvest();
-    }
+          // Verify Captcha
+          const captchaInput = document.getElementById("captcha-input-invest");
+          const userCaptcha = parseInt(captchaInput.value);
 
-    // --- Checkbox Logic ---
-    function setupCheckboxListenersInvest() {
-        const checkboxes = document.querySelectorAll('.need-checkbox-invest');
-        checkboxes.forEach(cb => {
-            cb.addEventListener('change', (e) => {
-                const val = e.target.value;
-                const parent = e.target.closest('.need-item');
-                const box = parent.querySelector('.need-box');
-
-                if (e.target.checked) {
-                    formDataInvest.besoins.push(val);
-                    parent.classList.remove('bg-slate-50', 'border-slate-50', 'hover:border-slate-200');
-                    parent.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
-                    box.classList.remove('bg-white', 'border-slate-300');
-                    box.classList.add('bg-indigo-500', 'border-indigo-500');
-                    box.innerHTML = '<svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
-                } else {
-                    formDataInvest.besoins = formDataInvest.besoins.filter(b => b !== val);
-                    parent.classList.add('bg-slate-50', 'border-slate-50', 'hover:border-slate-200');
-                    parent.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
-                    box.classList.add('bg-white', 'border-slate-300');
-                    box.classList.remove('bg-indigo-500', 'border-indigo-500');
-                    box.innerHTML = '';
-                }
-            });
-        });
-    }
-
-    // --- Form Submission ---
-    window.handleSubmitInvest = function(e) {
-        e.preventDefault();
-        
-        // Verify Captcha
-        const captchaInput = document.getElementById('captcha-input-invest');
-        const userCaptcha = parseInt(captchaInput.value);
-        
-        if (userCaptcha !== captchaInvest.a + captchaInvest.b) {
-            captchaInput.classList.add('ring-4', 'ring-red-400');
-            setTimeout(() => captchaInput.classList.remove('ring-4', 'ring-red-400'), 1000);
+          if (userCaptcha !== captchaInvest.a + captchaInvest.b) {
+            captchaInput.classList.add("ring-4", "ring-red-400");
+            setTimeout(
+              () => captchaInput.classList.remove("ring-4", "ring-red-400"),
+              1000,
+            );
             generateCaptchaInvest();
             return;
-        }
+          }
 
-        // Préparer les données pour EmailJS
-        const templateParams = {
-            category: 'Investissement',
+          // Préparer les données pour EmailJS
+          const templateParams = {
+            category: "Investissement",
             nom: formDataInvest.nom,
             email: formDataInvest.email,
-            telephone: formDataInvest.prefixe + ' ' + formDataInvest.telephone,
+            telephone: formDataInvest.prefixe + " " + formDataInvest.telephone,
             secteur: formDataInvest.secteur,
             pays: formDataInvest.paysCible,
             stade: formDataInvest.stadeProjet,
-            besoins: formDataInvest.besoins.join(', ')
-        };
+            besoins: formDataInvest.besoins.join(", "),
+          };
 
-        // Afficher l'état de chargement
-        const btnSubmit = document.getElementById('btn-submit-invest');
-        const originalText = btnSubmit.innerHTML;
-        btnSubmit.innerHTML = '<span class="animate-pulse">Envoi en cours...</span>';
-        btnSubmit.disabled = true;
+          // Afficher l'état de chargement
+          const btnSubmit = document.getElementById("btn-submit-invest");
+          const originalText = btnSubmit.innerHTML;
+          btnSubmit.innerHTML =
+            '<span class="animate-pulse">Envoi en cours...</span>';
+          btnSubmit.disabled = true;
 
-        // Envoi via EmailJS
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).then(
-            function() {
+          // Envoi via EmailJS
+          emailjs
+            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(
+              function () {
                 // Succès
                 btnSubmit.innerHTML = originalText;
                 btnSubmit.disabled = false;
                 showSuccessScreenInvest();
-                showToast('Succès ! Votre demande d\'investissement a bien été reçue.');
-            },
-            function(error) {
+                showToast(
+                  "Succès ! Votre demande d'investissement a bien été reçue.",
+                );
+              },
+              function (error) {
                 // Erreur
-                console.error('FAILED...', error);
+                console.error("FAILED...", error);
                 btnSubmit.innerHTML = originalText;
                 btnSubmit.disabled = false;
-                showToast('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.', true);
-            }
-        );
-    }
+                showToast(
+                  "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+                  true,
+                );
+              },
+            );
+        };
 
-    function showSuccessScreenInvest() {
-        // Fill success details
-        const emailDisplay = document.getElementById('success-email-display');
-        const replyNom = document.getElementById('reply-nom');
-        const replyPays = document.getElementById('reply-pays');
-        const replySecteur = document.getElementById('reply-secteur');
-        const replyPhone = document.getElementById('reply-phone');
+        function showSuccessScreenInvest() {
+          // Fill success details
+          const emailDisplay = document.getElementById("success-email-display");
+          const replyNom = document.getElementById("reply-nom");
+          const replyPays = document.getElementById("reply-pays");
+          const replySecteur = document.getElementById("reply-secteur");
+          const replyPhone = document.getElementById("reply-phone");
 
-        if (emailDisplay) emailDisplay.innerText = formDataInvest.email;
-        if (replyNom) replyNom.innerText = formDataInvest.nom;
-        if (replyPays) replyPays.innerText = formDataInvest.paysCible || "votre zone cible";
-        if (replySecteur) replySecteur.innerText = formDataInvest.secteur || "votre secteur";
-        if (replyPhone) replyPhone.innerText = `${formDataInvest.prefixe} ${formDataInvest.telephone}`;
+          if (emailDisplay) emailDisplay.innerText = formDataInvest.email;
+          if (replyNom) replyNom.innerText = formDataInvest.nom;
+          if (replyPays)
+            replyPays.innerText =
+              formDataInvest.paysCible || "votre zone cible";
+          if (replySecteur)
+            replySecteur.innerText = formDataInvest.secteur || "votre secteur";
+          if (replyPhone)
+            replyPhone.innerText = `${formDataInvest.prefixe} ${formDataInvest.telephone}`;
 
-        // Toggle screens
-        if (formScreenInvest) formScreenInvest.classList.add('hidden');
-        if (successScreenInvest) successScreenInvest.classList.remove('hidden');
-        
-        // Scroll to top of form
-        const formInvestir = document.getElementById('form-investir');
-        if (formInvestir) {
-            formInvestir.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Toggle screens
+          if (formScreenInvest) formScreenInvest.classList.add("hidden");
+          if (successScreenInvest)
+            successScreenInvest.classList.remove("hidden");
+
+          // Scroll to top of form
+          const formInvestir = document.getElementById("form-investir");
+          if (formInvestir) {
+            formInvestir.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
         }
-    }
 
-    // --- Reset ---
-    const btnResetInvest = document.getElementById('btn-reset-invest');
-    if (btnResetInvest) {
-        btnResetInvest.addEventListener('click', () => {
+        // --- Reset ---
+        const btnResetInvest = document.getElementById("btn-reset-invest");
+        if (btnResetInvest) {
+          btnResetInvest.addEventListener("click", () => {
             // Reset form data
-            formDataInvest.nom = '';
-            formDataInvest.email = '';
-            formDataInvest.prefixe = '+212';
-            formDataInvest.telephone = '';
-            formDataInvest.secteur = '';
-            formDataInvest.paysCible = '';
-            formDataInvest.stadeProjet = '';
+            formDataInvest.nom = "";
+            formDataInvest.email = "";
+            formDataInvest.prefixe = "+212";
+            formDataInvest.telephone = "";
+            formDataInvest.secteur = "";
+            formDataInvest.paysCible = "";
+            formDataInvest.stadeProjet = "";
             formDataInvest.besoins = [];
-            
+
             // Reset to step 1
             currentStepInvest = 1;
-            
+
             // Reset form inputs
-            const form = document.getElementById('main-form-invest');
+            const form = document.getElementById("main-form-invest");
             if (form) form.reset();
-            
+
             // Toggle screens
-            if (successScreenInvest) successScreenInvest.classList.add('hidden');
-            if (formScreenInvest) formScreenInvest.classList.remove('hidden');
-            
+            if (successScreenInvest)
+              successScreenInvest.classList.add("hidden");
+            if (formScreenInvest) formScreenInvest.classList.remove("hidden");
+
             // Update UI
             updateUIInvest();
             generateCaptchaInvest();
-        });
-    }
+          });
+        }
 
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initInvestForm);
-    } else {
-        initInvestForm();
-    }
-})();
-
-      
+        // Initialize when DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initInvestForm);
+        } else {
+          initInvestForm();
+        }
+      })();
     </script>
 
     <button
