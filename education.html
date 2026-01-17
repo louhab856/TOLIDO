@@ -1,12 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Title & Meta -->
     <title>
-      Expertise Éducation Afrique | Accréditation CAMES & Education Invest | Toledo Consulting
+      Expertise Éducation Afrique | Accréditation CAMES & Education Invest |
+      Toledo Consulting
     </title>
     <meta
       name="description"
@@ -16,7 +17,7 @@
       name="keywords"
       content="CAMES, Accréditation PRED, investissement éducation Afrique, créer une école, Business Plan école, Hicham Bekkali, Toledo Consulting"
     />
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow" />
 
     <!-- Fonts & Icons -->
     <link
@@ -117,7 +118,9 @@
       }
 
       /* Core Design */
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
       body {
         background: #ffffff;
         color: #1e293b;
@@ -153,7 +156,10 @@
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
         transition: right 0.3s ease;
       }
-      html[dir="rtl"] .sidebar-nav { right: auto; left: 2rem; }
+      html[dir="rtl"] .sidebar-nav {
+        right: auto;
+        left: 2rem;
+      }
 
       .sidebar-dot {
         width: 10px;
@@ -164,7 +170,8 @@
         cursor: pointer;
         position: relative;
       }
-      .sidebar-dot:hover, .sidebar-dot.active {
+      .sidebar-dot:hover,
+      .sidebar-dot.active {
         background: #3b82f6;
         transform: scale(1.6);
         box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
@@ -198,22 +205,36 @@
         border-left-color: #0a192f;
       }
       html[dir="rtl"] .sidebar-tooltip {
-        right: auto; left: 40px;
+        right: auto;
+        left: 40px;
       }
       html[dir="rtl"] .sidebar-tooltip::after {
-        right: auto; left: -6px;
-        border-left-color: transparent; border-right-color: #0a192f;
+        right: auto;
+        left: -6px;
+        border-left-color: transparent;
+        border-right-color: #0a192f;
       }
       .sidebar-dot:hover .sidebar-tooltip {
-        opacity: 1; visibility: visible;
+        opacity: 1;
+        visibility: visible;
       }
-      html[dir="ltr"] .sidebar-dot:hover .sidebar-tooltip { right: 50px; }
-      html[dir="rtl"] .sidebar-dot:hover .sidebar-tooltip { left: 50px; }
+      html[dir="ltr"] .sidebar-dot:hover .sidebar-tooltip {
+        right: 50px;
+      }
+      html[dir="rtl"] .sidebar-dot:hover .sidebar-tooltip {
+        left: 50px;
+      }
 
-      @media (max-width: 1024px) { .sidebar-nav { display: none; } }
+      @media (max-width: 1024px) {
+        .sidebar-nav {
+          display: none;
+        }
+      }
 
       /* Header */
-      header { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+      header {
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
       header.scrolled {
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
@@ -221,7 +242,9 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         height: 5rem;
       }
-      header.scrolled h1 span { font-size: 1.5rem; }
+      header.scrolled h1 span {
+        font-size: 1.5rem;
+      }
 
       /* Inputs */
       .form-input {
@@ -230,104 +253,207 @@
         background: #f8fafc;
       }
       .form-input:focus {
-        background: #fff; border-color: #3b82f6;
+        background: #fff;
+        border-color: #3b82f6;
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
-        outline: none; transform: translateY(-2px);
+        outline: none;
+        transform: translateY(-2px);
       }
 
       /* Toasts */
       #toast-container {
-        position: fixed; bottom: 2rem; right: 2rem; z-index: 100;
-        display: flex; flex-direction: column; gap: 1rem; pointer-events: none;
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        pointer-events: none;
       }
-      html[dir="rtl"] #toast-container { right: auto; left: 2rem; }
+      html[dir="rtl"] #toast-container {
+        right: auto;
+        left: 2rem;
+      }
       .toast {
-        background: white; padding: 1.5rem 1.75rem; border-radius: 12px;
+        background: white;
+        padding: 1.5rem 1.75rem;
+        border-radius: 12px;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-        border-left: 5px solid #3b82f6; display: flex; align-items: center; gap: 1.25rem;
-        pointer-events: auto; max-width: 420px;
+        border-left: 5px solid #3b82f6;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        pointer-events: auto;
+        max-width: 420px;
         animation: slideInRight 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       }
       html[dir="rtl"] .toast {
-        border-left: none; border-right: 5px solid #3b82f6;
+        border-left: none;
+        border-right: 5px solid #3b82f6;
         animation-name: slideInLeft;
       }
-      @keyframes slideInRight { from { transform: translateX(120%) scale(0.8); opacity: 0; } to { transform: translateX(0) scale(1); opacity: 1; } }
-      @keyframes slideInLeft { from { transform: translateX(-120%) scale(0.8); opacity: 0; } to { transform: translateX(0) scale(1); opacity: 1; } }
+      @keyframes slideInRight {
+        from {
+          transform: translateX(120%) scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0) scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-120%) scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0) scale(1);
+          opacity: 1;
+        }
+      }
 
-  /* Preloader */
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: #0a192f;
-  z-index: 9999;
-  
-  /* This ensures perfect centering */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
+      /* Preloader */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: #0a192f;
+        z-index: 9999;
+
+        /* This ensures perfect centering */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
+      }
 
       /* Utilities */
       .video-overlay {
-        position: absolute; inset: 0;
-        background: linear-gradient(135deg, #0a192f 0%, rgba(10, 25, 47, 0.95) 50%, rgba(10, 25, 47, 0.7) 100%);
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          #0a192f 0%,
+          rgba(10, 25, 47, 0.95) 50%,
+          rgba(10, 25, 47, 0.7) 100%
+        );
       }
-      .hover-lift { transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
-      .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15); }
-      
+      .hover-lift {
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
       .btn-primary {
-        position: relative; overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 1;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        z-index: 1;
       }
       .btn-primary::before {
-        content: ""; position: absolute; inset: 0;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-        transform: translateX(-100%); transition: transform 0.6s ease; z-index: -1;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+        z-index: -1;
       }
-      .btn-primary:hover::before { transform: translateX(100%); }
-      .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); }
+      .btn-primary:hover::before {
+        transform: translateX(100%);
+      }
+      .btn-primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+      }
 
-      .gated-download { display: none; animation: fadeIn 0.5s ease; }
-      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-      
-      .floating { animation: float 6s ease-in-out infinite; }
-      @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+      .gated-download {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
       .gradient-text {
         background: linear-gradient(135deg, #0a192f 0%, #3b82f6 100%);
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     </style>
   </head>
-  <body class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans">
-    
+  <body
+    class="antialiased selection:bg-blue-100 selection:text-blue-900 font-sans"
+  >
     <!-- Preloader -->
-   <div id="preloader">
-    <!-- The image is now a direct child of the flex container, guaranteeing it is centered -->
-    <img 
-      src="./TOLEDO-consulting.png" 
-      alt="Toledo Consulting" 
-      class="floating" 
-      style="max-width: 250px; width: 100%; height: auto; display: block;"
-    >
-</div>
+    <div id="preloader">
+      <!-- The image is now a direct child of the flex container, guaranteeing it is centered -->
+      <img
+        src="./TOLEDO-consulting.png"
+        alt="Toledo Consulting"
+        class="floating"
+        style="max-width: 250px; width: 100%; height: auto; display: block"
+      />
+    </div>
 
     <!-- Toasts -->
     <div id="toast-container"></div>
 
     <!-- Sidebar Navigation -->
     <nav class="sidebar-nav" aria-label="Navigation Rapide">
-      <a href="#hero" class="sidebar-dot active" data-target="hero"><span class="sidebar-tooltip" id="t-tooltip-hero">Accueil</span></a>
-      <a href="#cames" class="sidebar-dot" data-target="cames"><span class="sidebar-tooltip" id="t-tooltip-cames">Accréditation CAMES</span></a>
-      <a href="#invest" class="sidebar-dot" data-target="invest"><span class="sidebar-tooltip" id="t-tooltip-invest">Education Invest</span></a>
-      <a href="#expertise" class="sidebar-dot" data-target="expertise"><span class="sidebar-tooltip" id="t-tooltip-expert">Expertise</span></a>
-      <a href="#contact" class="sidebar-dot" data-target="contact"><span class="sidebar-tooltip" id="t-tooltip-contact">Contact</span></a>
+      <a href="#hero" class="sidebar-dot active" data-target="hero"
+        ><span class="sidebar-tooltip" id="t-tooltip-hero">Accueil</span></a
+      >
+      <a href="#cames" class="sidebar-dot" data-target="cames"
+        ><span class="sidebar-tooltip" id="t-tooltip-cames"
+          >Accréditation CAMES</span
+        ></a
+      >
+      <a href="#invest" class="sidebar-dot" data-target="invest"
+        ><span class="sidebar-tooltip" id="t-tooltip-invest"
+          >Education Invest</span
+        ></a
+      >
+      <a href="#expertise" class="sidebar-dot" data-target="expertise"
+        ><span class="sidebar-tooltip" id="t-tooltip-expert">Expertise</span></a
+      >
+      <a href="#contact" class="sidebar-dot" data-target="contact"
+        ><span class="sidebar-tooltip" id="t-tooltip-contact">Contact</span></a
+      >
     </nav>
 
     <!-- Header -->
-  <header
+    <header
       id="main-header"
       class="fixed w-full top-0 z-20 bg-white/90 backdrop-blur-xl border-b border-transparent h-28 flex items-center transition-all duration-300"
     >
@@ -341,6 +467,15 @@
               onclick="window.location.href = 'index.html'"
             />
 
+             <a
+              href="./index.html"
+              class="nav-link text-[10px] font-black uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 transition-all duration-300 relative group"
+            >
+              <span id="t-nav-dna">Accueil</span>
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
             <!-- Link: ADN -->
             <a
               href="./adn.html"
@@ -562,9 +697,19 @@
 
     <main class="pt-28">
       <!-- HERO SECTION -->
-      <section id="hero" class="relative flex items-center bg-toledo-blue overflow-hidden" style="height: 70vh; min-height: 500px">
+      <section
+        id="hero"
+        class="relative flex items-center bg-toledo-blue overflow-hidden"
+        style="height: 70vh; min-height: 500px"
+      >
         <div class="absolute inset-0 z-0">
-          <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            style="width: 100%; height: 100%; object-fit: cover"
+          >
             <source src="./video.mp4" type="video/mp4" />
           </video>
           <div class="video-overlay"></div>
@@ -572,22 +717,42 @@
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-white">
           <div class="max-w-5xl reveal active">
-             <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 backdrop-blur-xl mb-10">
+            <div
+              class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-blue-500/40 bg-blue-500/10 backdrop-blur-xl mb-10"
+            >
               <span class="relative flex h-2.5 w-2.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400"></span>
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400"
+                ></span>
               </span>
-              <span id="t-hero-badge" class="text-blue-300 text-[11px] font-black uppercase tracking-[0.25em]">Pôle Éducation Afrique</span>
+              <span
+                id="t-hero-badge"
+                class="text-blue-300 text-[11px] font-black uppercase tracking-[0.25em]"
+                >Pôle Éducation Afrique</span
+              >
             </div>
 
-            <h1 id="t-hero-title" class="text-4xl md:text-5xl font-serif font-black leading-[0.9] mb-12 italic">
+            <h1
+              id="t-hero-title"
+              class="text-4xl md:text-5xl font-serif font-black leading-[0.9] mb-12 italic"
+            >
               De l'Accréditation de <br />
               Prestige à <br />
-              <span class="text-toledo-gold not-italic gradient-text">l'Investissement</span>.
+              <span class="text-toledo-gold not-italic gradient-text"
+                >l'Investissement</span
+              >.
             </h1>
 
-            <p id="t-hero-desc" class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-14 max-w-3xl border-l-4 border-blue-500/60 pl-8">
-              Toledo Consulting déploie son expertise stratégique à travers deux axes majeurs : la sécurisation des accréditations internationales et l'ingénierie de projets éducatifs rentables.
+            <p
+              id="t-hero-desc"
+              class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-14 max-w-3xl border-l-4 border-blue-500/60 pl-8"
+            >
+              Toledo Consulting déploie son expertise stratégique à travers deux
+              axes majeurs : la sécurisation des accréditations internationales
+              et l'ingénierie de projets éducatifs rentables.
             </p>
           </div>
         </div>
@@ -596,214 +761,602 @@
       <!-- SECTION 1: RUBRIQUE ACCRÉDITATION CAMES -->
       <section id="cames" class="py-40 bg-white reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <!-- Intro -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-20">
-                <div>
-                    <span id="t-cames-badge" class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block">Rubrique : Accréditation CAMES</span>
-                    <h2 id="t-cames-title" class="text-5xl md:text-6xl font-serif font-black text-toledo-blue mb-10 italic">
-                        Devenez une référence <br> sur le <span class="text-toledo-gold not-italic">continent</span>.
-                    </h2>
-                    <p id="t-cames-desc" class="text-slate-600 text-xl leading-relaxed font-light mb-8">
-                        Toledo Consulting vous offre un accompagnement stratégique et sur-mesure pour garantir votre succès auprès du CAMES, porté par plus de 24 ans d'expertise. Valorisez vos diplômes et attirez les meilleurs talents.
-                    </p>
-                    <div class="p-6 bg-slate-50 border-l-4 border-toledo-gold rounded-r-xl">
-                        <p class="text-toledo-blue font-bold">Le CAMES regroupe <span class="text-toledo-gold">19 pays membres</span>. Son programme PRED est le label de qualité ultime.</p>
-                    </div>
-                </div>
-                <div class="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                     <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000" alt="Campus Universitaire" class="w-full h-full object-cover">
-                </div>
+          <!-- Intro -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-20"
+          >
+            <div>
+              <span
+                id="t-cames-badge"
+                class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-8 block"
+                >Rubrique : Accréditation CAMES</span
+              >
+              <h2
+                id="t-cames-title"
+                class="text-5xl md:text-6xl font-serif font-black text-toledo-blue mb-10 italic"
+              >
+                Devenez une référence <br />
+                sur le
+                <span class="text-toledo-gold not-italic">continent</span>.
+              </h2>
+              <p
+                id="t-cames-desc"
+                class="text-slate-600 text-xl leading-relaxed font-light mb-8"
+              >
+                Toledo Consulting vous offre un accompagnement stratégique et
+                sur-mesure pour garantir votre succès auprès du CAMES, porté par
+                plus de 24 ans d'expertise. Valorisez vos diplômes et attirez
+                les meilleurs talents.
+              </p>
+              <div
+                class="p-6 bg-slate-50 border-l-4 border-toledo-gold rounded-r-xl"
+              >
+                <p class="text-toledo-blue font-bold">
+                  Le CAMES regroupe
+                  <span class="text-toledo-gold">19 pays membres</span>. Son
+                  programme PRED est le label de qualité ultime.
+                </p>
+              </div>
             </div>
+            <div
+              class="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000"
+                alt="Campus Universitaire"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
 
-            <!-- Gated Content -->
-            <div class="bg-toledo-blue rounded-3xl shadow-2xl overflow-hidden relative">
-                <div class="grid grid-cols-1 lg:grid-cols-2">
-                    <div class="p-12 lg:p-16 flex flex-col justify-center text-white relative overflow-hidden">
-                        <div class="absolute -top-20 -right-20 w-64 h-64 bg-toledo-gold/10 rounded-full blur-3xl"></div>
-                        <h3 id="t-cames-guide-title" class="text-3xl font-serif font-black mb-4 text-toledo-gold italic">Livre Blanc CAMES</h3>
-                        <p id="t-cames-guide-desc" class="text-blue-100 font-light mb-8 text-lg">
-                            "Le guide essentiel pour réussir votre accréditation, structurer vos dossiers PRED et valoriser vos diplômes sur le continent."
-                        </p>
-                        <div class="flex items-center gap-2 text-sm text-blue-300/60">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                            <span id="t-cames-locked">Accès Protégé par formulaire</span>
-                        </div>
-                    </div>
-                    <div class="bg-white p-12 lg:p-16 flex flex-col justify-center">
-                        <!-- Form -->
-                        <div id="cames-form-container">
-                            <h4 id="t-cames-form-title" class="text-2xl font-black text-toledo-blue mb-8 uppercase tracking-wide">Pré-Diagnostic CAMES</h4>
-                            <form action="https://formspree.io/f/manager@toledoconsulting.ma" method="POST" class="edu-form-gated space-y-6">
-                                <input type="hidden" name="type_projet" value="Accréditation CAMES">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input type="text" name="nom" placeholder="Nom complet *" required class="form-input p-4 rounded-xl text-slate-800">
-                                    <input type="text" name="etablissement" placeholder="Nom de l'établissement *" required class="form-input p-4 rounded-xl text-slate-800">
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input type="email" name="email" placeholder="Email professionnel *" required class="form-input p-4 rounded-xl text-slate-800">
-                                    <input type="tel" name="telephone" placeholder="Téléphone / WhatsApp *" required class="form-input p-4 rounded-xl text-slate-800">
-                                </div>
-                                <textarea name="besoin" rows="4" placeholder="Programmes à accréditer, objectifs..." class="form-input p-4 rounded-xl text-slate-800"></textarea>
-                                <button type="submit" class="btn-primary w-full bg-toledo-blue text-white py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-900 shadow-xl">
-                                    Valider & Télécharger le Livre Blanc
-                                </button>
-                            </form>
-                        </div>
-                        <!-- Success State -->
-                        <div id="cames-download-zone" class="gated-download text-center">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <h4 class="text-2xl font-bold text-toledo-blue mb-4">Demande Transmise</h4>
-                            <p class="text-slate-600 mb-8">Vos informations ont été envoyées. Voici votre ressource exclusive :</p>
-                            <a href="LIVRE_BLANC_CAMES_TOLEDO.pdf" download class="btn-primary inline-flex items-center gap-3 bg-toledo-gold text-toledo-blue px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-white shadow-xl">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                Télécharger le Livre Blanc
-                            </a>
-                        </div>
-                    </div>
+          <!-- Gated Content -->
+          <div
+            class="bg-toledo-blue rounded-3xl shadow-2xl overflow-hidden relative"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div
+                class="p-12 lg:p-16 flex flex-col justify-center text-white relative overflow-hidden"
+              >
+                <div
+                  class="absolute -top-20 -right-20 w-64 h-64 bg-toledo-gold/10 rounded-full blur-3xl"
+                ></div>
+                <h3
+                  id="t-cames-guide-title"
+                  class="text-3xl font-serif font-black mb-4 text-toledo-gold italic"
+                >
+                  Livre Blanc CAMES
+                </h3>
+                <p
+                  id="t-cames-guide-desc"
+                  class="text-blue-100 font-light mb-8 text-lg"
+                >
+                  "Le guide essentiel pour réussir votre accréditation,
+                  structurer vos dossiers PRED et valoriser vos diplômes sur le
+                  continent."
+                </p>
+                <div class="flex items-center gap-2 text-sm text-blue-300/60">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    ></path>
+                  </svg>
+                  <span id="t-cames-locked">Accès Protégé par formulaire</span>
                 </div>
+              </div>
+              <div class="bg-white p-12 lg:p-16 flex flex-col justify-center">
+                <!-- Form -->
+                <div id="cames-form-container">
+                  <h4
+                    id="t-cames-form-title"
+                    class="text-2xl font-black text-toledo-blue mb-8 uppercase tracking-wide"
+                  >
+                    Pré-Diagnostic CAMES
+                  </h4>
+                  <form
+                    action="https://formspree.io/f/manager@toledoconsulting.ma"
+                    method="POST"
+                    class="edu-form-gated space-y-6"
+                  >
+                    <input
+                      type="hidden"
+                      name="type_projet"
+                      value="Accréditation CAMES"
+                    />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <input
+                        type="text"
+                        name="nom"
+                        placeholder="Nom complet *"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      />
+                      <input
+                        type="text"
+                        name="etablissement"
+                        placeholder="Nom de l'établissement *"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      />
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email professionnel *"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      />
+                      <input
+                        type="tel"
+                        name="telephone"
+                        placeholder="Téléphone / WhatsApp *"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      />
+                    </div>
+                    <textarea
+                      name="besoin"
+                      rows="4"
+                      placeholder="Programmes à accréditer, objectifs..."
+                      class="form-input p-4 rounded-xl text-slate-800"
+                    ></textarea>
+                    <button
+                      type="submit"
+                      class="btn-primary w-full bg-toledo-blue text-white py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-900 shadow-xl"
+                    >
+                      Valider & Télécharger le Livre Blanc
+                    </button>
+                  </form>
+                </div>
+                <!-- Success State -->
+                <div
+                  id="cames-download-zone"
+                  class="gated-download text-center"
+                >
+                  <div
+                    class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                  >
+                    <svg
+                      class="w-8 h-8 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4 class="text-2xl font-bold text-toledo-blue mb-4">
+                    Demande Transmise
+                  </h4>
+                  <p class="text-slate-600 mb-8">
+                    Vos informations ont été envoyées. Voici votre ressource
+                    exclusive :
+                  </p>
+                  <a
+                    href="LIVRE_BLANC_CAMES_TOLEDO.pdf"
+                    download
+                    class="btn-primary inline-flex items-center gap-3 bg-toledo-gold text-toledo-blue px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-white shadow-xl"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      ></path>
+                    </svg>
+                    Télécharger le Livre Blanc
+                  </a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </section>
 
       <!-- SECTION 2: RUBRIQUE EDUCATION INVEST -->
       <section id="invest" class="py-40 bg-slate-50 reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <span id="t-invest-badge" class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block">Rubrique : Education Invest</span>
-                <h2 id="t-invest-title" class="text-6xl font-serif font-black text-toledo-blue mb-6 italic">
-                    Investir dans <br> <span class="text-toledo-gold not-italic">l'Avenir</span>.
-                </h2>
-                <p id="t-invest-desc" class="text-slate-600 text-xl max-w-3xl mx-auto">
-                    De l'idée à l'inauguration : Votre partenaire 360° pour investir dans l'enseignement en Afrique. Nous gérons la complexité technique, pédagogique et financière pour assurer la rentabilité de votre projet.
+          <div class="text-center mb-20">
+            <span
+              id="t-invest-badge"
+              class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
+              >Rubrique : Education Invest</span
+            >
+            <h2
+              id="t-invest-title"
+              class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
+            >
+              Investir dans <br />
+              <span class="text-toledo-gold not-italic">l'Avenir</span>.
+            </h2>
+            <p
+              id="t-invest-desc"
+              class="text-slate-600 text-xl max-w-3xl mx-auto"
+            >
+              De l'idée à l'inauguration : Votre partenaire 360° pour investir
+              dans l'enseignement en Afrique. Nous gérons la complexité
+              technique, pédagogique et financière pour assurer la rentabilité
+              de votre projet.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+            <!-- Card 1 -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift"
+            >
+              <div
+                class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-invest-card1-title"
+                class="font-black text-toledo-blue text-lg mb-3"
+              >
+                Ingénierie Financière
+              </h4>
+              <p
+                id="t-invest-card1-desc"
+                class="text-slate-500 text-sm leading-relaxed"
+              >
+                Études de faisabilité, modélisation des coûts et construction de
+                Business Plans rentables.
+              </p>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift"
+            >
+              <div
+                class="w-12 h-12 bg-toledo-gold/10 rounded-xl flex items-center justify-center text-toledo-gold mb-6"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-invest-card2-title"
+                class="font-black text-toledo-blue text-lg mb-3"
+              >
+                Conformité & Licences
+              </h4>
+              <p
+                id="t-invest-card2-desc"
+                class="text-slate-500 text-sm leading-relaxed"
+              >
+                Obtention des agréments ministériels et alignement des curricula
+                sur les normes locales.
+              </p>
+            </div>
+            <!-- Card 3 -->
+            <div
+              class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift"
+            >
+              <div
+                class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                id="t-invest-card3-title"
+                class="font-black text-toledo-blue text-lg mb-3"
+              >
+                Recrutement & Ops
+              </h4>
+              <p
+                id="t-invest-card3-desc"
+                class="text-slate-500 text-sm leading-relaxed"
+              >
+                Chasse de talents pour la direction pédagogique et structuration
+                administrative complète.
+              </p>
+            </div>
+          </div>
+
+          <!-- Gated Content -->
+          <div
+            class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 relative"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+              <div
+                class="bg-slate-900 p-12 lg:p-16 flex flex-col justify-center text-white relative overflow-hidden"
+              >
+                <div
+                  class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
+                ></div>
+                <h3
+                  id="t-invest-guide-title"
+                  class="text-3xl font-serif font-black mb-4 text-toledo-gold italic"
+                >
+                  Guide Investisseur Éducatif
+                </h3>
+                <p
+                  id="t-invest-guide-desc"
+                  class="text-slate-300 font-light mb-8 text-lg"
+                >
+                  "Comprendre les retours sur investissement, les coûts de
+                  structure et les clés de succès pour une école rentable."
                 </p>
+                <div class="flex items-center gap-2 text-sm text-slate-400">
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    ></path>
+                  </svg>
+                  <span id="t-invest-locked">Accès Protégé par formulaire</span>
+                </div>
+              </div>
+              <div
+                class="bg-white p-12 lg:p-16 flex flex-col justify-center border-l border-slate-200"
+              >
+                <!-- Form -->
+                <div id="invest-form-container">
+                  <h4
+                    id="t-invest-form-title"
+                    class="text-2xl font-black text-toledo-blue mb-8 uppercase tracking-wide"
+                  >
+                    Audit Education Business
+                  </h4>
+                  <form
+                    action="https://formspree.io/f/manager@toledoconsulting.ma"
+                    method="POST"
+                    class="edu-form-gated space-y-6"
+                  >
+                    <input
+                      type="hidden"
+                      name="type_projet"
+                      value="Education Invest"
+                    />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <input
+                        type="text"
+                        name="nom"
+                        placeholder="Nom complet *"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      />
+                      <input
+                        type="text"
+                        name="societe"
+                        placeholder="Société / Investisseur *"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      />
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email professionnel *"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      />
+                      <select
+                        name="type_ecole"
+                        required
+                        class="form-input p-4 rounded-xl text-slate-800"
+                      >
+                        <option value="" disabled selected>
+                          Niveau d'enseignement ciblé *
+                        </option>
+                        <option value="Primaire/Secondaire">
+                          Scolaire (Primaire/Secondaire)
+                        </option>
+                        <option value="Superieur">
+                          Enseignement Supérieur
+                        </option>
+                        <option value="Formation_Pro">
+                          Formation Professionnelle
+                        </option>
+                      </select>
+                    </div>
+                    <textarea
+                      name="projet"
+                      rows="4"
+                      placeholder="Décrivez votre vision d'investissement..."
+                      class="form-input p-4 rounded-xl text-slate-800"
+                    ></textarea>
+                    <button
+                      type="submit"
+                      class="btn-primary w-full bg-toledo-blue text-white py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-900 shadow-xl"
+                    >
+                      Recevoir le Guide de l'Investisseur
+                    </button>
+                  </form>
+                </div>
+                <!-- Success State -->
+                <div
+                  id="invest-download-zone"
+                  class="gated-download text-center"
+                >
+                  <div
+                    class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                  >
+                    <svg
+                      class="w-8 h-8 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h4 class="text-2xl font-bold text-toledo-blue mb-4">
+                    Demande Transmise
+                  </h4>
+                  <p class="text-slate-600 mb-8">
+                    Un expert Toledo Consulting vous contactera sous peu. Voici
+                    votre ressource :
+                  </p>
+                  <a
+                    href="GUIDE_INVESTISSEUR_EDUCATION.pdf"
+                    download
+                    class="btn-primary inline-flex items-center gap-3 bg-toledo-blue text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-slate-800 shadow-xl"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      ></path>
+                    </svg>
+                    Télécharger le Guide Investisseur
+                  </a>
+                </div>
+              </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
-                <!-- Card 1 -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift">
-                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h4 id="t-invest-card1-title" class="font-black text-toledo-blue text-lg mb-3">Ingénierie Financière</h4>
-                    <p id="t-invest-card1-desc" class="text-slate-500 text-sm leading-relaxed">Études de faisabilité, modélisation des coûts et construction de Business Plans rentables.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift">
-                    <div class="w-12 h-12 bg-toledo-gold/10 rounded-xl flex items-center justify-center text-toledo-gold mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h4 id="t-invest-card2-title" class="font-black text-toledo-blue text-lg mb-3">Conformité & Licences</h4>
-                    <p id="t-invest-card2-desc" class="text-slate-500 text-sm leading-relaxed">Obtention des agréments ministériels et alignement des curricula sur les normes locales.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 hover-lift">
-                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    </div>
-                    <h4 id="t-invest-card3-title" class="font-black text-toledo-blue text-lg mb-3">Recrutement & Ops</h4>
-                    <p id="t-invest-card3-desc" class="text-slate-500 text-sm leading-relaxed">Chasse de talents pour la direction pédagogique et structuration administrative complète.</p>
-                </div>
-            </div>
-
-            <!-- Gated Content -->
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 relative">
-                <div class="grid grid-cols-1 lg:grid-cols-2">
-                    <div class="bg-slate-900 p-12 lg:p-16 flex flex-col justify-center text-white relative overflow-hidden">
-                         <div class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-                        <h3 id="t-invest-guide-title" class="text-3xl font-serif font-black mb-4 text-toledo-gold italic">Guide Investisseur Éducatif</h3>
-                        <p id="t-invest-guide-desc" class="text-slate-300 font-light mb-8 text-lg">
-                            "Comprendre les retours sur investissement, les coûts de structure et les clés de succès pour une école rentable."
-                        </p>
-                         <div class="flex items-center gap-2 text-sm text-slate-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                            <span id="t-invest-locked">Accès Protégé par formulaire</span>
-                        </div>
-                    </div>
-                    <div class="bg-white p-12 lg:p-16 flex flex-col justify-center border-l border-slate-200">
-                        <!-- Form -->
-                        <div id="invest-form-container">
-                            <h4 id="t-invest-form-title" class="text-2xl font-black text-toledo-blue mb-8 uppercase tracking-wide">Audit Education Business</h4>
-                            <form action="https://formspree.io/f/manager@toledoconsulting.ma" method="POST" class="edu-form-gated space-y-6">
-                                <input type="hidden" name="type_projet" value="Education Invest">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input type="text" name="nom" placeholder="Nom complet *" required class="form-input p-4 rounded-xl text-slate-800">
-                                    <input type="text" name="societe" placeholder="Société / Investisseur *" required class="form-input p-4 rounded-xl text-slate-800">
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <input type="email" name="email" placeholder="Email professionnel *" required class="form-input p-4 rounded-xl text-slate-800">
-                                    <select name="type_ecole" required class="form-input p-4 rounded-xl text-slate-800">
-                                        <option value="" disabled selected>Niveau d'enseignement ciblé *</option>
-                                        <option value="Primaire/Secondaire">Scolaire (Primaire/Secondaire)</option>
-                                        <option value="Superieur">Enseignement Supérieur</option>
-                                        <option value="Formation_Pro">Formation Professionnelle</option>
-                                    </select>
-                                </div>
-                                <textarea name="projet" rows="4" placeholder="Décrivez votre vision d'investissement..." class="form-input p-4 rounded-xl text-slate-800"></textarea>
-                                <button type="submit" class="btn-primary w-full bg-toledo-blue text-white py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-blue-900 shadow-xl">
-                                    Recevoir le Guide de l'Investisseur
-                                </button>
-                            </form>
-                        </div>
-                        <!-- Success State -->
-                        <div id="invest-download-zone" class="gated-download text-center">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <h4 class="text-2xl font-bold text-toledo-blue mb-4">Demande Transmise</h4>
-                            <p class="text-slate-600 mb-8">Un expert Toledo Consulting vous contactera sous peu. Voici votre ressource :</p>
-                            <a href="GUIDE_INVESTISSEUR_EDUCATION.pdf" download class="btn-primary inline-flex items-center gap-3 bg-toledo-blue text-white px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:bg-slate-800 shadow-xl">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                Télécharger le Guide Investisseur
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
       </section>
 
       <!-- EXPERTISE / BIO SECTION -->
       <section id="expertise" class="py-40 bg-white reveal">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div>
-                    <span id="t-expert-badge" class="text-toledo-gold text-[11px] font-black uppercase tracking-[0.3em] mb-8 block">À Propos du Fondateur</span>
-                    <h2 id="t-expert-title" class="text-6xl md:text-7xl font-serif font-black text-toledo-blue mb-12 italic leading-[0.95]">
-                        Dirigé par <br> <span class="text-toledo-gold not-italic">Hicham BEKKALI</span>.
-                    </h2>
-                    <div class="space-y-8 text-slate-600 font-light text-xl leading-relaxed">
-                        <p id="t-expert-desc">
-                            Architecte de la réussite éducative avec plus de 27 ans d'expérience. Pionnier du secteur au Maroc (Université Mundiapolis) et conseiller stratégique international pour des projets d'envergure.
-                        </p>
-                        <div class="bg-slate-50 p-8 rounded-2xl border-l-4 border-toledo-blue">
-                            <h4 id="t-expert-ref-title" class="text-toledo-blue font-bold text-sm uppercase tracking-widest mb-6">Ses Réalisations</h4>
-                            <div class="grid grid-cols-2 gap-4 text-lg font-serif italic text-slate-700">
-                                <span>ESIG</span>
-                                <span>SUPMIR</span>
-                                <span>ENSIT Tanger</span>
-                                <span>ESISMP</span>
-                            </div>
-                        </div>
-                    </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div>
+              <span
+                id="t-expert-badge"
+                class="text-toledo-gold text-[11px] font-black uppercase tracking-[0.3em] mb-8 block"
+                >À Propos du Fondateur</span
+              >
+              <h2
+                id="t-expert-title"
+                class="text-6xl md:text-7xl font-serif font-black text-toledo-blue mb-12 italic leading-[0.95]"
+              >
+                Dirigé par <br />
+                <span class="text-toledo-gold not-italic">Hicham BEKKALI</span>.
+              </h2>
+              <div
+                class="space-y-8 text-slate-600 font-light text-xl leading-relaxed"
+              >
+                <p id="t-expert-desc">
+                  Architecte de la réussite éducative avec plus de 27 ans
+                  d'expérience. Pionnier du secteur au Maroc (Université
+                  Mundiapolis) et conseiller stratégique international pour des
+                  projets d'envergure.
+                </p>
+                <div
+                  class="bg-slate-50 p-8 rounded-2xl border-l-4 border-toledo-blue"
+                >
+                  <h4
+                    id="t-expert-ref-title"
+                    class="text-toledo-blue font-bold text-sm uppercase tracking-widest mb-6"
+                  >
+                    Ses Réalisations
+                  </h4>
+                  <div
+                    class="grid grid-cols-2 gap-4 text-lg font-serif italic text-slate-700"
+                  >
+                    <span>ESIG</span>
+                    <span>SUPMIR</span>
+                    <span>ENSIT Tanger</span>
+                    <span>ESISMP</span>
+                  </div>
                 </div>
-                <div class="relative group">
-                    <div class="absolute -inset-6 bg-gradient-to-br from-blue-600/30 to-transparent rounded-3xl blur-3xl group-hover:blur-[100px] transition duration-1000"></div>
-                    <img src="https://www.toledoconsulting.ma/wp-content/uploads/2025/01/photo-4.png" alt="Hicham Bekkali" class="relative rounded-3xl shadow-2xl w-full object-cover grayscale hover:grayscale-0 transition duration-1000">
-                </div>
+              </div>
             </div>
+            <div class="relative group">
+              <div
+                class="absolute -inset-6 bg-gradient-to-br from-blue-600/30 to-transparent rounded-3xl blur-3xl group-hover:blur-[100px] transition duration-1000"
+              ></div>
+              <img
+                src="https://www.toledoconsulting.ma/wp-content/uploads/2025/01/photo-4.png"
+                alt="Hicham Bekkali"
+                class="relative rounded-3xl shadow-2xl w-full object-cover grayscale hover:grayscale-0 transition duration-1000"
+              />
+            </div>
+          </div>
         </div>
       </section>
-
     </main>
 
     <footer class="bg-black py-16 border-t border-white/10 text-center">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p id="t-footer-copy" class="text-slate-500 text-[11px] uppercase tracking-[0.25em] font-black">© 2026 Toledo Consulting</p>
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <p
+            id="t-footer-copy"
+            class="text-slate-500 text-[11px] uppercase tracking-[0.25em] font-black"
+          >
+            © 2026 Toledo Consulting
+          </p>
           <p id="t-footer-tag" class="text-slate-400 text-sm tracking-[0.1em]">
-            <strong class="text-white">TOLEDO CONSULTING</strong> | L'Intelligence Stratégique, Votre Avantage Opérationnel en Afrique.
+            <strong class="text-white">TOLEDO CONSULTING</strong> |
+            L'Intelligence Stratégique, Votre Avantage Opérationnel en Afrique.
           </p>
         </div>
       </div>
@@ -811,35 +1364,37 @@
 
     <script>
       // 1. GATING SCRIPT LOGIC
-      const forms = document.querySelectorAll('.edu-form-gated');
-      forms.forEach(form => {
-          form.addEventListener('submit', async function(e) {
-              e.preventDefault();
-              const btn = this.querySelector('button[type="submit"]');
-              const originalText = btn.innerHTML;
-              btn.innerHTML = '<span class="animate-pulse">Traitement...</span>';
-              btn.disabled = true;
-              const formData = new FormData(this);
-              try {
-                  const response = await fetch(this.action, {
-                      method: 'POST',
-                      body: formData,
-                      headers: { 'Accept': 'application/json' }
-                  });
-                  if (response.ok) {
-                      showToast("Demande envoyée avec succès !");
-                      this.closest('div[id$="-form-container"]').style.display = 'none';
-                      const downloadZone = this.closest('div[id$="-form-container"]').nextElementSibling;
-                      if(downloadZone) downloadZone.style.display = 'block';
-                  } else {
-                      throw new Error('Erreur réseau');
-                  }
-              } catch (error) {
-                  btn.innerHTML = originalText;
-                  btn.disabled = false;
-                  alert("Erreur lors de l'envoi. Veuillez réessayer.");
-              }
-          });
+      const forms = document.querySelectorAll(".edu-form-gated");
+      forms.forEach((form) => {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const btn = this.querySelector('button[type="submit"]');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<span class="animate-pulse">Traitement...</span>';
+          btn.disabled = true;
+          const formData = new FormData(this);
+          try {
+            const response = await fetch(this.action, {
+              method: "POST",
+              body: formData,
+              headers: { Accept: "application/json" },
+            });
+            if (response.ok) {
+              showToast("Demande envoyée avec succès !");
+              this.closest('div[id$="-form-container"]').style.display = "none";
+              const downloadZone = this.closest(
+                'div[id$="-form-container"]',
+              ).nextElementSibling;
+              if (downloadZone) downloadZone.style.display = "block";
+            } else {
+              throw new Error("Erreur réseau");
+            }
+          } catch (error) {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            alert("Erreur lors de l'envoi. Veuillez réessayer.");
+          }
+        });
       });
 
       // 2. TRANSLATIONS
@@ -847,34 +1402,48 @@
         fr: {
           "t-preloader": "Excellence en chargement",
           "t-hero-badge": "Pôle Éducation Afrique",
-          "t-hero-title": "De l'Accréditation de <br> Prestige à <br> <span class='text-toledo-gold not-italic gradient-text'>l'Investissement</span>.",
-          "t-hero-desc": "Toledo Consulting déploie son expertise stratégique à travers deux axes majeurs : la sécurisation des accréditations internationales et l'ingénierie de projets éducatifs rentables.",
+          "t-hero-title":
+            "De l'Accréditation de <br> Prestige à <br> <span class='text-toledo-gold not-italic gradient-text'>l'Investissement</span>.",
+          "t-hero-desc":
+            "Toledo Consulting déploie son expertise stratégique à travers deux axes majeurs : la sécurisation des accréditations internationales et l'ingénierie de projets éducatifs rentables.",
           "t-cames-badge": "Rubrique : Accréditation CAMES",
-          "t-cames-title": "Devenez une référence <br> sur le <span class='text-toledo-gold not-italic'>continent</span>.",
-          "t-cames-desc": "Toledo Consulting vous offre un accompagnement stratégique et sur-mesure pour garantir votre succès auprès du CAMES, porté par plus de 24 ans d'expertise.",
+          "t-cames-title":
+            "Devenez une référence <br> sur le <span class='text-toledo-gold not-italic'>continent</span>.",
+          "t-cames-desc":
+            "Toledo Consulting vous offre un accompagnement stratégique et sur-mesure pour garantir votre succès auprès du CAMES, porté par plus de 24 ans d'expertise.",
           "t-cames-guide-title": "Livre Blanc CAMES",
-          "t-cames-guide-desc": "Le guide essentiel pour réussir votre accréditation et valoriser vos diplômes.",
+          "t-cames-guide-desc":
+            "Le guide essentiel pour réussir votre accréditation et valoriser vos diplômes.",
           "t-cames-locked": "Accès Protégé par formulaire",
           "t-cames-form-title": "Pré-Diagnostic CAMES",
           "t-invest-badge": "Rubrique : Education Invest",
-          "t-invest-title": "Investir dans <br> <span class='text-toledo-gold not-italic'>l'Avenir</span>.",
-          "t-invest-desc": "De l'idée à l'inauguration : Votre partenaire 360° pour investir dans l'enseignement. Nous gérons la complexité technique, pédagogique et financière.",
+          "t-invest-title":
+            "Investir dans <br> <span class='text-toledo-gold not-italic'>l'Avenir</span>.",
+          "t-invest-desc":
+            "De l'idée à l'inauguration : Votre partenaire 360° pour investir dans l'enseignement. Nous gérons la complexité technique, pédagogique et financière.",
           "t-invest-card1-title": "Ingénierie Financière",
-          "t-invest-card1-desc": "Études de faisabilité, modélisation des coûts et construction de Business Plans.",
+          "t-invest-card1-desc":
+            "Études de faisabilité, modélisation des coûts et construction de Business Plans.",
           "t-invest-card2-title": "Conformité & Licences",
-          "t-invest-card2-desc": "Obtention des agréments ministériels et alignement des curricula sur les normes.",
+          "t-invest-card2-desc":
+            "Obtention des agréments ministériels et alignement des curricula sur les normes.",
           "t-invest-card3-title": "Recrutement & Ops",
-          "t-invest-card3-desc": "Chasse de talents pour la direction pédagogique et structuration administrative.",
+          "t-invest-card3-desc":
+            "Chasse de talents pour la direction pédagogique et structuration administrative.",
           "t-invest-guide-title": "Guide Investisseur Éducatif",
-          "t-invest-guide-desc": "Comprendre les retours sur investissement et les clés de succès pour une école rentable.",
+          "t-invest-guide-desc":
+            "Comprendre les retours sur investissement et les clés de succès pour une école rentable.",
           "t-invest-locked": "Accès Protégé par formulaire",
           "t-invest-form-title": "Audit Education Business",
           "t-expert-badge": "À Propos du Fondateur",
-          "t-expert-title": "Dirigé par <br> <span class='text-toledo-gold not-italic'>Hicham BEKKALI</span>.",
-          "t-expert-desc": "Architecte de la réussite éducative avec plus de 27 ans d'expérience. Pionnier du secteur.",
+          "t-expert-title":
+            "Dirigé par <br> <span class='text-toledo-gold not-italic'>Hicham BEKKALI</span>.",
+          "t-expert-desc":
+            "Architecte de la réussite éducative avec plus de 27 ans d'expérience. Pionnier du secteur.",
           "t-expert-ref-title": "Ses Réalisations",
           "t-footer-copy": "© 2026 Toledo Consulting",
-          "t-footer-tag": "<strong class='text-white'>TOLEDO CONSULTING</strong> | L'Intelligence Stratégique, Votre Avantage Opérationnel en Afrique.",
+          "t-footer-tag":
+            "<strong class='text-white'>TOLEDO CONSULTING</strong> | L'Intelligence Stratégique, Votre Avantage Opérationnel en Afrique.",
           // Nav
           "t-nav-cames": "Accréditation CAMES",
           "t-nav-invest": "Education Invest",
@@ -890,34 +1459,48 @@
         en: {
           "t-preloader": "Loading Excellence",
           "t-hero-badge": "Africa Education Pole",
-          "t-hero-title": "From Prestige Accreditation <br> to <br> <span class='text-toledo-gold not-italic gradient-text'>Investment</span>.",
-          "t-hero-desc": "Toledo Consulting deploys strategic expertise across two major axes: securing international accreditations and engineering profitable educational projects.",
+          "t-hero-title":
+            "From Prestige Accreditation <br> to <br> <span class='text-toledo-gold not-italic gradient-text'>Investment</span>.",
+          "t-hero-desc":
+            "Toledo Consulting deploys strategic expertise across two major axes: securing international accreditations and engineering profitable educational projects.",
           "t-cames-badge": "Section: CAMES Accreditation",
-          "t-cames-title": "Become a Reference <br> on the <span class='text-toledo-gold not-italic'>continent</span>.",
-          "t-cames-desc": "Toledo Consulting offers you strategic and tailor-made support to guarantee your success with CAMES.",
+          "t-cames-title":
+            "Become a Reference <br> on the <span class='text-toledo-gold not-italic'>continent</span>.",
+          "t-cames-desc":
+            "Toledo Consulting offers you strategic and tailor-made support to guarantee your success with CAMES.",
           "t-cames-guide-title": "CAMES White Paper",
-          "t-cames-guide-desc": "The essential guide to succeed in your accreditation and valorize your diplomas.",
+          "t-cames-guide-desc":
+            "The essential guide to succeed in your accreditation and valorize your diplomas.",
           "t-cames-locked": "Protected Access",
           "t-cames-form-title": "CAMES Pre-Diagnostic",
           "t-invest-badge": "Section: Education Invest",
-          "t-invest-title": "Invest in <br> <span class='text-toledo-gold not-italic'>the Future</span>.",
-          "t-invest-desc": "From idea to inauguration: Your 360° partner to invest in education. We manage technical, pedagogical and financial complexity.",
+          "t-invest-title":
+            "Invest in <br> <span class='text-toledo-gold not-italic'>the Future</span>.",
+          "t-invest-desc":
+            "From idea to inauguration: Your 360° partner to invest in education. We manage technical, pedagogical and financial complexity.",
           "t-invest-card1-title": "Financial Engineering",
-          "t-invest-card1-desc": "Feasibility studies, cost modeling and building Business Plans.",
+          "t-invest-card1-desc":
+            "Feasibility studies, cost modeling and building Business Plans.",
           "t-invest-card2-title": "Compliance & Licenses",
-          "t-invest-card2-desc": "Obtaining ministerial approvals and aligning curricula with standards.",
+          "t-invest-card2-desc":
+            "Obtaining ministerial approvals and aligning curricula with standards.",
           "t-invest-card3-title": "Recruitment & Ops",
-          "t-invest-card3-desc": "Executive search for academic management and administrative structuring.",
+          "t-invest-card3-desc":
+            "Executive search for academic management and administrative structuring.",
           "t-invest-guide-title": "Educational Investor Guide",
-          "t-invest-guide-desc": "Understanding ROI and keys to success for a profitable school.",
+          "t-invest-guide-desc":
+            "Understanding ROI and keys to success for a profitable school.",
           "t-invest-locked": "Protected Access",
           "t-invest-form-title": "Education Business Audit",
           "t-expert-badge": "About the Founder",
-          "t-expert-title": "Led by <br> <span class='text-toledo-gold not-italic'>Hicham BEKKALI</span>.",
-          "t-expert-desc": "Architect of educational success with over 27 years of experience. Pioneer of the sector.",
+          "t-expert-title":
+            "Led by <br> <span class='text-toledo-gold not-italic'>Hicham BEKKALI</span>.",
+          "t-expert-desc":
+            "Architect of educational success with over 27 years of experience. Pioneer of the sector.",
           "t-expert-ref-title": "His Achievements",
           "t-footer-copy": "© 2026 Toledo Consulting",
-          "t-footer-tag": "<strong class='text-white'>TOLEDO CONSULTING</strong> | Strategic Intelligence, Your Operational Advantage in Africa.",
+          "t-footer-tag":
+            "<strong class='text-white'>TOLEDO CONSULTING</strong> | Strategic Intelligence, Your Operational Advantage in Africa.",
           // Nav
           "t-nav-cames": "CAMES Accreditation",
           "t-nav-invest": "Education Invest",
@@ -933,34 +1516,48 @@
         ar: {
           "t-preloader": "التميز في التحميل",
           "t-hero-badge": "قطاع التعليم في أفريقيا",
-          "t-hero-title": "من الاعتماد الراقي <br> إلى <br> <span class='text-toledo-gold not-italic gradient-text'>الاستثمار</span>.",
-          "t-hero-desc": "تستخدم توليدو كونسلتينغ خبرتها الاستراتيجية عبر محورين رئيسيين: تأمين الاعتمادات الدولية وهندسة المشاريع التعليمية المربحة.",
+          "t-hero-title":
+            "من الاعتماد الراقي <br> إلى <br> <span class='text-toledo-gold not-italic gradient-text'>الاستثمار</span>.",
+          "t-hero-desc":
+            "تستخدم توليدو كونسلتينغ خبرتها الاستراتيجية عبر محورين رئيسيين: تأمين الاعتمادات الدولية وهندسة المشاريع التعليمية المربحة.",
           "t-cames-badge": "القسم: اعتماد CAMES",
-          "t-cames-title": "كن مرجعاً <br> على <span class='text-toledo-gold not-italic'>القارة</span>.",
-          "t-cames-desc": "تقدم لك توليدو كونسلتينغ دعمًا استراتيجيًا مخصصًا لضمان نجاحك مع CAMES.",
+          "t-cames-title":
+            "كن مرجعاً <br> على <span class='text-toledo-gold not-italic'>القارة</span>.",
+          "t-cames-desc":
+            "تقدم لك توليدو كونسلتينغ دعمًا استراتيجيًا مخصصًا لضمان نجاحك مع CAMES.",
           "t-cames-guide-title": "الكتاب الأبيض CAMES",
-          "t-cames-guide-desc": "الدليل الأساسي للنجاح في الاعتماد وتعزيز الشهادات.",
+          "t-cames-guide-desc":
+            "الدليل الأساسي للنجاح في الاعتماد وتعزيز الشهادات.",
           "t-cames-locked": "الوصول محمي",
           "t-cames-form-title": "تشخيص CAMES المسبق",
           "t-invest-badge": "القسم: استثمار التعليم",
-          "t-invest-title": "استثمر في <br> <span class='text-toledo-gold not-italic'>المستقبل</span>.",
-          "t-invest-desc": "من الفكرة إلى الافتتاح: شريكك الشامل للاستثمار في التعليم. نحن ندير التعقيدات التقنية والبيداغوجية والمالية.",
+          "t-invest-title":
+            "استثمر في <br> <span class='text-toledo-gold not-italic'>المستقبل</span>.",
+          "t-invest-desc":
+            "من الفكرة إلى الافتتاح: شريكك الشامل للاستثمار في التعليم. نحن ندير التعقيدات التقنية والبيداغوجية والمالية.",
           "t-invest-card1-title": "الهندسة المالية",
-          "t-invest-card1-desc": "دراسات الجدوى، ونمذجة التكاليف، وبناء خطط الأعمال.",
+          "t-invest-card1-desc":
+            "دراسات الجدوى، ونمذجة التكاليف، وبناء خطط الأعمال.",
           "t-invest-card2-title": "الامتثال والتراخيص",
-          "t-invest-card2-desc": "الحصول على الموافقات الوزارية ومواءمة المناهج مع المعايير.",
+          "t-invest-card2-desc":
+            "الحصول على الموافقات الوزارية ومواءمة المناهج مع المعايير.",
           "t-invest-card3-title": "التعيين والعمليات",
-          "t-invest-card3-desc": "البحث التنفيذي عن الإدارة الأكاديمية والهيكلة الإدارية.",
+          "t-invest-card3-desc":
+            "البحث التنفيذي عن الإدارة الأكاديمية والهيكلة الإدارية.",
           "t-invest-guide-title": "دليل المستثمر التعليمي",
-          "t-invest-guide-desc": "فهم العائد على الاستثمار ومفاتيح النجاح لمدرسة مربحة.",
+          "t-invest-guide-desc":
+            "فهم العائد على الاستثمار ومفاتيح النجاح لمدرسة مربحة.",
           "t-invest-locked": "الوصول محمي",
           "t-invest-form-title": "تدقيق أعمال التعليم",
           "t-expert-badge": "عن المؤسس",
-          "t-expert-title": "تحت قيادة <br> <span class='text-toledo-gold not-italic'>هشام بيكالي</span>.",
-          "t-expert-desc": "مهندس النجاح التعليمي مع أكثر من 27 عامًا من الخبرة. رائد في القطاع.",
+          "t-expert-title":
+            "تحت قيادة <br> <span class='text-toledo-gold not-italic'>هشام بيكالي</span>.",
+          "t-expert-desc":
+            "مهندس النجاح التعليمي مع أكثر من 27 عامًا من الخبرة. رائد في القطاع.",
           "t-expert-ref-title": "إنجازاته",
           "t-footer-copy": "© 2026 توليدو كونسلتينغ",
-          "t-footer-tag": "<strong class='text-white'>توليدو كونسلتينغ</strong> | الذكاء الاستراتيجي، ميزتك التشغيلية في أفريقيا.",
+          "t-footer-tag":
+            "<strong class='text-white'>توليدو كونسلتينغ</strong> | الذكاء الاستراتيجي، ميزتك التشغيلية في أفريقيا.",
           // Nav
           "t-nav-cames": "اعتماد CAMES",
           "t-nav-invest": "استثمار التعليم",
@@ -987,14 +1584,18 @@
         setLanguage(lang);
         document.getElementById("lang-dropdown").classList.remove("active");
         const flagMap = { fr: "fi-fr", en: "fi-us", ar: "fi-ma" };
-        document.getElementById("current-flag").className = `fi ${flagMap[lang]}`;
+        document.getElementById("current-flag").className =
+          `fi ${flagMap[lang]}`;
         document.querySelectorAll(".lang-btn").forEach((btn) => {
           btn.classList.toggle("active", btn.dataset.lang === lang);
         });
       }
 
       function setLanguage(lang) {
-        document.documentElement.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+        document.documentElement.setAttribute(
+          "dir",
+          lang === "ar" ? "rtl" : "ltr",
+        );
         document.documentElement.setAttribute("lang", lang);
         const body = document.body;
         if (lang === "ar") {
@@ -1041,7 +1642,10 @@
           }
         });
 
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -1049,7 +1653,9 @@
             }
           });
         }, observerOptions);
-        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
 
         const sections = document.querySelectorAll("section");
         const navDots = document.querySelectorAll(".sidebar-dot");
