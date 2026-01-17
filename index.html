@@ -2263,54 +2263,157 @@
                 Demande d'étude
               </h4>
               <form
-                class="toledo-form grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10"
+                id="leadFormEtudes"
+                class="space-y-6 relative z-10"
                 data-category="Études"
-                onsubmit="handleFormSubmit(event)"
+                novalidate
               >
-                <div>
-                  <label
-                    class="block text-[11px] font-black uppercase text-blue-200 mb-4 tracking-[0.15em]"
-                    ><span class="t-form-name">Nom</span></label
-                  >
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    class="w-full bg-white/5 border-2 border-white/10 p-5 rounded-xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all placeholder-blue-300/30"
-                  />
+                <!-- Nom / Prénom -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label
+                      class="text-xs font-bold text-blue-200 uppercase tracking-wider ml-1"
+                      >Prénom</label
+                    >
+                    <input
+                      type="text"
+                      id="firstname-etudes"
+                      name="firstname"
+                      required
+                      class="w-full px-5 py-4 bg-white/5 border-2 border-white/10 rounded-2xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all font-medium placeholder-blue-300/30"
+                      placeholder="Jean"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="text-xs font-bold text-blue-200 uppercase tracking-wider ml-1"
+                      >Nom</label
+                    >
+                    <input
+                      type="text"
+                      id="lastname-etudes"
+                      name="lastname"
+                      required
+                      class="w-full px-5 py-4 bg-white/5 border-2 border-white/10 rounded-2xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all font-medium placeholder-blue-300/30"
+                      placeholder="Dupont"
+                    />
+                  </div>
                 </div>
-                <div>
+
+                <!-- Email / Téléphone -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label
+                      class="text-xs font-bold text-blue-200 uppercase tracking-wider ml-1"
+                      >E-mail Professionnel</label
+                    >
+                    <div class="relative">
+                      <input
+                        type="email"
+                        id="email-etudes"
+                        name="email"
+                        required
+                        class="w-full px-5 py-4 bg-white/5 border-2 border-white/10 rounded-2xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all font-medium placeholder-blue-300/30"
+                        placeholder="contact@entreprise.com"
+                      />
+                      <svg
+                        id="email-check-etudes"
+                        class="hidden absolute right-4 top-4.5 w-5 h-5 text-emerald-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <p
+                      id="email-error-etudes"
+                      class="hidden text-[10px] text-red-300 font-bold ml-1"
+                    >
+                      Format email invalide
+                    </p>
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="text-xs font-bold text-blue-200 uppercase tracking-wider ml-1"
+                      >Téléphone</label
+                    >
+                    <input
+                      type="tel"
+                      id="phone-etudes"
+                      name="phone"
+                      required
+                      class="w-full px-5 py-4 bg-white/5 border-2 border-white/10 rounded-2xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all font-medium placeholder-blue-300/30"
+                      placeholder="+212 ..."
+                    />
+                    <p
+                      id="phone-error-etudes"
+                      class="hidden text-[10px] text-red-300 font-bold ml-1"
+                    >
+                      Numéro invalide
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Entreprise -->
+                <div class="space-y-2">
                   <label
-                    class="block text-[11px] font-black uppercase text-blue-200 mb-4 tracking-[0.15em]"
-                    ><span class="t-form-company">Entreprise</span></label
+                    class="text-xs font-bold text-blue-200 uppercase tracking-wider ml-1"
+                    >Entreprise</label
                   >
                   <input
                     type="text"
+                    id="company-etudes"
                     name="company"
                     required
-                    class="w-full bg-white/5 border-2 border-white/10 p-5 rounded-xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all placeholder-blue-300/30"
+                    class="w-full px-5 py-4 bg-white/5 border-2 border-white/10 rounded-2xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all font-medium placeholder-blue-300/30"
+                    placeholder="Nom de la société"
                   />
                 </div>
-                <div class="md:col-span-2">
+
+                <!-- Secteur d'étude -->
+                <div class="space-y-2">
                   <label
-                    class="block text-[11px] font-black uppercase text-blue-200 mb-4 tracking-[0.15em]"
-                    ><span class="t-form-sector">Secteur d'étude</span></label
+                    class="text-xs font-bold text-blue-200 uppercase tracking-wider ml-1"
+                    >Secteur d'étude</label
                   >
                   <input
                     type="text"
+                    id="sector-etudes"
                     name="sector"
                     required
-                    class="w-full bg-white/5 border-2 border-white/10 p-5 rounded-xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all placeholder-blue-300/30"
+                    class="w-full px-5 py-4 bg-white/5 border-2 border-white/10 rounded-2xl text-white focus:border-blue-400 outline-none focus:bg-white/10 transition-all font-medium placeholder-blue-300/30"
+                    placeholder="Ex: Agriculture, Tech, Santé..."
                   />
                 </div>
-                <div class="md:col-span-2">
-                  <button
-                    type="submit"
-                    class="btn-primary w-full bg-white text-toledo-blue py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-50 transition-all rounded-full shadow-2xl"
+
+                <!-- Security Check -->
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  class="w-full bg-white text-toledo-blue py-5 font-black uppercase text-[11px] tracking-[0.2em] hover:bg-blue-50 transition-all rounded-full shadow-2xl flex items-center justify-center gap-2 group"
+                >
+                  <span class="t-form-proposal">Recevoir une proposition</span>
+                  <svg
+                    class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <span class="t-form-proposal">Recevez une proposition</span>
-                  </button>
-                </div>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    ></path>
+                  </svg>
+                </button>
               </form>
             </div>
 
@@ -2530,13 +2633,13 @@
               <span
                 id="t-edu-badge"
                 class="text-blue-600 text-[20px] font-black uppercase tracking-[0.3em] mb-8 block"
-                >05 — Accréditation CAMES :</span
+                >05 .1 — Accréditation CAMES :</span
               >
               <h2
                 id="t-edu-title"
                 class="text-6xl font-serif font-black text-toledo-blue mb-12 italic"
               >
-                La reconnaissance africaine la plus 
+                La reconnaissance africaine la plus
 
                 <span class="text-blue-600 not-italic">crédible</span> .
               </h2>
@@ -2637,144 +2740,1372 @@
             </div>
             <div
               id="form-cames"
-              class="bg-white p-12 shadow-2xl rounded-2xl border-t-4 border-blue-600 flex flex-col justify-center hover-lift"
+              class="bg-white p-12 shadow-2xl rounded-2xl border-t-4 border-blue-600 flex flex-col justify-center hover-lift relative"
             >
-              <h4
-                id="t-edu-form-title"
-                class="text-2xl font-black text-toledo-blue mb-10 italic uppercase tracking-wider"
-              >
-                Diagnostic Gratuit
-              </h4>
-              <form
-                class="toledo-form space-y-8"
-                data-category="Éducation"
-                onsubmit="handleFormSubmit(event)"
-              >
-                <input
-                  type="text"
-                  name="school"
-                  placeholder="Nom de l'établissement"
-                  required
-                  class="form-input w-full p-5 rounded-xl focus:ring-0"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email académique"
-                  required
-                  class="form-input w-full p-5 rounded-xl focus:ring-0"
-                />
-                <button
-                  type="submit"
-                  class="btn-primary w-full bg-toledo-blue text-white py-5 font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-900 transition-all rounded-full shadow-2xl glow-effect"
-                >
-                  <span class="t-form-submit">Soumettez</span>
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <div id="formation" class="border-t border-slate-200 pt-40">
-            <div class="text-center mb-20">
-              <span
-                id="t-train-badge"
-                class="text-blue-600 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block"
-                >06 — Formation</span
-              >
-              <h2
-                id="t-train-title"
-                class="text-6xl font-serif font-black text-toledo-blue mb-6 italic"
-              >
-                Capital Humain
-              </h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div
-                class="bg-white p-14 shadow-2xl border border-slate-100 rounded-2xl hover-lift card-shine"
-              >
+              <!-- Formulaire Principal -->
+              <div id="form-screen-cames">
                 <h4
-                  id="t-train-card-title"
-                  class="text-xl font-black text-toledo-blue uppercase mb-10 italic border-b-2 pb-6 tracking-wide"
+                  id="t-edu-form-title"
+                  class="text-2xl font-black text-toledo-blue mb-10 italic uppercase tracking-wider"
                 >
-                  Ingénierie de Formation
+                  Comprendre le CAMES : Prenez contact avec nos experts
                 </h4>
-                <p
-                  id="t-train-card-desc"
-                  class="text-slate-600 mb-12 text-xl leading-relaxed"
-                >
-                  Des formations sur mesure pour aligner les compétences de vos
-                  équipes sur vos objectifs stratégiques.
-                </p>
-                <a
-                  href="#"
-                  class="btn-gate locked text-blue-600 font-black text-[11px] uppercase tracking-[0.15em] hover:underline flex items-center gap-3"
-                >
-                  <span id="t-train-catalog">Catalogue 2025</span>
-                </a>
-              </div>
-              <div
-                id="form-talents"
-                class="bg-toledo-blue text-white p-14 rounded-2xl shadow-2xl relative overflow-hidden hover-lift"
-              >
-                <div class="absolute top-0 right-0 p-6 opacity-10">
-                  <svg
-                    class="w-48 h-48"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+
+                <form id="camesForm" class="space-y-8" novalidate>
+                  <!-- Section 1: Profil -->
+                  <section class="space-y-6">
+                    <h3
+                      class="text-sm font-bold text-slate-600 flex items-center gap-3 uppercase tracking-wider"
+                    >
+                      <span
+                        class="w-6 h-6 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xs border border-blue-100"
+                        >01</span
+                      >
+                      Identité du demandeur
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          for="firstname-cames"
+                          class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >Prénom *</label
+                        >
+                        <input
+                          type="text"
+                          name="firstname"
+                          id="firstname-cames"
+                          required
+                          class="form-input w-full p-5 rounded-xl focus:ring-0"
+                        />
+                        <span
+                          class="error-message text-red-500 text-xs hidden"
+                          id="error-firstname-cames"
+                          >Prénom requis.</span
+                        >
+                      </div>
+                      <div>
+                        <label
+                          for="lastname-cames"
+                          class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >Nom *</label
+                        >
+                        <input
+                          type="text"
+                          name="lastname"
+                          id="lastname-cames"
+                          required
+                          class="form-input w-full p-5 rounded-xl focus:ring-0"
+                        />
+                        <span
+                          class="error-message text-red-500 text-xs hidden"
+                          id="error-lastname-cames"
+                          >Nom requis.</span
+                        >
+                      </div>
+                      <div class="md:col-span-2">
+                        <label
+                          for="email-cames"
+                          class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >Email Professionnel *</label
+                        >
+                        <div class="relative">
+                          <input
+                            type="email"
+                            name="email"
+                            id="email-cames"
+                            required
+                            placeholder="contact@etablissement.com"
+                            class="form-input w-full p-5 rounded-xl focus:ring-0"
+                          />
+                          <svg
+                            id="email-check-cames"
+                            class="hidden absolute right-4 top-5 w-5 h-5 text-emerald-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                        </div>
+                        <span
+                          class="error-message text-red-500 text-xs hidden"
+                          id="error-email-cames"
+                          >Veuillez entrer une adresse email valide.</span
+                        >
+                      </div>
+
+                      <div class="md:col-span-2">
+                        <label
+                          for="phone-cames"
+                          class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >Téléphone / WhatsApp *</label
+                        >
+                        <div class="flex">
+                          <select
+                            id="indicatif-cames"
+                            name="indicatif"
+                            aria-label="Indicatif téléphonique"
+                            class="bg-slate-50 border border-r-0 border-slate-200 text-slate-600 w-xs text-xs rounded-l-xl focus:ring-0 px-3 py-5 outline-none"
+                          >
+                            <optgroup label="Espace CAMES">
+                              <option value="+226">BF (+226)</option>
+                              <option value="+212" selected>MA (+212)</option>
+                              <option value="+229">BJ (+229)</option>
+                              <option value="+237">CM (+237)</option>
+                              <option value="+225">CI (+225)</option>
+                              <option value="+221">SN (+221)</option>
+                              <option value="+228">TG (+228)</option>
+                            </optgroup>
+                            <optgroup label="International">
+                              <option value="+33">FR (+33)</option>
+                              <option value="+1">US/CA (+1)</option>
+                            </optgroup>
+                          </select>
+                          <input
+                            type="tel"
+                            name="phone"
+                            id="phone-cames"
+                            required
+                            placeholder="600 000 000"
+                            class="form-input w-full flex-1 p-5 rounded-xl focus:ring-0 border-l-0"
+                          />
+                        </div>
+                        <span
+                          class="error-message text-red-500 text-xs hidden"
+                          id="error-phone-cames"
+                          >Le numéro doit contenir entre 8 et 12 chiffres.</span
+                        >
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Section 2: Institution -->
+                  <section class="space-y-6">
+                    <h3
+                      class="text-sm font-bold text-slate-600 flex items-center gap-3 uppercase tracking-wider"
+                    >
+                      <span
+                        class="w-6 h-6 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xs border border-blue-100"
+                        >02</span
+                      >
+                      Cadre Institutionnel
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          for="institution-cames"
+                          class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >Institution / École *</label
+                        >
+                        <input
+                          type="text"
+                          name="institution"
+                          id="institution-cames"
+                          required
+                          class="form-input w-full p-5 rounded-xl focus:ring-0"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="role-cames"
+                          class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >Fonction *</label
+                        >
+                        <input
+                          type="text"
+                          name="role"
+                          id="role-cames"
+                          required
+                          placeholder="Ex: Directeur Académique"
+                          class="form-input w-full p-5 rounded-xl focus:ring-0"
+                        />
+                      </div>
+                      <div class="md:col-span-2">
+                        <label
+                          for="country-cames"
+                          class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >Pays du siège *</label
+                        >
+                        <input
+                          type="text"
+                          name="country"
+                          id="country-cames"
+                          required
+                          placeholder="Ex: Maroc, Sénégal..."
+                          class="form-input w-full p-5 rounded-xl focus:ring-0"
+                        />
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Section 3: Besoin -->
+                  <section class="space-y-6">
+                    <h3
+                      class="text-sm font-bold text-slate-600 flex items-center gap-3 uppercase tracking-wider"
+                    >
+                      <span
+                        class="w-6 h-6 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xs border border-blue-100"
+                        >03</span
+                      >
+                      Votre besoin spécifique
+                    </h3>
+                    <div>
+                      <textarea
+                        name="description"
+                        id="description-cames"
+                        required
+                        rows="4"
+                        class="form-input w-full p-5 rounded-xl focus:ring-0"
+                        placeholder="Décrivez ici vos attentes : projet d'accréditation, reconnaissance de diplômes, mise en conformité PRED..."
+                      ></textarea>
+                      <span
+                        class="error-message text-red-500 text-xs hidden"
+                        id="error-description-cames"
+                        >Veuillez exprimer votre besoin.</span
+                      >
+                    </div>
+                    <div
+                      class="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center"
+                    >
+                      <input
+                        type="checkbox"
+                        name="request_brochure"
+                        id="request_brochure-cames"
+                        checked
+                        class="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+                      />
+                      <label
+                        for="request_brochure-cames"
+                        class="ml-4 text-sm text-slate-700 font-medium"
+                      >
+                        Je souhaite recevoir la plaquette de présentation.
+                      </label>
+                    </div>
+                  </section>
+
+                  <!-- Captcha -->
+                  <div
+                    class="p-6 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between"
                   >
-                    <path
-                      d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                    />
-                  </svg>
-                </div>
-                <h4
-                  id="t-train-form-title"
-                  class="text-3xl font-black mb-12 italic relative z-10"
-                >
-                  Développer vos talents
-                </h4>
-                <form
-                  class="toledo-form space-y-8 relative z-10"
-                  data-category="Formation"
-                  onsubmit="handleFormSubmit(event)"
-                >
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Votre nom"
-                    required
-                    class="w-full bg-white/10 border-2 border-white/20 p-5 rounded-xl text-white focus:border-blue-400 outline-none placeholder-blue-200/50 transition-all"
-                  />
-                  <select
-                    name="type"
-                    class="w-full bg-white/10 border-2 border-white/20 p-5 rounded-xl text-white focus:border-blue-400 outline-none text-base transition-all"
-                  >
-                    <option value="" class="text-slate-800">
-                      Type de formation
-                    </option>
-                    <option value="audit" class="text-slate-800">
-                      Ingénierie & Conseil
-                    </option>
-                    <option value="mba" class="text-slate-800">
-                      MBA Digital
-                    </option>
-                    <option value="exec" class="text-slate-800">
-                      Certifications
-                    </option>
-                  </select>
+                    <div
+                      class="flex items-center space-x-4 cursor-pointer"
+                      id="robotCheck-cames"
+                    >
+                      <div
+                        id="captchaBox-cames"
+                        class="w-6 h-6 border-2 border-slate-300 rounded bg-white flex items-center justify-center transition-all"
+                      >
+                        <svg
+                          id="checkMark-cames"
+                          class="hidden w-4 h-4 text-blue-600"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="4"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <div
+                          id="captchaLoader-cames"
+                          class="hidden w-5 h-5 border-2 border-slate-300 border-t-blue-600 rounded-full animate-spin"
+                        ></div>
+                      </div>
+                      <span class="text-sm font-semibold text-slate-600"
+                        >Je ne suis pas un robot</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Submit Button -->
                   <button
                     type="submit"
-                    class="btn-primary w-full bg-white text-toledo-blue py-5 font-black uppercase text-[11px] tracking-[0.15em] hover:bg-blue-50 transition-all shadow-2xl rounded-full"
+                    id="submitBtn-cames"
+                    disabled
+                    class="btn-primary w-full bg-slate-300 text-white py-5 font-black uppercase text-[11px] tracking-[0.15em] transition-all shadow-2xl rounded-full cursor-not-allowed"
                   >
-                    <span id="t-train-submit">Recevez le programme</span>
+                    <span class="t-form-submit">Soumettre votre demande</span>
                   </button>
                 </form>
               </div>
+
+              <!-- Écran de Succès -->
+              <div
+                id="successScreen-cames"
+                class="hidden text-center animate-in"
+              >
+                <div
+                  class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8"
+                >
+                  <svg
+                    class="w-10 h-10"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h2 class="text-3xl font-black text-slate-900 mb-4">
+                  Demande Transmise
+                </h2>
+                <p class="text-slate-600 mb-8 max-w-lg mx-auto italic">
+                  Un accusé de réception automatique vient d'être envoyé à :
+                  <br />
+                  <span
+                    id="confirmEmail-cames"
+                    class="font-bold underline text-blue-600"
+                  ></span>
+                </p>
+                <button
+                  onclick="window.location.reload()"
+                  class="text-slate-400 hover:text-slate-900 transition-colors uppercase tracking-widest text-xs font-bold"
+                >
+                  Retour au formulaire
+                </button>
+              </div>
             </div>
           </div>
+          <section id="schools" class="py-40 reveal">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+                <!-- COLONNE GAUCHE : Contenu -->
+                <div class="order-2 lg:order-1 lg:sticky lg:top-8">
+                  <span
+                    class="text-blue-600 text-[20px] font-black uppercase tracking-[0.3em] mb-8 block"
+                  >
+                    05.2 — Création d'Écoles
+                  </span>
+                  <h2
+                    class="text-3xl md:text-5xl font-serif font-black text-toledo-blue mb-12 leading-[0.95] italic"
+                  >
+                    Investissement Éducatif : <br />
+                    <span class="text-blue-600 not-italic"
+                      >Votre Vision, Notre Expertise</span
+                    >
+                  </h2>
+
+                  <div
+                    class="space-y-8 text-slate-600 font-light text-xl leading-relaxed mb-12"
+                  >
+                    <blockquote
+                      class="pl-8 border-l-4 border-toledo-gold text-slate-800 font-serif italic text-3xl leading-snug"
+                    >
+                      "La vision doit être guidée par la donnée stratégique."
+                    </blockquote>
+
+                    <p>
+                      Nous accompagnons les investisseurs dans la création et
+                      l'acquisition d'établissements scolaires au Maroc et en
+                      Afrique avec une approche 360° : ingénierie pédagogique,
+                      structuration administrative, et déploiement opérationnel.
+                    </p>
+                  </div>
+
+                  <ul
+                    class="space-y-8 mb-16 text-lg text-slate-600 font-medium"
+                  >
+                    <li class="flex items-center gap-5">
+                      <span
+                        class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span>Structuration juridique & administrative</span>
+                    </li>
+                    <li class="flex items-center gap-5">
+                      <span
+                        class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span>Ingénierie pédagogique & curriculaire</span>
+                    </li>
+                    <li class="flex items-center gap-5">
+                      <span
+                        class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="3"
+                            d="M5 13l4 4L19 7"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span>Due diligence & acquisition d'établissements</span>
+                    </li>
+                  </ul>
+
+                  <a
+                    href="#"
+                    class="btn-gate locked btn-primary inline-flex items-center bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-blue-700 transition-all shadow-2xl glow-effect gap-4"
+                    onclick="handleGateClick(this)"
+                  >
+                    <span>Téléchargez notre brief</span>
+                  </a>
+                </div>
+
+                <!-- COLONNE DROITE : Formulaire -->
+                <div class="order-1 lg:order-2" id="form-schools">
+                  <!-- Écran de Succès (caché par défaut) -->
+                  <div
+                    id="successScreen-schools"
+                    class="hidden bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 p-12 text-center animate-in"
+                  >
+                    <div
+                      class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner"
+                    >
+                      <svg
+                        class="w-10 h-10"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h2
+                      class="text-3xl font-black text-slate-900 mb-4 tracking-tight"
+                    >
+                      Projet Transmis avec Succès
+                    </h2>
+                    <p
+                      class="text-slate-600 mb-8 max-w-lg mx-auto leading-relaxed"
+                    >
+                      Nous avons bien reçu les contours de votre projet. La
+                      direction stratégique de Toledo Consulting analysera vos
+                      données avec la plus grande confidentialité et vous
+                      contactera sous 48h.
+                    </p>
+                    <div
+                      class="bg-slate-50 p-6 rounded-2xl inline-block border border-slate-100 mb-8"
+                    >
+                      <p
+                        class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1"
+                      >
+                        Confirmation envoyée à :
+                      </p>
+                      <p
+                        id="confirmEmail-schools"
+                        class="text-blue-600 font-bold text-lg"
+                      ></p>
+                    </div>
+                    <button
+                      onclick="resetFormSchools()"
+                      class="text-slate-400 hover:text-slate-900 transition-colors uppercase tracking-widest text-xs font-bold"
+                    >
+                      Retour au formulaire
+                    </button>
+                  </div>
+
+                  <!-- Formulaire Principal -->
+                  <div
+                    id="formScreen-schools"
+                    class="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden hover-lift"
+                  >
+                    <!-- Header avec style cohérent -->
+                    <div
+                      class="bg-slate-50/50 border-b border-slate-100 px-10 py-6"
+                    >
+                      <h3
+                        class="text-2xl font-serif font-bold text-toledo-blue italic mb-2"
+                      >
+                        Échangeons sur votre
+                        <span class="text-blue-600 not-italic"
+                          >Projet Éducatif</span
+                        >
+                      </h3>
+                      <p class="text-sm text-slate-500">
+                        Partagez vos ambitions avec nos experts pour construire
+                        un projet d'excellence.
+                      </p>
+                    </div>
+
+                    <!-- Form -->
+                    <form id="schoolsForm" class="p-10 space-y-10" novalidate>
+                      <!-- Section 1: Identité -->
+                      <section class="space-y-6">
+                        <div class="flex items-center gap-3">
+                          <span
+                            class="w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold border border-blue-100"
+                            >1</span
+                          >
+                          <h4 class="text-lg font-bold text-slate-900">
+                            Profil de l'Investisseur
+                          </h4>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div class="space-y-2">
+                            <label
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                            >
+                              Prénom *
+                            </label>
+                            <input
+                              type="text"
+                              id="firstname-schools"
+                              required
+                              class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all font-medium text-slate-900"
+                              placeholder="Jean"
+                            />
+                          </div>
+                          <div class="space-y-2">
+                            <label
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                            >
+                              Nom *
+                            </label>
+                            <input
+                              type="text"
+                              id="lastname-schools"
+                              required
+                              class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all font-medium text-slate-900"
+                              placeholder="Dupont"
+                            />
+                          </div>
+                          <div class="md:col-span-2">
+                            <label
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                            >
+                              Email Professionnel *
+                            </label>
+                            <div class="relative">
+                              <input
+                                type="email"
+                                id="email-schools"
+                                required
+                                placeholder="nom@groupe-invest.com"
+                                class="w-full pl-5 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all font-medium text-slate-900"
+                              />
+                              <svg
+                                id="email-check-schools"
+                                class="hidden absolute right-4 top-4.5 w-5 h-5 text-emerald-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path>
+                              </svg>
+                            </div>
+                            <p
+                              id="error-email-schools"
+                              class="hidden text-[10px] text-red-500 font-bold mt-1 ml-1"
+                            >
+                              Veuillez entrer une adresse valide.
+                            </p>
+                          </div>
+                          <div class="md:col-span-2">
+                            <label
+                              for="phone-cames"
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                              >Téléphone / WhatsApp *</label
+                            >
+                            <div class="flex">
+                              <select
+                                id="indicatif-cames"
+                                name="indicatif"
+                                aria-label="Indicatif téléphonique"
+                                class="bg-slate-50 border border-r-0 border-slate-200 text-slate-600 w-xs text-xs rounded-l-xl focus:ring-0 px-3 py-5 outline-none"
+                              >
+                                <optgroup label="Espace CAMES">
+                                  <option value="+226">BF (+226)</option>
+                                  <option value="+212" selected>
+                                    MA (+212)
+                                  </option>
+                                  <option value="+229">BJ (+229)</option>
+                                  <option value="+237">CM (+237)</option>
+                                  <option value="+225">CI (+225)</option>
+                                  <option value="+221">SN (+221)</option>
+                                  <option value="+228">TG (+228)</option>
+                                </optgroup>
+                                <optgroup label="International">
+                                  <option value="+33">FR (+33)</option>
+                                  <option value="+1">US/CA (+1)</option>
+                                </optgroup>
+                              </select>
+                              <input
+                                type="tel"
+                                name="phone"
+                                id="phone-cames"
+                                required
+                                placeholder="600 000 000"
+                                class="form-input w-full flex-1 p-5 rounded-xl focus:ring-0 border-l-0"
+                              />
+                            </div>
+                            <span
+                              class="error-message text-red-500 text-xs hidden"
+                              id="error-phone-cames"
+                              >Le numéro doit contenir entre 8 et 12
+                              chiffres.</span
+                            >
+                          </div>
+
+                          <div class="space-y-2">
+                            <label
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                            >
+                              Entreprise / Groupe *
+                            </label>
+                            <input
+                              type="text"
+                              id="company-schools"
+                              required
+                              class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all font-medium text-slate-900"
+                            />
+                          </div>
+                          <div class="space-y-2">
+                            <label
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                            >
+                              Ville & Pays *
+                            </label>
+                            <input
+                              type="text"
+                              id="location-schools"
+                              required
+                              placeholder="Ex: Casablanca, Maroc"
+                              class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all font-medium text-slate-900"
+                            />
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Section 2: Nature de l'Investissement -->
+                      <section class="space-y-6">
+                        <div class="flex items-center gap-3">
+                          <span
+                            class="w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold border border-blue-100"
+                            >2</span
+                          >
+                          <h4 class="text-lg font-bold text-slate-900">
+                            Nature de l'Investissement
+                          </h4>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div>
+                            <label
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-4"
+                            >
+                              Type de Projet *
+                            </label>
+                            <div class="space-y-3">
+                              <label
+                                class="flex items-center p-4 border-2 border-slate-200 rounded-2xl cursor-pointer hover:bg-slate-50 transition-all"
+                              >
+                                <input
+                                  type="radio"
+                                  name="project_type"
+                                  value="Création"
+                                  checked
+                                  class="w-5 h-5 text-blue-600 focus:ring-blue-500"
+                                />
+                                <span
+                                  class="ml-3 text-sm font-bold text-slate-700"
+                                >
+                                  Création d'un nouvel établissement
+                                </span>
+                              </label>
+                              <label
+                                class="flex items-center p-4 border-2 border-slate-200 rounded-2xl cursor-pointer hover:bg-slate-50 transition-all"
+                              >
+                                <input
+                                  type="radio"
+                                  name="project_type"
+                                  value="Acquisition"
+                                  class="w-5 h-5 text-blue-600 focus:ring-blue-500"
+                                />
+                                <span
+                                  class="ml-3 text-sm font-bold text-slate-700"
+                                >
+                                  Acquisition / Reprise d'école
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-4"
+                            >
+                              Segment Cible *
+                            </label>
+                            <div class="md:col-span-2">
+                              <label
+                                class="mb-4 flex items-center p-4 border-2 border-slate-200 rounded-2xl cursor-pointer hover:bg-slate-50 transition-all"
+                              >
+                                <input
+                                  type="checkbox"
+                                  name="segments"
+                                  value="Primaire"
+                                  class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
+                                />
+                                <span
+                                  class="ml-3 text-xs font-bold uppercase text-slate-700"
+                                  >Primaire</span
+                                >
+                              </label>
+                              <label
+                                class="mb-4 flex items-center p-4 border-2 border-slate-200 rounded-2xl cursor-pointer hover:bg-slate-50 transition-all"
+                              >
+                                <input
+                                  type="checkbox"
+                                  name="segments"
+                                  value="Secondaire"
+                                  class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
+                                />
+                                <span
+                                  class="ml-3 text-xs font-bold uppercase text-slate-700"
+                                  >Secondaire</span
+                                >
+                              </label>
+                              <label
+                                class="mb-4 flex items-center p-4 border-2 border-slate-200 rounded-2xl cursor-pointer hover:bg-slate-50 transition-all"
+                              >
+                                <input
+                                  type="checkbox"
+                                  name="segments"
+                                  value="Supérieur"
+                                  class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
+                                />
+                                <span
+                                  class="ml-3 text-xs font-bold uppercase text-slate-700"
+                                  >Supérieur</span
+                                >
+                              </label>
+                              <label
+                                class="mb-4 flex items-center p-4 border-2 border-slate-200 rounded-2xl cursor-pointer hover:bg-slate-50 transition-all"
+                              >
+                                <input
+                                  type="checkbox"
+                                  name="segments"
+                                  value="Pro"
+                                  class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500"
+                                />
+                                <span
+                                  class="ml-3 text-xs font-bold uppercase text-slate-700"
+                                  >Pro</span
+                                >
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <!-- Section 3: Description -->
+                      <section class="space-y-6">
+                        <div class="flex items-center gap-3">
+                          <span
+                            class="w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold border border-blue-100"
+                            >3</span
+                          >
+                          <h4 class="text-lg font-bold text-slate-900">
+                            Votre Vision
+                          </h4>
+                        </div>
+                        <div class="space-y-2">
+                          <label
+                            class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2"
+                          >
+                            Décrivez votre ambition et vos attentes stratégiques
+                            *
+                          </label>
+                          <textarea
+                            id="description-schools"
+                            required
+                            rows="6"
+                            class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all font-medium text-slate-900"
+                            placeholder="Parlez-nous de votre vision, des cursus envisagés, de la taille de l'établissement..."
+                          ></textarea>
+                          <p
+                            id="error-description-schools"
+                            class="hidden text-[10px] text-red-500 font-bold mt-1 ml-1"
+                          >
+                            Veuillez nous en dire plus sur votre projet.
+                          </p>
+                        </div>
+                      </section>
+
+                      <!-- Captcha & Submit -->
+                      <div class="pt-8 border-t border-slate-100">
+                        <button
+                          type="submit"
+                          id="submitBtn-schools"
+                          disabled
+                          class="w-full px-12 py-5 bg-slate-300 text-white text-base font-black rounded-full transition-all cursor-not-allowed uppercase tracking-[0.15em] shadow-xl"
+                        >
+                          Initier notre échange
+                        </button>
+
+                        <p
+                          class="mt-6 text-[10px] text-slate-400 text-center uppercase tracking-widest leading-relaxed"
+                        >
+                          Transmission sécurisée • Réponse sous 48h
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+   <div id="formation" class="border-t border-slate-200 pt-40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- En-tête de section -->
+    <div class="text-center mb-20">
+      <span
+        id="t-train-badge"
+        class="text-blue-600 text-[20px] font-black uppercase tracking-[0.3em] mb-6 block"
+      >
+        06 — Formation
+      </span>
+      <h2
+        id="t-train-title"
+        class="text-5xl md:text-6xl font-serif font-black text-toledo-blue mb-6 italic"
+      >
+        Développement du Capital Humain
+      </h2>
+      <blockquote
+        class="text-2xl md:text-3xl font-serif italic text-slate-600 mb-8 max-w-2xl mx-auto"
+      >
+        « Il n'est de richesse que d'homme. »
+      </blockquote>
+      <p
+        class="text-lg text-slate-600 font-light leading-relaxed max-w-4xl mx-auto mb-12"
+      >
+        Chez Toledo Consulting, nous sommes convaincus que la montée en
+        compétences est le levier de croissance le plus puissant pour les
+        entreprises et les professionnels. Notre pôle Ingénierie de Formation
+        conçoit des programmes sur mesure, alliant immersion terrain et rigueur
+        théorique, pour répondre aux défis de l'économie de demain.
+      </p>
+    </div>
+
+    <!-- Trois Piliers d'Accompagnement -->
+    <div class="mb-24">
+      <h3
+        class="text-3xl font-serif font-black text-toledo-blue mb-12 text-center"
+      >
+        Nos Trois Piliers d'Accompagnement
+      </h3>
+      <p
+        class="text-slate-600 text-center mb-16 max-w-3xl mx-auto leading-relaxed"
+      >
+        Nous avons structuré notre offre pour répondre à tous vos besoins de
+        développement, qu'ils soient ponctuels ou structurants :
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <!-- Pilier 1 -->
+        <div
+          class="bg-white p-10 shadow-2xl border border-slate-100 rounded-2xl hover-lift card-shine"
+        >
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto"
+          >
+            <span class="text-3xl font-black text-blue-600">1</span>
+          </div>
+          <h4
+            class="text-xl font-black text-toledo-blue uppercase mb-6 text-center tracking-wide"
+          >
+            Ingénierie de Formation
+          </h4>
+          <p class="text-slate-600 leading-relaxed text-center">
+            Nous concevons l'architecture de vos projets pédagogiques. De
+            l'audit des besoins à la création de parcours sur mesure, nous
+            bâtissons des dispositifs de formation parfaitement alignés sur vos
+            objectifs stratégiques et vos enjeux opérationnels.
+          </p>
+        </div>
+
+        <!-- Pilier 2 -->
+        <div
+          class="bg-white p-10 shadow-2xl border border-slate-100 rounded-2xl hover-lift card-shine"
+        >
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto"
+          >
+            <span class="text-3xl font-black text-blue-600">2</span>
+          </div>
+          <h4
+            class="text-xl font-black text-toledo-blue uppercase mb-6 text-center tracking-wide"
+          >
+            Formations Inter et Intra-entreprises
+          </h4>
+          <p class="text-slate-600 leading-relaxed text-center">
+            Nous proposons des sessions thématiques adaptées à vos équipes.
+            Qu'il s'agisse de formations au sein de votre structure (Intra) ou
+            de sessions regroupant des participants de plusieurs entreprises
+            (Inter), notre approche privilégie l'échange de bonnes pratiques et
+            la mise en situation immédiate.
+          </p>
+        </div>
+
+        <!-- Pilier 3 -->
+        <div
+          class="bg-white p-10 shadow-2xl border border-slate-100 rounded-2xl hover-lift card-shine"
+        >
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto"
+          >
+            <span class="text-3xl font-black text-blue-600">3</span>
+          </div>
+          <h4
+            class="text-xl font-black text-toledo-blue uppercase mb-6 text-center tracking-wide"
+          >
+            Formations Diplômantes
+          </h4>
+          <p class="text-slate-600 leading-relaxed text-center mb-4">
+            En collaboration avec l'ESCM Strasbourg, grande école de management
+            reconnue, nous propulsons les carrières vers l'excellence avec des
+            cursus certifiants.
+          </p>
+          <p class="text-slate-600 leading-relaxed text-center font-medium">
+            C'est dans ce cadre que Toledo Consulting lance le
+            <strong class="text-blue-600"
+              >MBA Manager de la Stratégie Digitale et du E-commerce</strong
+            >. Ce programme d'élite permet de valider une expertise de haut
+            niveau et de devenir un acteur clé de la transformation numérique.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Contact avec Formulaire -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <!-- Colonne Gauche : Informations et CTA -->
+      <div class="space-y-8">
+        <h3
+          class="text-4xl font-serif font-black text-toledo-blue mb-8 italic leading-tight"
+        >
+          Prêt à transformer vos talents en <span class="text-blue-600 not-italic">atouts stratégiques</span> ?
+        </h3>
+        
+        <p class="text-slate-600 text-lg leading-relaxed">
+          Que vous cherchiez à structurer un parcours de formation complet, à
+          organiser des sessions ponctuelles ou à valider des compétences avec
+          un diplôme reconnu, nous sommes là pour vous accompagner.
+        </p>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-xl">
+          <p class="text-slate-700 italic">
+            <strong class="text-toledo-blue not-italic">Notre engagement :</strong> 
+            Des formations qui allient excellence académique et efficacité opérationnelle immédiate.
+          </p>
+        </div>
+
+        <a
+          href="#"
+          class="btn-gate locked btn-primary inline-flex items-center bg-blue-600 text-white px-12 py-5 rounded-full font-black uppercase tracking-[0.15em] text-[11px] hover:bg-blue-700 transition-all shadow-2xl glow-effect gap-4"
+        >
+          <span>Découvrez comment nous pouvons répondre à vos besoins</span>
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            ></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Colonne Droite : Formulaire de Contact -->
+      <div class="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+        <!-- Header -->
+        <div class="bg-toledo-blue text-white px-10 py-8">
+          <h4 class="text-2xl font-serif font-bold mb-2">
+            Contactez Toledo Consulting
+          </h4>
+          <p class="text-blue-200 text-sm italic">
+            « Il n'est de richesse que d'homme »
+          </p>
+        </div>
+
+        <!-- Formulaire -->
+        <form id="toledoContactForm" class="p-10 space-y-6" novalidate>
+          <!-- Honeypot anti-robot -->
+          <input
+            type="text"
+            name="b_robot_check"
+            class="hidden"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+
+          <!-- Type de Profil -->
+          <fieldset class="space-y-3">
+            <legend class="text-sm font-bold text-slate-700 mb-3">
+              Vous êtes : *
+            </legend>
+            <div class="flex flex-wrap gap-6">
+              <label class="inline-flex items-center cursor-pointer">
+                <input
+                  type="radio"
+                  name="profile_type"
+                  value="professionnel"
+                  checked
+                  class="text-blue-600 focus:ring-blue-600 h-5 w-5"
+                  onchange="toggleFields()"
+                />
+                <span class="ml-3 text-slate-700 font-medium"
+                  >Une Entreprise / Professionnel</span
+                >
+              </label>
+              <label class="inline-flex items-center cursor-pointer">
+                <input
+                  type="radio"
+                  name="profile_type"
+                  value="particulier"
+                  class="text-blue-600 focus:ring-blue-600 h-5 w-5"
+                  onchange="toggleFields()"
+                />
+                <span class="ml-3 text-slate-700 font-medium"
+                  >Un Particulier</span
+                >
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Nom & Prénom -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Nom & Prénom *
+              </label>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                required
+                class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all"
+                placeholder="Ex: Mohammed Alami"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Adresse Email *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all"
+                placeholder="m.alami@exemple.ma"
+              />
+            </div>
+          </div>
+
+          <!-- Champs Entreprise / Fonction -->
+          <div id="pro-fields" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Entreprise *
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all"
+                placeholder="Nom de votre structure"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Fonction
+              </label>
+              <input
+                type="text"
+                id="job_title"
+                name="job_title"
+                class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all"
+                placeholder="Ex: Directeur Général"
+              />
+            </div>
+          </div>
+
+          <!-- Téléphone & Intérêt -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Téléphone *
+              </label>
+              <div class="flex">
+                <select
+                  id="country_code"
+                  name="country_code"
+                  class="w-32 px-4 py-4 bg-slate-50 border border-r-0 border-slate-200 rounded-l-xl outline-none focus:border-blue-600 font-medium"
+                  aria-label="Indicatif pays"
+                >
+                  <option value="+212" selected>🇲🇦 +212</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+32">🇧🇪 +32</option>
+                  <option value="+41">🇨🇭 +41</option>
+                  <option value="+221">🇸🇳 +221</option>
+                  <option value="+225">🇨🇮 +225</option>
+                  <option value="+1">🇺🇸 +1</option>
+                </select>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  class="flex-1 px-5 py-4 bg-slate-50 border border-slate-200 rounded-r-xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all"
+                  placeholder="06 00 00 00 00"
+                />
+              </div>
+            </div>
+       
+          </div>
+
+               <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Intérêt principal *
+              </label>
+              <select
+                id="interest"
+                name="interest"
+                required
+                class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all"
+              >
+                <option value="" disabled selected>Choisissez un cursus</option>
+                <option value="mba">
+                  MBA Manager Stratégie Digitale & E-commerce
+                </option>
+                <option value="ingenierie">
+                  Ingénierie de Formation Sur-mesure
+                </option>
+                <option value="inter">Formations Inter-entreprises</option>
+                <option value="intra">Formations Intra-entreprises</option>
+              </select>
+            </div>
+
+          <!-- Message -->
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Votre message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="3"
+              class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600 transition-all"
+              placeholder="Décrivez votre projet de formation..."
+            ></textarea>
+          </div>
+
+          <!-- Captcha -->
+          <div class="bg-slate-50 p-6 border border-slate-200 rounded-xl">
+            <label class="block text-sm font-bold text-slate-700 mb-3">
+              Vérification de sécurité *
+            </label>
+            <div class="flex items-center gap-4">
+              <span
+                id="captcha_question"
+                class="text-lg font-bold text-blue-900 bg-white px-4 py-2 rounded border border-slate-200"
+              ></span>
+              <input
+                type="number"
+                id="captcha_answer"
+                name="captcha_answer"
+                required
+                class="w-24 px-4 py-2 bg-white border border-slate-200 rounded-xl text-center font-bold outline-none focus:ring-4 focus:ring-blue-50 focus:border-blue-600"
+                placeholder="?"
+              />
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="btn-primary w-full bg-toledo-blue text-white py-5 px-6 font-black rounded-full uppercase text-xs tracking-[0.15em] hover:bg-blue-900 transition-all shadow-2xl flex items-center justify-center gap-3"
+          >
+            <span>Envoyer et recevoir la plaquette</span>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              ></path>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Message de Succès -->
+        <div
+          id="success-message"
+          class="hidden p-10 text-center"
+          aria-live="polite"
+        >
+          <div
+            class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">
+            Merci pour votre demande !
+          </h3>
+          <p class="text-slate-600 mb-4">
+            Votre message a été transmis à notre équipe à
+            <strong>manager@toledoconsulting.ma</strong>.
+          </p>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <p class="text-sm font-medium text-slate-700">
+              📬 Un email contenant la plaquette de notre offre vient d'être
+              envoyé à votre adresse.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Génération du captcha
+    let num1, num2, correctAnswer;
+
+    function generateCaptcha() {
+      num1 = Math.floor(Math.random() * 10) + 1;
+      num2 = Math.floor(Math.random() * 10) + 1;
+      correctAnswer = num1 + num2;
+      document.getElementById("captcha_question").innerText = `${num1} + ${num2} =`;
+    }
+
+    generateCaptcha();
+
+    // Toggle des champs entreprise/particulier
+    function toggleFields() {
+      const proFields = document.getElementById("pro-fields");
+      const profileType = document.querySelector(
+        'input[name="profile_type"]:checked'
+      ).value;
+      const companyInput = document.getElementById("company");
+
+      if (profileType === "particulier") {
+        proFields.style.display = "none";
+        companyInput.required = false;
+      } else {
+        proFields.style.display = "grid";
+        companyInput.required = true;
+      }
+    }
+
+    // Soumission du formulaire
+    document
+      .getElementById("toledoContactForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const form = this;
+        const captchaAnswer = parseInt(
+          document.getElementById("captcha_answer").value
+        );
+        const honeypot = form.querySelector('input[name="b_robot_check"]').value;
+
+        // Vérification honeypot
+        if (honeypot !== "") return;
+
+        // Vérification captcha
+        if (captchaAnswer !== correctAnswer) {
+          alert("Erreur de calcul. Veuillez réessayer.");
+          generateCaptcha();
+          return;
+        }
+
+        // Envoi via EmailJS (si configuré) ou simulation
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="animate-pulse">Envoi en cours...</span>';
+
+        // Simulation d'envoi (remplacer par emailjs.sendForm si nécessaire)
+        setTimeout(() => {
+          form.style.display = "none";
+          document.getElementById("success-message").style.display = "block";
+          showToast("Succès ! Votre demande de formation a bien été reçue.");
+        }, 1500);
+      });
+  </script>
+</div>
         </div>
       </section>
+
       <section
         id="contact"
         class="relative py-24 lg:py-32 bg-toledo-blue text-white overflow-hidden scroll-mt-28"
@@ -4422,6 +5753,512 @@
         } else {
           initInvestForm();
         }
+      })();
+
+      // === VALIDATION FORMULAIRE ÉTUDES ===
+      (function () {
+        const formEtudes = document.getElementById("leadFormEtudes");
+        if (!formEtudes) return;
+
+        const emailInput = document.getElementById("email-etudes");
+        const phoneInput = document.getElementById("phone-etudes");
+        const captchaCheckbox = document.getElementById("captcha-etudes");
+
+        const emailError = document.getElementById("email-error-etudes");
+        const phoneError = document.getElementById("phone-error-etudes");
+        const captchaError = document.getElementById("captcha-error-etudes");
+        const emailCheck = document.getElementById("email-check-etudes");
+
+        const isValidEmail = (email) =>
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const isValidPhone = (phone) =>
+          /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(
+            phone.replace(/\s/g, ""),
+          ) && phone.length >= 8;
+
+        // Validation en temps réel
+        emailInput.addEventListener("input", (e) => {
+          const val = e.target.value;
+          if (val && !isValidEmail(val)) {
+            emailError.classList.remove("hidden");
+            emailInput.classList.add("border-red-400");
+            emailCheck.classList.add("hidden");
+          } else {
+            emailError.classList.add("hidden");
+            emailInput.classList.remove("border-red-400");
+            if (isValidEmail(val)) {
+              emailCheck.classList.remove("hidden");
+            }
+          }
+        });
+
+        phoneInput.addEventListener("input", (e) => {
+          const val = e.target.value;
+          if (val && !isValidPhone(val)) {
+            phoneError.classList.remove("hidden");
+            phoneInput.classList.add("border-red-400");
+          } else {
+            phoneError.classList.add("hidden");
+            phoneInput.classList.remove("border-red-400");
+          }
+        });
+
+        captchaCheckbox.addEventListener("change", () => {
+          if (captchaCheckbox.checked) {
+            captchaError.classList.add("hidden");
+          }
+        });
+
+        // Soumission
+        formEtudes.addEventListener("submit", function (e) {
+          e.preventDefault();
+          let hasError = false;
+
+          if (!isValidEmail(emailInput.value)) {
+            emailError.classList.remove("hidden");
+            emailInput.classList.add("border-red-400");
+            hasError = true;
+          }
+          if (!isValidPhone(phoneInput.value)) {
+            phoneError.classList.remove("hidden");
+            phoneInput.classList.add("border-red-400");
+            hasError = true;
+          }
+          if (!captchaCheckbox.checked) {
+            captchaError.classList.remove("hidden");
+            hasError = true;
+          }
+
+          if (hasError) return;
+
+          const btn = formEtudes.querySelector('button[type="submit"]');
+          const originalContent = btn.innerHTML;
+          btn.disabled = true;
+          btn.innerHTML =
+            '<span class="animate-pulse">Envoi en cours...</span>';
+
+          // Envoi via EmailJS
+          const templateParams = {
+            category: "Études",
+            firstname: document.getElementById("firstname-etudes").value,
+            lastname: document.getElementById("lastname-etudes").value,
+            email: emailInput.value,
+            phone: phoneInput.value,
+            company: document.getElementById("company-etudes").value,
+            sector: document.getElementById("sector-etudes").value,
+          };
+
+          emailjs
+            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(
+              function () {
+                btn.innerHTML = originalContent;
+                btn.disabled = false;
+                formEtudes.reset();
+                showToast("Succès ! Votre demande d'étude a bien été reçue.");
+              },
+              function (error) {
+                console.error("FAILED...", error);
+                btn.innerHTML = originalContent;
+                btn.disabled = false;
+                showToast(
+                  "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+                  true,
+                );
+              },
+            );
+        });
+      })();
+
+      // === VALIDATION FORMULAIRE CAMES ===
+      (function () {
+        const form = document.getElementById("camesForm");
+        if (!form) return;
+
+        const submitBtn = document.getElementById("submitBtn-cames");
+        const successScreen = document.getElementById("successScreen-cames");
+        const formScreen = document.getElementById("form-screen-cames");
+        const robotCheck = document.getElementById("robotCheck-cames");
+        const captchaBox = document.getElementById("captchaBox-cames");
+        const captchaLoader = document.getElementById("captchaLoader-cames");
+        const checkMark = document.getElementById("checkMark-cames");
+
+        let isHuman = false;
+
+        // Regex validation
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const phoneRegex = /^[0-9]{8,12}$/;
+
+        function validateInput(input, regex) {
+          const errorEl = document.getElementById(`error-${input.id}`);
+          const value = input.value.trim();
+
+          if (
+            value === "" ||
+            (regex && !regex.test(value.replace(/\s/g, "")))
+          ) {
+            input.classList.add("input-error");
+            input.classList.remove("input-valid");
+            if (errorEl) {
+              errorEl.classList.remove("hidden");
+              errorEl.style.display = "block";
+            }
+            return false;
+          } else {
+            input.classList.remove("input-error");
+            input.classList.add("input-valid");
+            if (errorEl) {
+              errorEl.classList.add("hidden");
+              errorEl.style.display = "none";
+            }
+            return true;
+          }
+        }
+
+        // Validation en temps réel
+        const emailInput = document.getElementById("email-cames");
+        const phoneInput = document.getElementById("phone-cames");
+        const emailCheck = document.getElementById("email-check-cames");
+
+        if (emailInput) {
+          emailInput.addEventListener("blur", function () {
+            const isValid = validateInput(this, emailRegex);
+            if (isValid && emailCheck) {
+              emailCheck.classList.remove("hidden");
+            } else if (emailCheck) {
+              emailCheck.classList.add("hidden");
+            }
+          });
+        }
+
+        if (phoneInput) {
+          phoneInput.addEventListener("blur", function () {
+            validateInput(this, phoneRegex);
+          });
+        }
+
+        // Captcha logic
+        if (robotCheck) {
+          robotCheck.addEventListener("click", () => {
+            if (isHuman) return;
+
+            if (captchaLoader) captchaLoader.classList.remove("hidden");
+
+            setTimeout(() => {
+              if (captchaLoader) captchaLoader.classList.add("hidden");
+              if (checkMark) checkMark.classList.remove("hidden");
+              if (captchaBox) {
+                captchaBox.classList.add("bg-blue-50", "border-blue-600");
+              }
+              isHuman = true;
+
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove(
+                  "bg-slate-300",
+                  "cursor-not-allowed",
+                );
+                submitBtn.classList.add("bg-toledo-blue", "hover:bg-blue-900");
+              }
+            }, 800);
+          });
+        }
+
+        // Form submission
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const isEmailOk = validateInput(emailInput, emailRegex);
+          const isPhoneOk = validateInput(phoneInput, phoneRegex);
+          const isFirstnameOk = validateInput(
+            document.getElementById("firstname-cames"),
+          );
+          const isLastnameOk = validateInput(
+            document.getElementById("lastname-cames"),
+          );
+          const isDescOk = validateInput(
+            document.getElementById("description-cames"),
+          );
+
+          if (
+            isEmailOk &&
+            isPhoneOk &&
+            isFirstnameOk &&
+            isLastnameOk &&
+            isDescOk &&
+            isHuman
+          ) {
+            const emailValue = emailInput.value;
+
+            if (submitBtn) {
+              submitBtn.innerHTML =
+                '<span class="animate-pulse">Transmission...</span>';
+              submitBtn.disabled = true;
+            }
+
+            // Préparer les données pour EmailJS
+            const indicatif = document.getElementById("indicatif-cames").value;
+            const templateParams = {
+              category: "CAMES - Diagnostic Gratuit",
+              firstname: document.getElementById("firstname-cames").value,
+              lastname: document.getElementById("lastname-cames").value,
+              email: emailValue,
+              phone: indicatif + " " + phoneInput.value,
+              institution: document.getElementById("institution-cames").value,
+              role: document.getElementById("role-cames").value,
+              country: document.getElementById("country-cames").value,
+              description: document.getElementById("description-cames").value,
+              request_brochure: document.getElementById(
+                "request_brochure-cames",
+              ).checked
+                ? "Oui"
+                : "Non",
+            };
+
+            // Envoi via EmailJS
+            emailjs
+              .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+              .then(
+                function () {
+                  if (formScreen) formScreen.classList.add("hidden");
+                  if (successScreen) {
+                    successScreen.classList.remove("hidden");
+                    document.getElementById("confirmEmail-cames").textContent =
+                      emailValue;
+                  }
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  showToast("Succès ! Votre demande CAMES a bien été reçue.");
+                },
+                function (error) {
+                  console.error("FAILED...", error);
+                  if (submitBtn) {
+                    submitBtn.innerHTML =
+                      '<span class="t-form-submit">Soumettre votre demande</span>';
+                    submitBtn.disabled = false;
+                  }
+                  showToast(
+                    "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+                    true,
+                  );
+                },
+              );
+          }
+        });
+      })();
+
+      (function () {
+        const form = document.getElementById("schoolsForm");
+        if (!form) return;
+
+        const submitBtn = document.getElementById("submitBtn-schools");
+        const successScreen = document.getElementById("successScreen-schools");
+        const formScreen = document.getElementById("formScreen-schools");
+        const robotCheck = document.getElementById("robotCheck-schools");
+        const captchaBox = document.getElementById("captchaBox-schools");
+        const captchaLoader = document.getElementById("captchaLoader-schools");
+        const checkMark = document.getElementById("checkMark-schools");
+
+        let isHuman = false;
+
+        // Regex validation
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const phoneRegex = /^[0-9]{8,15}$/;
+
+        function validateInput(input, regex) {
+          const errorEl = document.getElementById(`error-${input.id}`);
+          const value = input.value.trim();
+
+          if (
+            value === "" ||
+            (regex && !regex.test(value.replace(/\s/g, "")))
+          ) {
+            input.classList.add("border-red-400", "bg-red-50");
+            input.classList.remove("border-slate-200");
+            if (errorEl) errorEl.classList.remove("hidden");
+            return false;
+          } else {
+            input.classList.remove("border-red-400", "bg-red-50");
+            input.classList.add("border-slate-200");
+            if (errorEl) errorEl.classList.add("hidden");
+            return true;
+          }
+        }
+
+        // Real-time validation
+        const emailInput = document.getElementById("email-schools");
+        const phoneInput = document.getElementById("phone-schools");
+        const emailCheck = document.getElementById("email-check-schools");
+
+        if (emailInput) {
+          emailInput.addEventListener("blur", function () {
+            const isValid = validateInput(this, emailRegex);
+            if (isValid && emailCheck) {
+              emailCheck.classList.remove("hidden");
+            } else if (emailCheck) {
+              emailCheck.classList.add("hidden");
+            }
+          });
+        }
+
+        if (phoneInput) {
+          phoneInput.addEventListener("blur", function () {
+            validateInput(this, phoneRegex);
+          });
+        }
+
+        // Captcha logic
+        if (robotCheck) {
+          robotCheck.addEventListener("click", () => {
+            if (isHuman) return;
+
+            if (captchaLoader) captchaLoader.classList.remove("hidden");
+
+            setTimeout(() => {
+              if (captchaLoader) captchaLoader.classList.add("hidden");
+              if (checkMark) checkMark.classList.remove("hidden");
+              if (captchaBox) {
+                captchaBox.classList.add("bg-blue-50", "border-blue-600");
+              }
+              isHuman = true;
+
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove(
+                  "bg-slate-300",
+                  "cursor-not-allowed",
+                );
+                submitBtn.classList.add("bg-blue-600", "hover:bg-blue-700");
+              }
+            }, 800);
+          });
+        }
+
+        // Form submission
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const isEmailOk = validateInput(emailInput, emailRegex);
+          const isPhoneOk = validateInput(phoneInput, phoneRegex);
+          const isFirstnameOk = validateInput(
+            document.getElementById("firstname-schools"),
+          );
+          const isLastnameOk = validateInput(
+            document.getElementById("lastname-schools"),
+          );
+          const isCompanyOk = validateInput(
+            document.getElementById("company-schools"),
+          );
+          const isLocationOk = validateInput(
+            document.getElementById("location-schools"),
+          );
+          const isDescOk = validateInput(
+            document.getElementById("description-schools"),
+          );
+
+          if (
+            isEmailOk &&
+            isPhoneOk &&
+            isFirstnameOk &&
+            isLastnameOk &&
+            isCompanyOk &&
+            isLocationOk &&
+            isDescOk &&
+            isHuman
+          ) {
+            const emailValue = emailInput.value;
+
+            if (submitBtn) {
+              submitBtn.innerHTML =
+                '<span class="animate-pulse">Transmission en cours...</span>';
+              submitBtn.disabled = true;
+            }
+
+            // Préparer les données pour EmailJS
+            const segments = Array.from(
+              document.querySelectorAll('input[name="segments"]:checked'),
+            )
+              .map((cb) => cb.value)
+              .join(", ");
+
+            const projectType =
+              document.querySelector('input[name="project_type"]:checked')
+                ?.value || "";
+
+            const templateParams = {
+              category: "Investissement Éducatif - Création d'Écoles",
+              firstname: document.getElementById("firstname-schools").value,
+              lastname: document.getElementById("lastname-schools").value,
+              email: emailValue,
+              phone:
+                document.getElementById("indicatif-schools").value +
+                " " +
+                phoneInput.value,
+              company: document.getElementById("company-schools").value,
+              location: document.getElementById("location-schools").value,
+              project_type: projectType,
+              segments: segments,
+              description: document.getElementById("description-schools").value,
+            };
+
+            // Envoi via EmailJS
+            emailjs
+              .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+              .then(
+                function () {
+                  if (formScreen) formScreen.classList.add("hidden");
+                  if (successScreen) {
+                    successScreen.classList.remove("hidden");
+                    document.getElementById(
+                      "confirmEmail-schools",
+                    ).textContent = emailValue;
+                  }
+
+                  const formSchools = document.getElementById("form-schools");
+                  if (formSchools) {
+                    formSchools.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+
+                  showToast(
+                    "Succès ! Votre projet éducatif a bien été transmis.",
+                  );
+                },
+                function (error) {
+                  console.error("FAILED...", error);
+                  if (submitBtn) {
+                    submitBtn.innerHTML = "Initier notre échange";
+                    submitBtn.disabled = false;
+                  }
+                  showToast(
+                    "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+                    true,
+                  );
+                },
+              );
+          }
+        });
+
+        // Reset function
+        window.resetFormSchools = function () {
+          form.reset();
+          isHuman = false;
+
+          if (checkMark) checkMark.classList.add("hidden");
+          if (captchaBox) {
+            captchaBox.classList.remove("bg-blue-50", "border-blue-600");
+          }
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.classList.add("bg-slate-300", "cursor-not-allowed");
+            submitBtn.classList.remove("bg-blue-600", "hover:bg-blue-700");
+            submitBtn.innerHTML = "Initier notre échange";
+          }
+
+          if (successScreen) successScreen.classList.add("hidden");
+          if (formScreen) formScreen.classList.remove("hidden");
+        };
       })();
     </script>
 
